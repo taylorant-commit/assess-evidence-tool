@@ -3,7 +3,7 @@
 Interactive tool to help digital health technology developers identify applicable HTA evidence recommendations across Europe.
 
 ## 🚀 Live Tool
-**[Launch the Tool →](https://[taylorant-commit].github.io/assess-evidence-tool/)**
+**[Launch the Tool →](https://taylorant-commit.github.io/assess-evidence-tool/)**
 
 ## 📊 Features
 - **161 evidence recommendations** across 9 HTA domains
