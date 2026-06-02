@@ -3229,20 +3229,32 @@ function toggleResources() {
 // Converts plain-text bullet points/newlines into formatted HTML
 function formatNotes(text) {
   if (!text) return '';
-  
+
+  // Handle inline bullet points (• used as separator within a line)
+  // e.g. "Intro text: • item one • item two • item three"
+  if (text.includes('•') && !/\n/.test(text)) {
+    const parts = text.split('•').map(p => p.trim()).filter(p => p.length > 0);
+    if (parts.length > 1) {
+      const intro = parts[0].replace(/:$/, '').trim();
+      const items = parts.slice(1);
+      return `${intro ? `<p style="margin: 0 0 6px 0;">${intro}:</p>` : ''}
+              <ul style="margin: 4px 0 4px 18px; padding: 0;">
+                ${items.map(i => `<li style="margin-bottom: 4px;">${i}</li>`).join('')}
+              </ul>`;
+    }
+  }
+
   const lines = text.split(/\n|\r\n/).map(l => l.trim()).filter(l => l.length > 0);
-  
-  // Detect if any lines look like bullet points
+
   const bulletPattern = /^[-•*]\s+/;
   const numberedPattern = /^\d+[.)]\s+/;
-  
+
   const hasBullets = lines.some(l => bulletPattern.test(l));
   const hasNumbered = lines.some(l => numberedPattern.test(l));
-  
+
   if (hasBullets) {
     let html = '';
     let inList = false;
-    
     lines.forEach(line => {
       if (bulletPattern.test(line)) {
         if (!inList) { html += '<ul style="margin: 6px 0 6px 18px; padding: 0;">'; inList = true; }
@@ -3255,11 +3267,10 @@ function formatNotes(text) {
     if (inList) html += '</ul>';
     return html;
   }
-  
+
   if (hasNumbered) {
     let html = '';
     let inList = false;
-    
     lines.forEach(line => {
       if (numberedPattern.test(line)) {
         if (!inList) { html += '<ol style="margin: 6px 0 6px 18px; padding: 0;">'; inList = true; }
@@ -3272,8 +3283,7 @@ function formatNotes(text) {
     if (inList) html += '</ol>';
     return html;
   }
-  
-  // No bullets — join with line breaks
+
   return lines.join('<br>');
 }
 
