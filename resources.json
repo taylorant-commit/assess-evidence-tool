@@ -27,230 +27,282 @@
         "Applicability - Country": "Belgium"
     },
     {
-        "title": "A guide for mHealth apps",
-        "organisation": "mHealthBelgium",
-        "type": "Guidance",
-        "url": "https://mhealthbelgium.be/news/detailed-guide-mhealthbelgium",
+        "title": "Testing of new examination and treatment methods",
+        "organisation": "G-BA",
+        "type": "Assessment framework",
+        "url": "https://www.g-ba.de/themen/methodenbewertung/bewertung-erprobung/erprobungsregelung/",
+        "language": "DE",
+        "notes": "Not DHT specific - A framework for testing new methods. Use to understand evidence expectations and possible evaluation routes.",
+        "Applicability - Country": "Germany"
+    },
+    {
+        "title": "Health Technology  Assessment  Framework:  Adaptation for Digital  Health Technology  Assessment",
+        "organisation": "AQuAS / RedETS",
+        "type": "Assessment framework",
+        "url": "https://aquas.gencat.cat/web/.content/minisite/aquas/publicacions/2023/framework-adaptation-digital-hta-redets-aquas2023.pdf",
         "language": "ENG",
-        "notes": "A step-by-step guide on how to get an app onto the mHealthBelgium portal.",
+        "notes": "DHT assessment criteria. Use as a checklist to identify evidence gaps before assessment.",
+        "Applicability - Country": "Spain"
+    },
+    {
+        "title": "Health Technology  Assessment  Framework:  Adaptation for Digital  Health Technology  Assessment: User  Guide",
+        "organisation": "AQuAS / RedETS",
+        "type": "Guidance",
+        "url": "https://aquas.gencat.cat/web/.content/minisite/aquas/publicacions/2023/framework-adaptation-digital-hta-user-guide-redets-aquas2023.pdf",
+        "language": "ENG",
+        "notes": "Companion instructions for the DHT framework. Use to apply each criterion consistently.",
+        "Applicability - Country": "Spain"
+    },
+    {
+        "title": "Guide to the assessment of digital health technologies that incorporate artificial intelligence (AI)",
+        "organisation": "AQuAS / Fundació Tic Salut Social",
+        "type": "Guidance",
+        "url": "https://aquas.gencat.cat/ca/fem/avaluacio/salut-digital/guia-avaluacio-tecnologies-salut-digital-intelligencia-artificial/",
+        "language": "ENG / SPA / CAT",
+        "notes": "AI-focused assessment guidance. Use to address AI evidence, safety and governance considerations.",
+        "Applicability - Country": "Spain"
+    },
+    {
+        "title": "Evidence Standards Framework for Digital Health Technologies",
+        "organisation": "NICE",
+        "type": "Assessment framework",
+        "url": "https://www.nice.org.uk/what-nice-does/digital-health/evidence-standards-framework-esf-for-digital-health-technologies",
+        "language": "ENG",
+        "notes": "Evidence standards by DHT tier. Use to match the evidence plan to the product's function and risk. For local commissioning.",
+        "Applicability - Country": "United Kingdom"
+    },
+    {
+        "title": "Digi-HTA Instructions for Companies",
+        "organisation": "FINCCHTA",
+        "type": "Guidance",
+        "url": "Instructions for companies - Fincchta",
+        "language": "ENG",
+        "notes": "Company instructions for Digi-HTA. Use to prepare the required information and submission.",
+        "Applicability - Country": "Finland"
+    },
+    {
+        "title": "Digi-HTA",
+        "organisation": "FINCCHTA",
+        "type": "Guidance",
+        "url": "https://fincchta.fi/en/digi-hta-eng/instructions-for-companies/",
+        "language": "ENG",
+        "notes": "An overview and entry point for Digi-HTA. Use to understand the process and find application materials.",
+        "Applicability - Country": "Finland"
+    },
+    {
+        "title": "Digi-HTA Assessment Library",
+        "organisation": "FINCCHTA",
+        "type": "Training or learning resource",
+        "url": "https://fincchta.fi/en/digi-hta-eng/arvioinnit-eng/",
+        "language": "ENG",
+        "notes": "Developer guidance: Published Digi-HTA assessments. Use as examples of how evidence is reviewed, not as fixed templates.",
+        "Applicability - Country": "Finland"
+    },
+    {
+        "title": "Digital Medical Devices: early management",
+        "organisation": "HAS-PECAN",
+        "type": "Guidance",
+        "url": "https://www.has-sante.fr/jcms/p_3376633/fr/dispositifs-medicaux-numeriques-la-prise-en-charge-anticipee",
+        "language": "FRA",
+        "notes": "Early-access guidance for digital medical devices. Use to check PECAN eligibility and evidence needs.",
+        "Applicability - Country": "France"
+    },
+    {
+        "title": "Advance Digital Care (PECAN)",
+        "organisation": "HAS / G_NIUS",
+        "type": "Reimbursement pathway",
+        "url": "https://gnius.esante.gouv.fr/en/financing/reimbursement-profiles/advance-digital-care-pecan",
+        "language": "ENG / FRA",
+        "notes": "An overview of the PECAN reimbursement route. Use to map eligibility, steps and key contacts.",
+        "Applicability - Country": "France"
+    },
+    {
+        "title": "Digital advance care: how to demonstrate clinical and organisational benefits",
+        "organisation": "HAS / G_NIUS",
+        "type": "Training or learning resource",
+        "url": "https://gnius.esante.gouv.fr/en/the-anticipated-numeric-pecan/how-to-demonstrate-the-clinical-and/or-organizational-benefits-of-my-solution",
+        "language": "ENG",
+        "notes": "Developer guidance: Explains how to show clinical and organisational benefit. Use to strengthen the PECAN evidence plan.",
+        "Applicability - Country": "France"
+    },
+    {
+        "title": "mHealthBelgium Validation pyramid",
+        "organisation": "mHealth Belgium",
+        "type": "Reimbursement pathway",
+        "url": "https://mhealthbelgium.be/validation-pyramid",
+        "language": "ENG / FRA / NL",
+        "notes": "Software specific - A staged validation and reimbursement pathway. Use to identify the level your product meets and what comes next.",
         "Applicability - Country": "Belgium"
     },
     {
-        "title": "Digi-HTA recommendation summaries",
-        "organisation": "FinCCHTA",
-        "type": "Database",
-        "url": "https://oys.fi/fincchta/digi-hta-suositukset/",
-        "language": "FIN",
-        "notes": "A database of completed Digi-HTA assessments. Reviewing these may help developers understand common assessment pitfalls.",
-        "Applicability - Country": "Finland"
+        "title": "Evidence framework for the assessment of health techologies",
+        "organisation": "SHTG",
+        "type": "Assessment framework",
+        "url": "https://shtg.scot/what-we-do/evidence-framework/",
+        "language": "ENG",
+        "notes": "Not DHT specific - A general health technology assessment framework. Use to structure the evidence case and adapt it for DHT.",
+        "Applicability - Country": "United Kingdom"
     },
     {
-        "title": "A guide to the Digi-HTA assessment",
-        "organisation": "FinCCHTA",
-        "type": "Guidance",
-        "url": "https://oys.fi/fincchta/wp-content/uploads/sites/4/2024/02/Asiakkaan-opas_2024.pdf",
-        "language": "FIN",
-        "notes": "An overview of the Digi-HTA process including prerequisites, evidence expectations and the different stages of the assessment.",
-        "Applicability - Country": "Finland"
-    },
-    {
-        "title": "Overview of CNED specific requirements",
+        "title": "Principes  d’évaluation de la  CNEDiMTS",
         "organisation": "HAS",
-        "type": "Guidance",
-        "url": "https://www.has-sante.fr/jcms/p_3316239/fr/evaluation-des-dispositifs-medicaux-numeriques-dmn",
-        "language": "FR",
-        "notes": "A hub linking to all relevant expectations and documentation required for a CNED assessment.",
+        "type": "Assessment framework",
+        "url": "https://www.has-sante.fr/upload/docs/application/pdf/2025-09/principes_devaluation_de_la_cnedimts_liste_des_activites_de_telesurveillance_medicale_latm.pdf",
+        "language": "FRA",
+        "notes": "Assessment principles used by CNEDiMTS. Use the annexes to understand evidence expectations for digital devices.",
         "Applicability - Country": "France"
     },
     {
-        "title": "PECAN Fast-track overview",
-        "organisation": "HAS / ANS / CNAM",
+        "title": "DTAC",
+        "organisation": "NHS England",
         "type": "Guidance",
-        "url": "https://esante.gouv.fr/produits-services/prise-en-charge-anticipee-des-dispositifs-medicaux-numeriques-pecan",
-        "language": "FR",
-        "notes": "Information on the fast-track (PECAN) funding pathway, outlining the specific evidence and interoperability requirements.",
-        "Applicability - Country": "France"
+        "url": "https://www.digitalregulations.innovation.nhs.uk/regulations-and-guidance-for-developers/all-developers-guidance/using-the-digital-technology-assessment-criteria-dtac/",
+        "language": "ENG",
+        "notes": "NHS assurance criteria for digital products. Use as a checklist for clinical safety, data, security, interoperability and usability.",
+        "Applicability - Country": "United Kingdom"
     },
     {
-        "title": "Evidence standards framework for DHTs",
+        "title": "NICE Advice",
         "organisation": "NICE",
-        "type": "Framework",
-        "url": "https://www.nice.org.uk/corporate/ecd7/chapter/overview",
+        "type": "Scientific advice service",
+        "url": "https://www.nice.org.uk/what-nice-does/life-sciences-how-to-get-your-product-to-market/nice-advice-service",
         "language": "ENG",
-        "notes": "The primary framework defining evidence tiers and expectations for DHTs seeking NHS adoption.",
+        "notes": "Early scientific advice from NICE.",
         "Applicability - Country": "United Kingdom"
     },
     {
-        "title": "MHRA Software and AI as a Medical Device",
-        "organisation": "MHRA",
+        "title": "NICE HealthTech Programme Manual",
+        "organisation": "NICE",
         "type": "Guidance",
-        "url": "https://www.gov.uk/government/publications/medical-devices-software-applications-apps",
+        "url": "https://www.nice.org.uk/process/pmg48/",
         "language": "ENG",
-        "notes": "Regulatory guidance detailing when software is a medical device and how it must be CE/UKCA marked.",
+        "notes": "NICE methods and processes for HealthTech.",
         "Applicability - Country": "United Kingdom"
     },
     {
-        "title": "COMET Initiative",
-        "organisation": "COMET",
-        "type": "Database",
-        "url": "https://www.comet-initiative.org/",
+        "title": "NHS Innovation Service",
+        "organisation": "NHS",
+        "type": "Developer support service",
+        "url": "https://innovation.nhs.uk/",
         "language": "ENG",
-        "notes": "A searchable database of agreed core outcome sets for clinical trials. Use this to ensure your primary outcomes align with clinical expectations.",
-        "Applicability - Country": "General"
+        "notes": "A support service connecting innovations with NHS guidance and partners. Use it to find the right pathway and next steps.",
+        "Applicability - Country": "United Kingdom"
     },
     {
-        "title": "EUnetHTA Joint Clinical Assessment",
-        "organisation": "EUnetHTA",
-        "type": "Framework",
-        "url": "https://www.eunethta.eu/",
-        "language": "ENG",
-        "notes": "Information on European collaborative HTA assessments.",
-        "Applicability - Country": "General"
+        "title": "National Telemedicine Platform (PNT)",
+        "organisation": "Agenas",
+        "type": "Guidance",
+        "url": "https://pnt.agenas.it/home",
+        "language": "ITA",
+        "notes": "National telemedicine platform information. Use to understand participation and service requirements.",
+        "Applicability - Country": "Italy"
     },
     {
-        "title": "EU Medical Device Regulation (MDR)",
+        "title": "Procedural Guidance for Joint Scientific Consultations (JSC) on Medical Devices (MD) and In Vitro Diagnostic Medical Devices (IVD)",
+        "organisation": "European Commission",
+        "type": "Guidance",
+        "url": "https://health.ec.europa.eu/publications/procedural-guidance-joint-scientific-consultations-jsc-medical-devices-md-and-vitro-diagnostic_en",
+        "language": "ENG",
+        "notes": "The procedure for joint scientific consultation. Use it to plan timelines, roles and dossier preparation.",
+        "Applicability - Country": "European Union"
+    },
+    {
+        "title": "Guidance on the HTACG recommendation for the selection of medical devices and in vitro diagnostic medical devices for JCA",
+        "organisation": "European Commission",
+        "type": "Guidance",
+        "url": "https://health.ec.europa.eu/publications/guidance-htacg-recommendation-selection-medical-devices-and-vitro-diagnostic-medical-devices-jca_en",
+        "language": "ENG",
+        "notes": "Explains how devices are selected for EU joint clinical assessment. Use it to judge whether and when a product may be in scope.",
+        "Applicability - Country": "European Union"
+    },
+    {
+        "title": "Procedural Guidance for JCA medical devices and in vitro diagnostic medical devices",
+        "organisation": "European Commission",
+        "type": "Guidance",
+        "url": "https://health.ec.europa.eu/publications/procedural-guidance-jca-medical-devices-and-vitro-diagnostic-medical-devices_en",
+        "language": "ENG",
+        "notes": "The procedure for EU joint clinical assessment. Use it to plan submission steps, responsibilities and timelines.",
+        "Applicability - Country": "European Union"
+    },
+    {
+        "title": "Guidance on filling in the joint clinical assessment (JCA) dossier template – Medical devices and in vitro diagnostic medical devices",
+        "organisation": "European Commission",
+        "type": "Guidance",
+        "url": "https://health.ec.europa.eu/publications/guidance-filling-joint-clinical-assessment-jca-dossier-template-medical-devices-and-vitro-diagnostic_en",
+        "language": "ENG",
+        "notes": "Instructions for completing the JCA dossier template. Use when assembling the evidence package.",
+        "Applicability - Country": "European Union"
+    },
+    {
+        "title": "Implementing Regulation (EU) 2025/2086 on joint clinical assessment of medical devices and in-vitro diagnostic medical devices",
         "organisation": "European Commission",
         "type": "Regulation",
-        "url": "https://health.ec.europa.eu/medical-devices-sector/new-regulations_en",
+        "url": "https://health.ec.europa.eu/publications/implementing-regulation-eu-20252086-joint-clinical-assessment-medical-devices-and-vitro-diagnostic_en",
         "language": "ENG",
-        "notes": "The foundational regulatory framework for software medical devices in Europe.",
-        "Applicability - Country": "General"
+        "notes": "Legally binding rules for device JCA. Use to confirm mandatory process and submission requirements.",
+        "Applicability - Country": "European Union"
     },
     {
-        "title": "ASSESS-DHT Project Resources",
-        "organisation": "ASSESS-DHT",
+        "title": "Briefing document template for parallel HTACG/Expert Panels JSC for medical devices",
+        "organisation": "European Commission",
+        "type": "Tool or template",
+        "url": "https://health.ec.europa.eu/publications/briefing-document-template-parallel-htacgexpert-panels-jsc-medical-devices_en",
+        "language": "ENG",
+        "notes": "A template for parallel HTACG and expert-panel consultation. Use it to structure the briefing document.",
+        "Applicability - Country": "European Union"
+    },
+    {
+        "title": "Guidance for the selection of Medical Devices (MD) and In Vitro Diagnostic Medical Devices (IVD) for Joint Scientific Consultations (JSC)",
+        "organisation": "European Commission",
         "type": "Guidance",
-        "url": "https://assess-dht.eu/results/",
+        "url": "https://health.ec.europa.eu/publications/guidance-selection-medical-devices-md-and-vitro-diagnostic-medical-devices-ivd-joint-scientific_en",
         "language": "ENG",
-        "notes": "Methodologies and publications supporting the assessment of DHTs.",
-        "Applicability - Country": "General"
+        "notes": "Selection criteria for device joint scientific consultation. Use to assess eligibility before applying.",
+        "Applicability - Country": "European Union"
     },
-
-  
     {
-        "title": "Digital Technology Assessment Criteria (DTAC)",
-        "organisation": "NHS England",
-        "type": "Framework",
-        "url": "https://transform.england.nhs.uk/key-tools-and-info/digital-technology-assessment-criteria-dtac/",
+        "title": "Briefing document template for HTA-only Joint Scientific Consultation of In-vitro Diagnostic Medical Devices",
+        "organisation": "European Commission",
+        "type": "Tool or template",
+        "url": "https://health.ec.europa.eu/publications/briefing-document-template-hta-only-joint-scientific-consultation-vitro-diagnostic-medical-devices_en",
         "language": "ENG",
-        "notes": "Baseline security, privacy, and interoperability standards required for NHS procurement.",
-        "Applicability - Country": "United Kingdom"
+        "notes": "A template for HTA-only IVD consultation. Use it to prepare a complete, consistently structured briefing.",
+        "Applicability - Country": "European Union"
     },
     {
-        "title": "Digital Technology Assessment Criteria (DTAC)",
-        "organisation": "NHS England",
-        "type": "Framework",
-        "url": "https://transform.england.nhs.uk/key-tools-and-info/digital-technology-assessment-criteria-dtac/",
-        "language": "ENG",
-        "notes": "Baseline security, privacy, and interoperability standards required for NHS procurement.",
-        "Applicability - Country": "United Kingdom"
-    },
-    {
-        "title": "Interoperability Standards",
-        "organisation": "ANS",
-        "type": "Guidance",
-        "url": "https://esante.gouv.fr/produits-services/ci-sis",
-        "language": "FR",
-        "notes": "Technical frameworks ensuring health data exchange compliance in France.",
-        "Applicability - Country": "France"
-    },
-    {
-        "title": "Kanta Services requirements",
-        "organisation": "Kela",
-        "type": "Guidance",
-        "url": "https://www.kanta.fi/en/system-developers",
-        "language": "ENG / FIN",
-        "notes": "Technical requirements for connecting DHTs to Finland's national health data repository.",
-        "Applicability - Country": "Finland"
-    },
-    {
-        "title": "Cybersecurity guidelines for medical devices",
-        "organisation": "MDCG",
-        "type": "Guidance",
-        "url": "https://health.ec.europa.eu/medical-devices-sector/new-regulations/guidance-mdcg-endorsed-documents-and-other-guidance_en",
-        "language": "ENG",
-        "notes": "EU-wide guidance on meeting MDR cybersecurity requirements.",
-        "Applicability - Country": "General"
-    },
-    {
-        "title": "MDCG Guidance on Clinical Evaluation",
-        "organisation": "MDCG",
-        "type": "Guidance",
-        "url": "https://health.ec.europa.eu/medical-devices-sector/new-regulations/guidance-mdcg-endorsed-documents-and-other-guidance_en",
-        "language": "ENG",
-        "notes": "EU-wide expectations for clinical evaluation reports (CERs) under MDR.",
-        "Applicability - Country": "General"
-    },
-    {
-        "title": "Validation of digital health technologies",
-        "organisation": "VDE",
-        "type": "Standard",
-        "url": "https://www.vde.com/en/health",
-        "language": "ENG / DE",
-        "notes": "German technical specifications for DHT validation.",
-        "Applicability - Country": "Germany"
-    },
-    {
-        "title": "Health Data Hosting (HDS) Certification",
-        "organisation": "ANS",
-        "type": "Standard",
-        "url": "https://esante.gouv.fr/produits-services/hds",
-        "language": "FR",
-        "notes": "Mandatory certification for hosting personal health data in France.",
-        "Applicability - Country": "France"
-    },
-    {
-        "title": "General Data Protection Regulation (GDPR)",
-        "organisation": "EU",
+        "title": "Implementing Regulation (EU) 2025/117 on joint scientific consultations on medical devices and in vitro diagnostic medical devices",
+        "organisation": "European Commission",
         "type": "Regulation",
-        "url": "https://gdpr.eu/",
+        "url": "https://health.ec.europa.eu/publications/implementing-regulation-eu-2025117-joint-scientific-consultations-medical-devices-and-vitro_en",
         "language": "ENG",
-        "notes": "Baseline privacy and data processing regulation across Europe.",
-        "Applicability - Country": "General"
-    },
-    {
-        "title": "BfArM DiGA Guide",
-        "organisation": "BfArM",
-        "type": "Guidance",
-        "url": "https://www.bfarm.de/EN/Medical-devices/Tasks/Digital-Health-Applications/_node.html",
-        "language": "ENG / DE",
-        "notes": "The primary hub for the DiGA fast-track process, including requirements for positive healthcare effects.",
-        "Applicability - Country": "Germany"
-    },
-    {
-        "title": "mHealthBelgium Assessment Portal",
-        "organisation": "mHealthBelgium",
-        "type": "Platform",
-        "url": "https://mhealthbelgium.be/",
-        "language": "ENG",
-        "notes": "The central validation pyramid for mobile health apps seeking reimbursement in Belgium.",
-        "Applicability - Country": "Belgium"
-    },
-    {
-        "title": "Digi-HTA Framework",
-        "organisation": "FinCCHTA",
-        "type": "Framework",
-        "url": "https://oys.fi/fincchta/en/digi-hta/",
-        "language": "ENG / FIN",
-        "notes": "The core methodology used for assessing DHTs in Finland.",
-        "Applicability - Country": "Finland"
-    },
-    {
-        "title": "Evaluation of Digital Medical Devices",
-        "organisation": "HAS",
-        "type": "Guidance",
-        "url": "https://www.has-sante.fr/jcms/c_2874646/fr/evaluation-des-dispositifs-medicaux-numeriques",
-        "language": "FR",
-        "notes": "Standard HAS methodology for clinical and economic assessment of DHTs.",
-        "Applicability - Country": "France"
+        "notes": "Legally binding rules for device joint scientific consultations. Use to confirm required steps and timelines.",
+        "Applicability - Country": "European Union"
     },
     {
         "title": "ASSESS DHT PRISM Tool",
         "organisation": "ASSESS DHT",
-        "type": "Tool",
+        "type": "Online Tool",
         "url": "https://assess-dht-ir3jc3hy9qykeqr3tenph7.streamlit.app/",
         "language": "ENG",
-        "notes": "A consolidated tool providing structured, lifecycle-based evaluation recommendations covering all stages of DHT development.",
-        "Applicability - Country": "General"
+        "notes": "Tool providing structured, lifecycle-based evaluation recommendations at all stages of DHT development. Also incorporates other ASSESS evaluation criteria such as Human Factors, Cybersecurity and Data Quality.",
+        "Applicability - Country": "European Union"
+    },
+    {
+        "title": "ASSESS DHT Outputs",
+        "organisation": "ASSESS DHT",
+        "type": "Website",
+        "url": "https://assess-dht.eu/results/",
+        "language": "ENG",
+        "notes": "Results and outputs from the ASSESS DHT project.",
+        "Applicability - Country": "European Union"
+    },
+    {
+        "title": "EDiHTA Outputs",
+        "organisation": "EDiHTA",
+        "type": "Website",
+        "url": "https://edihta-project.eu/results/",
+        "language": "ENG",
+        "notes": "Results and outputs from the EDiHTA project.",
+        "Applicability - Country": "European Union"
     }
 ]
