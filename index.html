@@ -882,7 +882,7 @@
     <!-- Export panel -->
     <div class="card" style="background: var(--surface2);">
       <div class="card-title">Export PDF Plan</div>
-      <p style="font-size: 13px; color: var(--text2); margin-bottom: 14px;">Choose which requirements to include in your exported PDF.</p>
+      <p style="font-size: 13px; color: var(--text2); margin-bottom: 14px;">Choose which recommendations to include in your exported PDF.</p>
       
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;">
         <label class="sa-export-option" id="export-opt-all">
@@ -890,7 +890,7 @@
           <div class="sa-export-label">
             <span style="font-size: 18px;">📋</span>
             <div>
-              <div style="font-weight: 600; font-size: 14px;">All requirements</div>
+              <div style="font-weight: 600; font-size: 14px;">All recommendations</div>
               <div style="font-size: 12px; color: var(--text2);">Export everything in your report</div>
             </div>
           </div>
@@ -990,7 +990,7 @@
         The tool cross-references your profile against our embedded library of European HTA expectations. Review the recommendations grouped by domain. Expand each requirement to read detailed explanatory notes. You can export this raw report to PDF or proceed to the planning stage.</p>
         
         <p><strong>Step 3: Evidence Planning</strong><br>
-        Use this interactive workspace to conduct a gap analysis of your existing clinical and technical evidence. Mark items as 'Met', 'Uncertain', or 'Not Met'. You can then generate a targeted PDF export (e.g., exporting only the 'Not Met' requirements to share with your clinical research team).</p>
+        Use this interactive workspace to conduct a gap analysis of your existing clinical and technical evidence. Mark items as 'Met', 'Uncertain', or 'Not Met'. You can then generate a targeted PDF export (e.g., exporting only the 'Not Met' recommendations to share with your clinical research team).</p>
       </div>
     </div>
 
@@ -1631,7 +1631,7 @@ function renderReport(profile, results, userPico) {
                 ${hasAdditions ? `
                   <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border2);">
                     <div style="font-size: 12px; font-weight: 600; color: var(--teal-dark); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
-                      ✓ Additional requirements for your technology
+                      ✓ Additional reccomendations for your technology
                     </div>
                     ${group.additions.map(add => {
                       const purposeLabel = getPurposeLabel(add, profile);
@@ -1982,7 +1982,7 @@ function exportPDF() {
   doc.setFontSize(9);
   doc.text(`Generated ${new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' })}`, MARGIN, 32);
 
-  const filterLabels = { all: 'All requirements', 'not-met': 'Generation outstanding only', query: 'Uncertain only', assessed: 'Generated only' };
+  const filterLabels = { all: 'All recommendations', 'not-met': 'Generation outstanding only', query: 'Uncertain only', assessed: 'Generated only' };
   doc.setFontSize(8); doc.setTextColor(...TEAL);
   doc.text(`Filter: ${filterLabels[filter]}`, PAGE_W - MARGIN, 32, { align: 'right' });
 
