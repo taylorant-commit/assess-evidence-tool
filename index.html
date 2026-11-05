@@ -1307,6 +1307,7 @@ function closePlanningModal() {
 // =============================================
 document.addEventListener('DOMContentLoaded', () => {
   loadData();
+  getPdfLogoData();
 
   window.addEventListener('scroll', () => {
     const btn = document.getElementById('return-to-top');
@@ -2433,10 +2434,60 @@ function updateExportOption() {
   // Visual feedback is handled by CSS :checked selector
 }
 
+let pdfLogoDataPromise = null;
+function getPdfLogoData() {
+  if (!pdfLogoDataPromise) {
+    pdfLogoDataPromise = fetch('assets/assess-dht-logo.png')
+      .then(response => {
+        if (!response.ok) throw new Error(`Logo request failed: ${response.status}`);
+        return response.blob();
+      })
+      .then(blob => new Promise(resolve => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => resolve(null);
+        reader.readAsDataURL(blob);
+      }))
+      .catch(error => {
+        console.warn('Could not load the ASSESS DHT logo for PDF export.', error);
+        return null;
+      });
+  }
+  return pdfLogoDataPromise;
+}
+
+function addPdfLogoLockup(doc, logoData, x, y, logoWidth) {
+  const logoHeight = logoWidth * 484.33 / 1500;
+  if (logoData) {
+    doc.addImage(logoData, 'PNG', x, y, logoWidth, logoHeight);
+  } else {
+    doc.setTextColor(255, 255, 255); doc.setFont('helvetica', 'bold'); doc.setFontSize(14);
+    doc.text('ASSESS DHT', x, y + logoHeight / 2 + 2);
+  }
+
+  const dividerX = x + logoWidth + 4;
+  doc.setDrawColor(255, 255, 255); doc.setLineWidth(0.35);
+  doc.line(dividerX, y + 2, dividerX, y + logoHeight - 2);
+  const titleX = dividerX + 7;
+  doc.setTextColor(255, 255, 255); doc.setFont('helvetica', 'bold'); doc.setFontSize(11);
+  doc.text('Evidence Generation Support Tool', titleX, y + logoHeight / 2 + 1.5);
+  return { titleX, logoHeight };
+}
+
+function addPdfContinuationHeader(doc, logoData, sectionTitle) {
+  doc.setFillColor(22, 35, 73); doc.rect(0, 0, 210, 23, 'F');
+  addPdfLogoLockup(doc, logoData, 15, 4, 40);
+  doc.setTextColor(255, 255, 255); doc.setFont('helvetica', 'normal'); doc.setFontSize(8);
+  doc.text(sectionTitle, 195, 14, { align: 'right' });
+  doc.setFillColor(43, 191, 176); doc.rect(0, 23, 210, 1, 'F');
+  return 30;
+}
+
 // =============================================
 // PDF EXPORT - EVIDENCE PLANNING (Page 3)
 // =============================================
-function exportPDF() {
+async function exportPDF() {
+  const logoData = await getPdfLogoData();
   const filter = document.querySelector('input[name="export-filter"]:checked')?.value || 'all';
   
   const selectedDomainEls = document.querySelectorAll('.sa-export-domain-cb:checked');
@@ -2488,9 +2539,7 @@ function exportPDF() {
   };
 
   const addPageHeader = () => {
-    doc.setFillColor(...NAVY);
-    doc.rect(MARGIN, y, CONTENT_W, 1, 'F');
-    y += 6;
+    y = addPdfContinuationHeader(doc, logoData, 'Evidence Planning Report (continued)');
   };
 
   const wrapText = (text, maxWidth, fontSize) => {
@@ -2512,20 +2561,21 @@ function exportPDF() {
   doc.setFillColor(...TEAL);
   doc.rect(0, 40, PAGE_W, 4, 'F');
 
-  doc.setTextColor(...WHITE);
-  doc.setFontSize(18); doc.setFont('helvetica', 'bold');
+  const logoLockup = addPdfLogoLockup(doc, logoData, MARGIN, 5, 69);
   const safeTitle = sanitizeForPDF(currentProfile?.name || 'Evidence Planning Report');
-  const titleWidth = doc.getTextWidth(safeTitle);
-  if (titleWidth > CONTENT_W) doc.setFontSize(Math.max(10, 18 * CONTENT_W / titleWidth));
-  doc.text(safeTitle, MARGIN, 18);
-  doc.setFontSize(10); doc.setFont('helvetica', 'normal');
-  doc.text('ASSESS DHT Evidence Generation Support Tool', MARGIN, 25);
-  doc.setFontSize(9);
-  doc.text(`Generated ${new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' })}`, MARGIN, 32);
+  const reportTitleX = logoLockup.titleX;
+  const reportTitleMaxWidth = PAGE_W - MARGIN - reportTitleX;
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(9);
+  const reportTitle = `Evidence Plan: ${safeTitle}`;
+  const reportTitleWidth = doc.getTextWidth(reportTitle);
+  if (reportTitleWidth > reportTitleMaxWidth) doc.setFontSize(Math.max(6, 9 * reportTitleMaxWidth / reportTitleWidth));
+  doc.text(reportTitle, reportTitleX, 29);
+  doc.setFontSize(8); doc.setFont('helvetica', 'normal');
+  doc.text(`Generated ${new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' })}`, MARGIN, 38);
 
   const filterLabels = { all: 'All recommendations', 'not-met': 'Generation outstanding only', query: 'Uncertain only', met: 'Generated only' };
-  doc.setFontSize(8); doc.setTextColor(...TEAL);
-  doc.text(`Filter: ${filterLabels[filter]}`, PAGE_W - MARGIN, 32, { align: 'right' });
+  doc.setFontSize(8); doc.setTextColor(...WHITE);
+  doc.text(`Filter: ${filterLabels[filter]}`, PAGE_W - MARGIN, 38, { align: 'right' });
 
   y = 52;
 
@@ -2732,19 +2782,20 @@ function getValidResourceUrl(value) {
   }
 }
 
-function exportResourcesPDF() {
+async function exportResourcesPDF() {
   if (!currentApplicableResources.length) {
     alert('There are no external resources for the current technology profile.');
     return;
   }
 
+  const logoData = await getPdfLogoData();
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
   const PAGE_W = 210, PAGE_H = 297;
   const MARGIN = 15, CONTENT_W = PAGE_W - MARGIN * 2;
   const NAVY = [22, 35, 73], TEAL = [43, 191, 176];
   const GREY = [100, 112, 130], LIGHT = [247, 248, 250];
-  let y = 44;
+  let y = 52;
 
   const clean = value => String(value || '')
     .replace(/[\u2018\u2019]/g, "'")
@@ -2769,11 +2820,7 @@ function exportResourcesPDF() {
   };
 
   const addPageHeader = () => {
-    doc.setFillColor(...NAVY); doc.rect(0, 0, PAGE_W, 18, 'F');
-    doc.setTextColor(255, 255, 255); doc.setFontSize(9); doc.setFont('helvetica', 'bold');
-    doc.text('External Resources (continued)', MARGIN, 11);
-    doc.setFillColor(...TEAL); doc.rect(0, 18, PAGE_W, 1, 'F');
-    y = 26;
+    y = addPdfContinuationHeader(doc, logoData, 'External Resources (continued)');
   };
 
   const checkPage = needed => {
@@ -2793,16 +2840,20 @@ function exportResourcesPDF() {
   };
 
   doc.setProperties({ title: 'ASSESS DHT External Resources', subject: 'Applicable external HTA resources' });
-  doc.setFillColor(...NAVY); doc.rect(0, 0, PAGE_W, 36, 'F');
-  doc.setFillColor(...TEAL); doc.rect(0, 33, PAGE_W, 3, 'F');
-  doc.setTextColor(255, 255, 255); doc.setFontSize(17); doc.setFont('helvetica', 'bold');
-  doc.text('External Resources', MARGIN, 15);
+  doc.setFillColor(...NAVY); doc.rect(0, 0, PAGE_W, 44, 'F');
+  doc.setFillColor(...TEAL); doc.rect(0, 40, PAGE_W, 4, 'F');
+  const logoLockup = addPdfLogoLockup(doc, logoData, MARGIN, 5, 69);
+  const resourceTitleX = logoLockup.titleX;
+  const resourceTitleMaxWidth = PAGE_W - MARGIN - resourceTitleX;
+  doc.setTextColor(255, 255, 255); doc.setFontSize(12); doc.setFont('helvetica', 'bold');
+  doc.text('External Resources', resourceTitleX, 25);
   const resourceProfileName = clean(currentProfile?.name || 'Evidence Planning');
   doc.setFontSize(9); doc.setFont('helvetica', 'normal');
   const resourceProfileWidth = doc.getTextWidth(resourceProfileName);
-  if (resourceProfileWidth > CONTENT_W) doc.setFontSize(Math.max(6, 9 * CONTENT_W / resourceProfileWidth));
-  doc.text(resourceProfileName, MARGIN, 23);
-  doc.text(`Generated ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}`, MARGIN, 30);
+  if (resourceProfileWidth > resourceTitleMaxWidth) doc.setFontSize(Math.max(6, 9 * resourceTitleMaxWidth / resourceProfileWidth));
+  doc.text(resourceProfileName, resourceTitleX, 34);
+  doc.setFontSize(8);
+  doc.text(`Generated ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}`, MARGIN, 39);
 
   const countryList = (currentProfile?.countries || []).join(', ');
   doc.setTextColor(...NAVY); doc.setFontSize(9); doc.setFont('helvetica', 'bold');
@@ -2858,9 +2909,10 @@ function exportResourcesPDF() {
 // =============================================
 // REPORT PDF EXPORT (Page 2)
 // =============================================
-function exportReportPDF() {
+async function exportReportPDF() {
   if (!currentResults || currentResults.length === 0) return;
 
+  const logoData = await getPdfLogoData();
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
 
@@ -2904,9 +2956,7 @@ function exportReportPDF() {
   };
 
   const addPageHeader = () => {
-    doc.setFillColor(...NAVY);
-    doc.rect(MARGIN, y, CONTENT_W, 1, 'F');
-    y += 6;
+    y = addPdfContinuationHeader(doc, logoData, 'Evidence Report (continued)');
   };
 
   const wrapText = (text, maxWidth, fontSize) => {
@@ -2920,14 +2970,17 @@ function exportReportPDF() {
   doc.setFillColor(...TEAL);
   doc.rect(0, 40, PAGE_W, 4, 'F');
 
-  doc.setTextColor(...WHITE);
-  doc.setFontSize(18); doc.setFont('helvetica', 'bold');
+  const logoLockup = addPdfLogoLockup(doc, logoData, MARGIN, 5, 69);
   const safeTitle = sanitizeForPDF(currentProfile?.name || 'Evidence Generation Report');
-  doc.text(safeTitle, MARGIN, 18);
-  doc.setFontSize(10); doc.setFont('helvetica', 'normal');
-  doc.text('ASSESS DHT Evidence Generation Support Tool', MARGIN, 25);
-  doc.setFontSize(9);
-  doc.text(`Generated ${new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' })}`, MARGIN, 32);
+  const reportTitleX = logoLockup.titleX;
+  const reportTitleMaxWidth = PAGE_W - MARGIN - reportTitleX;
+  const reportTitle = `Evidence Report: ${safeTitle}`;
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(9);
+  const reportTitleWidth = doc.getTextWidth(reportTitle);
+  if (reportTitleWidth > reportTitleMaxWidth) doc.setFontSize(Math.max(6, 9 * reportTitleMaxWidth / reportTitleWidth));
+  doc.text(reportTitle, reportTitleX, 29);
+  doc.setFontSize(8);
+  doc.text(`Generated ${new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' })}`, MARGIN, 38);
 
   y = 52;
 
