@@ -2573,7 +2573,7 @@ function exportPDF() {
   doc.roundedRect(MARGIN, y, CONTENT_W, 10, 1.5, 1.5, 'F');
   addCommonBadge(MARGIN + 3, y + 2.5);
   doc.setFontSize(8); doc.setFont('helvetica', 'normal'); doc.setTextColor(...NAVY);
-  doc.text('A recommendation is marked when either its HTA domain or dimension is commonly requested.', MARGIN + 46, y + 6.5);
+  doc.text('Teal badges mark commonly requested domains and dimensions.', MARGIN + 46, y + 6.5);
   y += 14;
 
   // ASSESSMENT SUMMARY
@@ -2641,47 +2641,65 @@ function exportPDF() {
     doc.text(`${recs.length} recommendation${recs.length !== 1 ? 's' : ''}`, PAGE_W - MARGIN - 4, y + 6, { align: 'right' });
     y += 12;
 
+    const byDimension = {};
     recs.forEach(r => {
-      const id = sanitizeForPDF(r['Recommendation ID'] || '');
-      const status = assessmentStatus[r['Recommendation ID']] || null;
-      const cfg = statusConfig[status];
-      
-      const recText = sanitizeForPDF(r['Overarching Evidence Recommendation'] || '');
-      const dimension = sanitizeForPDF(r['HTA dimension'] || '');
-      const commonlyRequested = isCommonlyRequestedRecommendation(r);
-      const textLines = wrapText(recText, CONTENT_W - 12, 9);
-      const boxHeight = 14 + (textLines.length * 4.5);
+      const dimension = (r['HTA dimension'] || 'Other').trim();
+      if (!byDimension[dimension]) byDimension[dimension] = [];
+      byDimension[dimension].push(r);
+    });
+    const dimensionEntries = Object.entries(byDimension).sort(([dimensionA], [dimensionB]) => {
+      return Number(isCommonDimension(dimensionB)) - Number(isCommonDimension(dimensionA)) || dimensionA.localeCompare(dimensionB);
+    });
 
-      checkPage(boxHeight + 6);
+    dimensionEntries.forEach(([dimension, dimensionRecs]) => {
+      const commonDimension = isCommonDimension(dimension);
+      const dimensionText = sanitizeForPDF(dimension);
+      const dimensionLines = wrapText(dimensionText, CONTENT_W - (commonDimension ? 52 : 8), 8);
+      const dimensionHeaderHeight = Math.max(8, dimensionLines.length * 4 + 3);
+      const firstText = sanitizeForPDF(dimensionRecs[0]['Overarching Evidence Recommendation'] || '');
+      const firstCardHeight = 10 + wrapText(firstText, CONTENT_W - 12, 9).length * 4.5;
+      checkPage(dimensionHeaderHeight + firstCardHeight + 6);
 
-      doc.setFillColor(...LIGHT);
-      doc.setDrawColor(221, 225, 233);
-      doc.setLineWidth(0.2);
-      doc.roundedRect(MARGIN, y, CONTENT_W, boxHeight, 1.5, 1.5, 'FD');
+      doc.setFillColor(...(commonDimension ? [232, 250, 248] : LIGHT));
+      doc.roundedRect(MARGIN, y, CONTENT_W, dimensionHeaderHeight, 1.2, 1.2, 'F');
+      doc.setTextColor(...NAVY);
+      doc.setFontSize(8); doc.setFont('helvetica', 'bold');
+      doc.text(dimensionLines, MARGIN + 4, y + 5.5);
+      if (commonDimension) addCommonBadge(PAGE_W - MARGIN - 43, y + 1.5);
+      y += dimensionHeaderHeight + 3;
 
-      doc.setFillColor(...cfg.color);
-      doc.rect(MARGIN, y + 0.5, 3, boxHeight - 1, 'F');
+      dimensionRecs.forEach(r => {
+        const id = sanitizeForPDF(r['Recommendation ID'] || '');
+        const status = assessmentStatus[r['Recommendation ID']] || null;
+        const cfg = statusConfig[status];
+        const recText = sanitizeForPDF(r['Overarching Evidence Recommendation'] || '');
+        const textLines = wrapText(recText, CONTENT_W - 12, 9);
+        const boxHeight = 10 + (textLines.length * 4.5);
 
-      const badgeW = 20;
-      doc.setFillColor(...cfg.color);
-      doc.roundedRect(PAGE_W - MARGIN - badgeW - 3, y + 3, badgeW, 5, 1, 1, 'F');
-      doc.setTextColor(...WHITE);
-      doc.setFontSize(7); doc.setFont('helvetica', 'bold');
-      doc.text(cfg.label, PAGE_W - MARGIN - (badgeW/2) - 3, y + 6.5, { align: 'center' });
+        checkPage(boxHeight + 6);
 
-      doc.setFontSize(7); doc.setFont('helvetica', 'bold'); doc.setTextColor(...GREY);
-      doc.text(id, MARGIN + 6, y + 5);
-      if (commonlyRequested) addCommonBadge(MARGIN + 30, y + 2.5);
+        doc.setFillColor(...LIGHT);
+        doc.setDrawColor(221, 225, 233);
+        doc.setLineWidth(0.2);
+        doc.roundedRect(MARGIN, y, CONTENT_W, boxHeight, 1.5, 1.5, 'FD');
 
-      if (dimension) {
-        doc.setFontSize(7); doc.setFont('helvetica', 'normal'); doc.setTextColor(...GREY);
-        doc.text(`Dimension: ${dimension}`, MARGIN + 6, y + 9.5);
-      }
-      
-      doc.setFontSize(9); doc.setFont('helvetica', 'normal'); doc.setTextColor(26, 37, 64);
-      doc.text(textLines, MARGIN + 6, y + 14);
+        doc.setFillColor(...cfg.color);
+        doc.rect(MARGIN, y + 0.5, 3, boxHeight - 1, 'F');
 
-      y += boxHeight + 3;
+        const badgeW = 20;
+        doc.setFillColor(...cfg.color);
+        doc.roundedRect(PAGE_W - MARGIN - badgeW - 3, y + 3, badgeW, 5, 1, 1, 'F');
+        doc.setTextColor(...WHITE);
+        doc.setFontSize(7); doc.setFont('helvetica', 'bold');
+        doc.text(cfg.label, PAGE_W - MARGIN - (badgeW/2) - 3, y + 6.5, { align: 'center' });
+
+        doc.setFontSize(7); doc.setFont('helvetica', 'bold'); doc.setTextColor(...GREY);
+        doc.text(id, MARGIN + 6, y + 5);
+        doc.setFontSize(9); doc.setFont('helvetica', 'normal'); doc.setTextColor(26, 37, 64);
+        doc.text(textLines, MARGIN + 6, y + 9.5);
+
+        y += boxHeight + 3;
+      });
     });
     y += 6;
   });
