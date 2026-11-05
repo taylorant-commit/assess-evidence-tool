@@ -7,9 +7,10 @@ The tool is currently in pilot testing and some functionality is missing. Please
 **[Launch the Tool →](https://taylorant-commit.github.io/assess-evidence-tool/)**
 
 ## 📊 Features
-- **161 evidence recommendations** across 9 HTA domains, based on the EUnetHTA core model. 
-- **Smart filtering** by technology characteristics.
-- **PICO framework** generation (optional).
+- **191 evidence recommendations** across 11 HTA domains, based on the EUnetHTA core model.
+- **Smart filtering** by technology characteristics and country-level applicability.
+- **Evidence planning** with commonly requested domain and dimension filters.
+- **PICO framework** generation and optional editing.
 - **Domain selection** to focus on specific areas.
 - **PDF export** functionality.
 
