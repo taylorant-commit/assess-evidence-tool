@@ -337,7 +337,7 @@
   .req-detail-text li { margin-bottom: 3px !important; }
   .req-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
   .req-tag { font-size: 11px; font-family: 'IBM Plex Mono', monospace; padding: 2px 8px; border-radius: 4px; border: 1px solid var(--border2); color: var(--text2); background: var(--surface); }
-  .req-tag-ai { background: var(--teal-dim); border-color: var(--teal); color: var(--teal-dark); font-weight: 600; }
+  .req-tag-ai, .req-tag-country { background: var(--teal-dim); border-color: var(--teal); color: var(--teal-dark); font-weight: 600; }
 
   .empty-state { text-align: center; padding: 60px 24px; color: var(--text3); }
   .empty-state .empty-icon { font-size: 40px; margin-bottom: 12px; }
@@ -2252,10 +2252,14 @@ function buildReqTags(r) {
     tags.push(`<span class="req-tag req-tag-ai">${aiLabel}</span>`);
   }
   
-  if (country && country.toLowerCase() !== GENERAL) {
-    const cc = country.split('|').slice(0, 5);
-    tags.push(...cc.map(c => `<span class="req-tag" style="background: var(--navy-dim); color: var(--navy); border-color: var(--navy-light); font-weight: 600;">📍 ${c.trim()}</span>`));
-    const extra = country.split('|').length - 5;
+  if (country) {
+    const countryNames = country.split('|').map(c => c.trim()).filter(c => c && c.toLowerCase() !== GENERAL);
+    const cc = countryNames.slice(0, 5);
+    tags.push(...cc.map(countryName => {
+      const label = countryName.toLowerCase() === 'european union' ? 'Applies across the European Union' : `Applies in ${countryName}`;
+      return `<span class="req-tag req-tag-country">${label}</span>`;
+    }));
+    const extra = countryNames.length - 5;
     if (extra > 0) tags.push(`<span class="req-tag">+${extra} more</span>`);
   }
   return tags.length ? `<div class="req-tags">${tags.join('')}</div>` : '';
