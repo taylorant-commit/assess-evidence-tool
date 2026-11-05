@@ -414,6 +414,12 @@
   .sa-export-option input:checked + .sa-export-label { border-color: var(--teal); background: var(--teal-dim); }
   .sa-export-option:hover .sa-export-label { border-color: var(--teal); }
 
+  .pico-edit-fields { border: 0; padding: 0; margin: 0; min-width: 0; transition: opacity 0.2s ease; }
+  .pico-edit-fields:disabled { opacity: 0.55; }
+  .pico-edit-fields input:disabled, .pico-edit-fields textarea:disabled {
+    background: var(--surface2); color: var(--text3); border-color: var(--border); cursor: not-allowed;
+  }
+
   .sa-domain { margin-bottom: 16px; }
   .sa-domain-header { font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text2); padding: 8px 0 6px 0; border-bottom: 2px solid var(--border2); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
   .sa-rec { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border2); border-radius: 8px; margin-bottom: 6px; transition: border-color 0.15s; }
@@ -915,26 +921,34 @@
     <!-- Editable PICO Section -->
     <div class="card" id="edit-pico-card" style="display: none;">
       <div class="card-title">📝 Finalise your PICO Statement</div>
-      <p style="font-size: 13px; color: var(--text2); margin-bottom: 16px;">Review and refine your PICO framework before exporting your final plan.</p>
-      
-      <div class="form-grid">
-        <div class="form-field full">
-          <label>Population</label>
-          <input type="text" id="edit-pico-p">
-        </div>
-        <div class="form-field full">
-          <label>Intervention</label>
-          <input type="text" id="edit-pico-i">
-        </div>
-        <div class="form-field full">
-          <label>Comparator</label>
-          <input type="text" id="edit-pico-c">
-        </div>
-        <div class="form-field full">
-          <label>Outcomes</label>
-          <textarea id="edit-pico-o" rows="3"></textarea>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; margin-bottom: 18px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;">
+        <input type="checkbox" id="edit-pico-enable" onchange="togglePicoEdit(this.checked)" style="width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; accent-color: var(--teal); cursor: pointer;">
+        <div>
+          <label for="edit-pico-enable" style="cursor: pointer; margin: 0; font-size: 14px; font-weight: 700; text-transform: none; letter-spacing: 0; color: var(--navy);">I want to edit this PICO statement</label>
+          <div id="pico-edit-hint" style="font-size: 12px; color: var(--text2); margin-top: 4px;">The generated PICO is read-only. Select this box to make changes; your edits will be included in the exported plan.</div>
         </div>
       </div>
+
+      <fieldset class="pico-edit-fields" id="edit-pico-fields" disabled>
+        <div class="form-grid">
+          <div class="form-field full">
+            <label for="edit-pico-p">Population</label>
+            <input type="text" id="edit-pico-p">
+          </div>
+          <div class="form-field full">
+            <label for="edit-pico-i">Intervention</label>
+            <input type="text" id="edit-pico-i">
+          </div>
+          <div class="form-field full">
+            <label for="edit-pico-c">Comparator</label>
+            <input type="text" id="edit-pico-c">
+          </div>
+          <div class="form-field full">
+            <label for="edit-pico-o">Outcomes</label>
+            <textarea id="edit-pico-o" rows="3"></textarea>
+          </div>
+        </div>
+      </fieldset>
     </div>
 
     <!-- Export panel -->
@@ -1454,6 +1468,11 @@ function renderReport(profile, results, userPico) {
   currentProfile = profile;
   currentResults = results;
   currentUserPico = userPico;
+  const editPicoCard = document.getElementById('edit-pico-card');
+  editPicoCard.dataset.initialized = 'false';
+  document.getElementById('edit-pico-enable').checked = false;
+  document.getElementById('edit-pico-fields').disabled = true;
+  togglePicoEdit(false);
 
   document.getElementById('report-tech-name').textContent = profile.name || 'Evidence Generation Report';
   document.getElementById('report-subtitle').innerHTML = `Generated ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}${profile.org ? ' · ' + profile.org : ''}`;
@@ -1900,14 +1919,49 @@ function renderSelfAssessment() {
   const picoCard = document.getElementById('edit-pico-card');
   if (currentUserPico && currentUserPico.enabled) {
     picoCard.style.display = 'block';
-    const pico = generatePICO(currentProfile, currentUserPico);
-    document.getElementById('edit-pico-p').value = pico.population || '';
-    document.getElementById('edit-pico-i').value = (pico.interventionName + ' — ' + pico.interventionDetail) || '';
-    document.getElementById('edit-pico-c').value = pico.comparator || '';
-    document.getElementById('edit-pico-o').value = pico.outcomes || '';
+    if (picoCard.dataset.initialized !== 'true') {
+      const pico = generatePICO(currentProfile, currentUserPico);
+      document.getElementById('edit-pico-p').value = pico.population || '';
+      document.getElementById('edit-pico-i').value = (pico.interventionName + ' — ' + pico.interventionDetail) || '';
+      document.getElementById('edit-pico-c').value = pico.comparator || '';
+      document.getElementById('edit-pico-o').value = pico.outcomes || '';
+      picoCard.dataset.initialized = 'true';
+      document.getElementById('edit-pico-enable').checked = false;
+      document.getElementById('edit-pico-fields').disabled = true;
+      togglePicoEdit(false);
+    }
   } else {
     picoCard.style.display = 'none';
   }
+}
+
+function togglePicoEdit(enabled) {
+  const fields = document.getElementById('edit-pico-fields');
+  const hint = document.getElementById('pico-edit-hint');
+  if (!fields || !hint) return;
+  fields.disabled = !enabled;
+  hint.textContent = enabled
+    ? 'Edit any fields you want to refine. Your changes will be included in the exported plan.'
+    : 'The generated PICO is read-only. Select this box to make changes; your edits will be included in the exported plan.';
+}
+
+function getPicoForExport() {
+  if (!currentUserPico || !currentUserPico.enabled) return null;
+  if (document.getElementById('edit-pico-enable')?.checked) {
+    return {
+      population: document.getElementById('edit-pico-p').value.trim(),
+      intervention: document.getElementById('edit-pico-i').value.trim(),
+      comparator: document.getElementById('edit-pico-c').value.trim(),
+      outcomes: document.getElementById('edit-pico-o').value.trim(),
+    };
+  }
+  const pico = generatePICO(currentProfile, currentUserPico);
+  return pico ? {
+    population: pico.population,
+    intervention: pico.interventionName + ' — ' + pico.interventionDetail,
+    comparator: pico.comparator,
+    outcomes: pico.outcomes,
+  } : null;
 }
 
 let isPlanningMode = false;
@@ -2093,6 +2147,32 @@ function exportPDF() {
     const tagLines = doc.splitTextToSize(tags, CONTENT_W - 10);
     doc.text(tagLines, MARGIN + 5, y + 14);
     y += 28;
+  }
+
+  // FINAL PICO STATEMENT
+  const finalPico = getPicoForExport();
+  if (finalPico) {
+    checkPage(24);
+    doc.setFillColor(...NAVY);
+    doc.roundedRect(MARGIN, y, CONTENT_W, 9, 1.5, 1.5, 'F');
+    doc.setTextColor(...WHITE);
+    doc.setFontSize(10); doc.setFont('helvetica', 'bold');
+    doc.text('PICO FRAMEWORK', MARGIN + 4, y + 6);
+    y += 13;
+
+    [['P', 'Population', finalPico.population], ['I', 'Intervention', finalPico.intervention], ['C', 'Comparator', finalPico.comparator], ['O', 'Outcomes', finalPico.outcomes]].forEach(([letter, label, value]) => {
+      const lines = wrapText(sanitizeForPDF(value), CONTENT_W - 30, 9);
+      const rowHeight = Math.max(8, lines.length * 4.5 + 2);
+      checkPage(rowHeight + 4);
+      doc.setFontSize(9); doc.setFont('helvetica', 'bold'); doc.setTextColor(...TEAL);
+      doc.text(letter, MARGIN + 2, y + 4);
+      doc.setTextColor(...NAVY);
+      doc.text(`${label}:`, MARGIN + 8, y + 4);
+      doc.setFont('helvetica', 'normal'); doc.setTextColor(26, 37, 64);
+      doc.text(lines, MARGIN + 30, y + 4);
+      y += rowHeight + 2;
+    });
+    y += 5;
   }
 
   // ASSESSMENT SUMMARY
@@ -2307,7 +2387,7 @@ function exportReportPDF() {
     doc.text('PICO FRAMEWORK', MARGIN + 4, y + 6);
     y += 13;
 
-    const pico = generatePICO(currentProfile, currentUserPico);
+    const pico = getPicoForExport();
 
     const printPicoRow = (letter, label, val) => {
       const valLines = wrapText(sanitizeForPDF(val), CONTENT_W - 22, 9);
@@ -2327,7 +2407,7 @@ function exportReportPDF() {
 
     if (pico) {
       printPicoRow('P', 'Population', pico.population);
-      printPicoRow('I', 'Intervention', pico.interventionName + ' — ' + pico.interventionDetail);
+      printPicoRow('I', 'Intervention', pico.intervention);
       printPicoRow('C', 'Comparator', pico.comparator);
       printPicoRow('O', 'Outcomes', pico.outcomes);
       y += 6;
