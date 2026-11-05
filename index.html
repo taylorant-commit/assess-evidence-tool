@@ -993,6 +993,10 @@
       <div class="card-title">Filter Planning Recommendations</div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
         <div class="form-field">
+          <label for="plan-search-filter">Search recommendations</label>
+          <input type="text" id="plan-search-filter" placeholder="Recommendation ID or keywords" autocomplete="off" oninput="renderPlanningRecommendations()">
+        </div>
+        <div class="form-field">
           <label for="plan-domain-filter">HTA domain</label>
           <select id="plan-domain-filter" onchange="renderPlanningRecommendations()">
             <option value="">All domains</option>
@@ -1652,6 +1656,7 @@ function renderReport(profile, results, userPico, excludedResults = []) {
   const planningFilters = document.getElementById('plan-recommendation-filters');
   planningFilters.dataset.populated = 'false';
   document.getElementById('plan-common-only').checked = false;
+  document.getElementById('plan-search-filter').value = '';
   document.getElementById('plan-domain-filter').value = '';
   document.getElementById('plan-dimension-filter').value = '';
   document.getElementById('plan-status-filter').value = '';
@@ -2181,6 +2186,7 @@ function populatePlanningFilters() {
 }
 
 function renderPlanningRecommendations() {
+  const searchQuery = document.getElementById('plan-search-filter').value.trim().toLowerCase();
   const domainFilter = document.getElementById('plan-domain-filter').value;
   const dimensionFilter = document.getElementById('plan-dimension-filter').value;
   const statusFilter = document.getElementById('plan-status-filter').value;
@@ -2189,11 +2195,19 @@ function renderPlanningRecommendations() {
     const domain = (r['HTA domain'] || 'Uncategorised').trim();
     const dimension = (r['HTA dimension'] || '').trim();
     const status = assessmentStatus[r['Recommendation ID']] || '';
+    const searchableText = [
+      r['Recommendation ID'],
+      r['Overarching Evidence Recommendation'],
+      r['Explanatory notes'],
+      domain,
+      dimension,
+    ].join(' ').toLowerCase();
+    const matchesSearch = !searchQuery || searchableText.includes(searchQuery);
     const matchesSelectedDomain = !domainFilter || domain === domainFilter;
     const matchesSelectedDimension = !dimensionFilter || dimension === dimensionFilter;
     const matchesSelectedStatus = !statusFilter || (statusFilter === 'unassessed' ? !status : status === statusFilter);
     const isCommon = isCommonlyRequestedRecommendation(r);
-    return matchesSelectedDomain && matchesSelectedDimension && matchesSelectedStatus && (!commonOnly || isCommon);
+    return matchesSearch && matchesSelectedDomain && matchesSelectedDimension && matchesSelectedStatus && (!commonOnly || isCommon);
   });
 
   document.getElementById('plan-recommendation-count').textContent = `${recommendations.length} of ${currentResults.length} recommendations shown`;
@@ -2311,6 +2325,7 @@ function togglePicoEdit(enabled) {
 }
 
 function resetPlanningFilters() {
+  document.getElementById('plan-search-filter').value = '';
   document.getElementById('plan-domain-filter').value = '';
   document.getElementById('plan-dimension-filter').value = '';
   document.getElementById('plan-status-filter').value = '';
