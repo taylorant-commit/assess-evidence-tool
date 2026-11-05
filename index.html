@@ -508,7 +508,7 @@
       <ul>
         <li><strong>Step 1: Technology Profile</strong> — Enter the specific characteristics, intended purpose, and functionalities of your DHT.</li>
         <li><strong>Step 2: Evidence Report</strong> — The tool filters the framework to generate applicable recommendations grouped by HTA domain. Enable Planning Mode here to mark evidence as generated, uncertain, or outstanding.</li>
-        <li><strong>Step 3: Evidence Planning</strong> — Filter recommendations by domain, dimension, or planning status, then export a focused PDF plan. Marking progress is done on the Evidence Report page.</li>
+        <li><strong>Step 3: Evidence Planning</strong> — Filter recommendations by domain, dimension, or planning status, then save a local copy to resume later or export a focused PDF plan. Marking progress is done on the Evidence Report page.</li>
       </ul>
 
       <h3>How to use the recommendations</h3>
@@ -594,9 +594,11 @@
       </div>
       <h2>Technology Profile</h2>
       <p>Tell us about your digital health technology. This information determines which evidence recommendations apply to you.</p>
-      <button class="btn btn-ghost" onclick="fillTestData()" style="margin-top: 12px;">
-        ⚡ Fill with test data
-      </button>
+      <div style="display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-top:12px;">
+        <button class="btn btn-ghost" onclick="fillTestData()">⚡ Fill with test data</button>
+        <button class="btn btn-ghost" onclick="promptLoadSavedPlan()">↻ Load saved plan</button>
+      </div>
+      <div class="field-hint" style="margin-top:8px;">Saved plans are JSON files kept on your device; they are not uploaded.</div>
     </div>
 
     <div class="card">
@@ -1157,7 +1159,9 @@
           <span id="plan-sticky-meta">0 of 0 recommendations assessed</span>
         </div>
         <div class="plan-sticky-buttons">
-          <button class="btn btn-ghost" onclick="openExportOptions()">Export options</button>
+          <button class="btn btn-ghost" onclick="savePlan()" title="Download a local JSON backup of this plan">Save</button>
+          <button class="btn btn-ghost" onclick="promptLoadSavedPlan()" title="Load a saved plan from your device">Load</button>
+          <button class="btn btn-ghost" onclick="openExportOptions()" title="Customize PDF contents">PDF filters</button>
           <button class="btn btn-primary" onclick="exportPDF()">⬇ Export PDF</button>
         </div>
       </div>
@@ -1181,7 +1185,7 @@
         The tool cross-references your profile against our embedded library of European HTA expectations. Review the recommendations grouped by domain and expand each requirement for explanatory notes. Enable Planning Mode here to record your evidence status, then continue to the planning page.</p>
         
         <p><strong>Step 3: Evidence Planning</strong><br>
-        Use the planning page to filter recommendations by domain, dimension, or the progress ratings you set on the Evidence Generation Report page. Export a targeted PDF (for example, only recommendations marked 'Generation Outstanding') to share with your team.</p>
+        Use the planning page to filter recommendations by domain, dimension, or the progress ratings you set on the Evidence Generation Report page. Save a local JSON plan to resume later, or export a targeted PDF (for example, only recommendations marked 'Generation Outstanding') to share with your team.</p>
       </div>
     </div>
 
@@ -1197,7 +1201,7 @@
         <ul style="margin-left: 20px; margin-bottom: 0;">
           <li style="margin-bottom: 6px;"><strong>No Cloud Storage:</strong> We do not have a backend database. Your technology profile, PICO framework details, and evidence planning statuses are never transmitted to, or stored on, any external servers.</li>
           <li style="margin-bottom: 6px;"><strong>Local PDF Generation:</strong> When you click "Export PDF", the document is generated entirely by your browser, not by a remote server processing your inputs.</li>
-          <li style="margin-bottom: 6px;"><strong>No Persistent Tracking:</strong> Because nothing is saved externally, all of your entered data is permanently erased the moment you close your tab or refresh the page, therefore <strong>please ensure you export your PDF plan before leaving the tool!</strong> </li>
+          <li style="margin-bottom: 6px;"><strong>No Persistent Tracking:</strong> Progress is erased when you close or refresh the page. Use <strong>Save plan</strong> to download a local JSON file if you want to resume later; it is not uploaded to any server.</li>
         </ul>
       </div>
     </div>
@@ -1209,7 +1213,7 @@
           <li style="margin-bottom: 8px;"><strong>Not Regulatory Advice:</strong> This tool is intended for educational and strategic planning purposes only. It does not constitute formal legal, regulatory, or clinical advice.</li>
           <li style="margin-bottom: 8px;"><strong>No Guarantee of Approval:</strong> Compliance with the recommendations generated by this tool does not guarantee that your DHT will achieve regulatory certification (e.g., CE marking) or positive reimbursement decisions from national HTA bodies.</li>
           <li style="margin-bottom: 8px;"><strong>Evolving Standards:</strong> European HTA standards and medical device regulations (MDR/IVDR) are continuously evolving. While this library is periodically updated, you must always consult the latest official guidelines for your target jurisdictions.</li>
-          <li><strong>Data Privacy:</strong> This tool operates entirely within your web browser. No data entered into the Technology Profile or Evidence Planning sections is saved to any external servers or databases. If you refresh or close the page, your progress will be lost unless you export it to PDF.</li>
+          <li><strong>Data Privacy:</strong> This tool operates entirely within your web browser. No data entered into the Technology Profile or Evidence Planning sections is sent to an external server. Progress is lost on refresh or close unless you download a PDF or local JSON plan.</li>
         </ul>
       </div>
     </div>
@@ -1246,12 +1250,15 @@
   </div>
 </main>
 
+<input type="file" id="saved-plan-file" accept=".json,application/json" style="display:none" onchange="loadSavedPlan(this.files && this.files[0])">
+
 <script>
 // =============================================
 // STATE
 // =============================================
 let requirementsData = [];
 let resourcesData = [];
+let dataLoadPromise = Promise.resolve();
 let domainColorMap = {};
 const DOMAIN_COLORS = ['dc-0','dc-1','dc-2','dc-3','dc-4','dc-5','dc-6','dc-7'];
 const GENERAL = 'general';
@@ -1310,7 +1317,7 @@ function closePlanningModal() {
 // INIT
 // =============================================
 document.addEventListener('DOMContentLoaded', () => {
-  loadData();
+  dataLoadPromise = loadData();
   getPdfLogoData();
 
   window.addEventListener('scroll', () => {
@@ -1554,7 +1561,7 @@ function generateReport() {
 
     if (!name || purposes.length === 0 || hwsw.length === 0 || !ai || !autonomous || countries.length === 0) {
       showError('profile-error', 'profile-error-msg', 'Please fill in all required fields, select at least one purpose, select hardware/software type, and select at least one country.');
-      return;
+      return false;
     }
     hideError('profile-error');
 
@@ -1587,11 +1594,212 @@ function generateReport() {
 
     renderReport(profile, filteredByDomain, userPico, excluded);
     goToPage(2);
+    return true;
   } catch (error) {
     console.error('Error in generateReport:', error);
     showError('profile-error', 'profile-error-msg', 'An error occurred: ' + error.message);
+    return false;
   }
 }
+
+const SAVED_PLAN_FORMAT = 'ASSESS-DHT-EGST-PLAN';
+const SAVED_PLAN_VERSION = 1;
+
+function promptLoadSavedPlan() {
+  document.getElementById('saved-plan-file').click();
+}
+
+function savePlan() {
+  if (!currentProfile) {
+    alert('Generate an evidence report before saving a plan.');
+    return;
+  }
+
+  const currentIds = new Set(currentResults.map(r => r['Recommendation ID']));
+  const savedStatuses = Object.fromEntries(Object.entries(assessmentStatus).filter(([id, status]) =>
+    currentIds.has(id) && ['met', 'query', 'not-met'].includes(status)
+  ));
+  const selectedDomains = Array.from(document.querySelectorAll('input[name="domain"]:checked')).map(cb => cb.value);
+  const selectedExportDomains = Array.from(document.querySelectorAll('.sa-export-domain-cb:checked')).map(cb => cb.value);
+
+  const savedPlan = {
+    format: SAVED_PLAN_FORMAT,
+    version: SAVED_PLAN_VERSION,
+    savedAt: new Date().toISOString(),
+    libraryRecordCount: requirementsData.length,
+    profile: {
+      ...currentProfile,
+      purposes: [...currentProfile.purposes],
+      hwsw: [...currentProfile.hwsw],
+      countries: [...currentProfile.countries],
+    },
+    profileDomainFilter: {
+      enabled: document.getElementById('domain-filter-enable').checked,
+      selectedDomains,
+    },
+    userPico: { ...currentUserPico },
+    picoEdit: currentUserPico?.enabled ? {
+      enabled: document.getElementById('edit-pico-enable').checked,
+      fields: {
+        population: document.getElementById('edit-pico-p').value,
+        intervention: document.getElementById('edit-pico-i').value,
+        comparator: document.getElementById('edit-pico-c').value,
+        outcomes: document.getElementById('edit-pico-o').value,
+      },
+    } : null,
+    assessmentStatus: savedStatuses,
+    planningMode: isPlanningMode,
+    planningFilters: {
+      search: document.getElementById('plan-search-filter').value,
+      domain: document.getElementById('plan-domain-filter').value,
+      dimension: document.getElementById('plan-dimension-filter').value,
+      status: document.getElementById('plan-status-filter').value,
+      commonOnly: document.getElementById('plan-common-only').checked,
+    },
+    exportOptions: {
+      filter: document.querySelector('input[name="export-filter"]:checked')?.value || 'all',
+      selectedDomains: selectedExportDomains,
+    },
+  };
+
+  const filenameBase = currentProfile.name.trim().replace(/[^a-z0-9_-]+/gi, '_') || 'Plan';
+  const filenameDate = new Date().toISOString().slice(0, 10);
+  const blob = new Blob([JSON.stringify(savedPlan, null, 2)], { type: 'application/json' });
+  const downloadUrl = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = downloadUrl;
+  link.download = `ASSESS-DHT_Plan_${filenameBase}_${filenameDate}.json`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(downloadUrl), 1000);
+  alert('Your plan was downloaded as a JSON file. Keep it on your device and load it later to resume.');
+}
+
+function setSavedSelectValue(id, value) {
+  const select = document.getElementById(id);
+  const savedValue = typeof value === 'string' ? value : '';
+  select.value = Array.from(select.options).some(option => option.value === savedValue) ? savedValue : '';
+}
+
+async function loadSavedPlan(file) {
+  const fileInput = document.getElementById('saved-plan-file');
+  if (!file) return;
+
+  try {
+    if (file.size > 5 * 1024 * 1024) throw new Error('The selected plan file is larger than expected.');
+    const savedPlan = JSON.parse(await file.text());
+    if (savedPlan.format !== SAVED_PLAN_FORMAT || savedPlan.version !== SAVED_PLAN_VERSION) {
+      throw new Error('This is not a supported ASSESS DHT saved plan file.');
+    }
+
+    await dataLoadPromise;
+    if (!requirementsData.length) throw new Error('The recommendations library has not loaded. Refresh the page and try again.');
+
+    const profile = savedPlan.profile;
+    if (!profile || typeof profile.name !== 'string' || !profile.name.trim()) throw new Error('The saved plan does not contain a valid technology profile.');
+
+    document.getElementById('f-name').value = profile.name;
+    document.getElementById('f-org').value = typeof profile.org === 'string' ? profile.org : '';
+
+    const restoreCheckboxes = (selector, values) => {
+      const selected = new Set(Array.isArray(values) ? values.filter(value => typeof value === 'string') : []);
+      document.querySelectorAll(selector).forEach(checkbox => { checkbox.checked = selected.has(checkbox.value); });
+      return Array.from(document.querySelectorAll(`${selector}:checked`)).map(checkbox => checkbox.value);
+    };
+
+    const purposes = restoreCheckboxes('input[name="purpose"]', profile.purposes);
+    const hwsw = restoreCheckboxes('input[name="hwsw"]', profile.hwsw);
+    const countries = restoreCheckboxes('#f-countries-grid input[type="checkbox"]', profile.countries);
+    if (!purposes.length || !hwsw.length || !countries.length) {
+      throw new Error('The saved plan is missing a required purpose, technology type, or target country.');
+    }
+
+    const aiSelect = document.getElementById('f-ai');
+    const autonomousSelect = document.getElementById('f-autonomous');
+    if (!Array.from(aiSelect.options).some(option => option.value === profile.ai) ||
+        !Array.from(autonomousSelect.options).some(option => option.value === profile.autonomous)) {
+      throw new Error('The saved plan contains an unsupported AI or autonomy selection.');
+    }
+    aiSelect.value = profile.ai;
+    autonomousSelect.value = profile.autonomous;
+    handleAIChange(profile.ai);
+
+    const profileDomainFilter = savedPlan.profileDomainFilter || {};
+    document.getElementById('domain-filter-enable').checked = profileDomainFilter.enabled === true;
+    document.getElementById('domain-checkboxes').style.display = profileDomainFilter.enabled ? 'block' : 'none';
+    const hasSavedProfileDomains = Array.isArray(profileDomainFilter.selectedDomains);
+    const selectedProfileDomains = new Set(hasSavedProfileDomains ? profileDomainFilter.selectedDomains : []);
+    document.querySelectorAll('input[name="domain"]').forEach(checkbox => {
+      checkbox.checked = hasSavedProfileDomains ? selectedProfileDomains.has(checkbox.value) : true;
+    });
+
+    const userPico = savedPlan.userPico && typeof savedPlan.userPico === 'object' ? savedPlan.userPico : { enabled: false };
+    const picoEnabled = userPico.enabled === true;
+    document.getElementById('pico-enable').checked = picoEnabled;
+    document.getElementById('pico-enable').dispatchEvent(new Event('change'));
+    if (picoEnabled) {
+      document.getElementById('pico-population').value = typeof userPico.population === 'string' ? userPico.population : '';
+      document.getElementById('pico-problem').value = typeof userPico.problem === 'string' ? userPico.problem : '';
+      document.getElementById('pico-comparator').value = typeof userPico.comparator === 'string' ? userPico.comparator : '';
+      document.getElementById('pico-outcomes').value = typeof userPico.outcomes === 'string' ? userPico.outcomes : '';
+    }
+
+    for (const id of Object.keys(assessmentStatus)) delete assessmentStatus[id];
+    const validIds = new Set(requirementsData.map(r => r['Recommendation ID']));
+    const savedStatuses = savedPlan.assessmentStatus && typeof savedPlan.assessmentStatus === 'object' ? savedPlan.assessmentStatus : {};
+    const validStatuses = new Set(['met', 'query', 'not-met']);
+    Object.entries(savedStatuses).forEach(([id, status]) => {
+      if (validIds.has(id) && validStatuses.has(status)) assessmentStatus[id] = status;
+    });
+
+    if (!generateReport()) throw new Error('The saved profile could not generate a report. Check its required selections.');
+    const hasStatuses = Object.keys(assessmentStatus).length > 0;
+    setPlanningMode(savedPlan.planningMode === true || hasStatuses, false);
+    goToSelfAssess();
+
+    const picoEdit = savedPlan.picoEdit;
+    if (currentUserPico?.enabled && picoEdit && typeof picoEdit === 'object') {
+      const fields = picoEdit.fields && typeof picoEdit.fields === 'object' ? picoEdit.fields : {};
+      document.getElementById('edit-pico-p').value = typeof fields.population === 'string' ? fields.population : document.getElementById('edit-pico-p').value;
+      document.getElementById('edit-pico-i').value = typeof fields.intervention === 'string' ? fields.intervention : document.getElementById('edit-pico-i').value;
+      document.getElementById('edit-pico-c').value = typeof fields.comparator === 'string' ? fields.comparator : document.getElementById('edit-pico-c').value;
+      document.getElementById('edit-pico-o').value = typeof fields.outcomes === 'string' ? fields.outcomes : document.getElementById('edit-pico-o').value;
+      const editEnabled = picoEdit.enabled === true;
+      document.getElementById('edit-pico-enable').checked = editEnabled;
+      togglePicoEdit(editEnabled);
+    }
+
+    const planningFilters = savedPlan.planningFilters || {};
+    document.getElementById('plan-search-filter').value = typeof planningFilters.search === 'string' ? planningFilters.search : '';
+    setSavedSelectValue('plan-domain-filter', planningFilters.domain);
+    setSavedSelectValue('plan-dimension-filter', planningFilters.dimension);
+    setSavedSelectValue('plan-status-filter', planningFilters.status);
+    document.getElementById('plan-common-only').checked = planningFilters.commonOnly === true;
+    renderPlanningRecommendations();
+
+    const exportOptions = savedPlan.exportOptions || {};
+    const exportFilter = ['all', 'not-met', 'query', 'met'].includes(exportOptions.filter) ? exportOptions.filter : 'all';
+    document.querySelectorAll('input[name="export-filter"]').forEach(radio => { radio.checked = radio.value === exportFilter; });
+    if (Array.isArray(exportOptions.selectedDomains)) {
+      const selectedExportDomains = new Set(exportOptions.selectedDomains);
+      document.querySelectorAll('.sa-export-domain-cb').forEach(checkbox => { checkbox.checked = selectedExportDomains.has(checkbox.value); });
+    }
+
+    updateProgress();
+    const libraryChanged = savedPlan.libraryRecordCount !== requirementsData.length ||
+      Object.keys(savedStatuses).some(id => !validIds.has(id));
+    alert(libraryChanged
+      ? 'Plan loaded. The recommendations library has changed since this file was saved, so some statuses may no longer match.'
+      : 'Plan loaded. Your evidence ratings and saved filters have been restored.');
+  } catch (error) {
+    console.error('Could not load saved plan:', error);
+    alert(`Could not load this saved plan: ${error.message}`);
+  } finally {
+    fileInput.value = '';
+  }
+}
+
 
 // =============================================
 // PICO GENERATION
@@ -1645,6 +1853,7 @@ function generatePICO(profile, userPico) {
 }
 
 function renderReport(profile, results, userPico, excludedResults = []) {
+  setPlanningMode(false, false);
   currentProfile = profile;
   currentResults = results;
   currentUserPico = userPico;
@@ -2358,8 +2567,9 @@ function getPicoForExport() {
 }
 
 let isPlanningMode = false;
-function togglePlanningMode() {
-  isPlanningMode = !isPlanningMode;
+function setPlanningMode(enabled, showExplanation = true) {
+  const wasEnabled = isPlanningMode;
+  isPlanningMode = enabled;
   const btn = document.getElementById('toggle-planning-btn');
   const heading = document.getElementById('planning-mode-heading');
   const description = document.getElementById('planning-mode-description');
@@ -2371,7 +2581,7 @@ function togglePlanningMode() {
     heading.textContent = 'Evidence Planning Mode is on';
     description.textContent = 'Use the Generated, Uncertain, or Outstanding buttons beside each recommendation to record your evidence status.';
     controls.forEach(c => c.style.display = 'flex');
-    if (!sessionStorage.getItem('assessDhtPlanningModeExplained')) {
+    if (showExplanation && !wasEnabled && !sessionStorage.getItem('assessDhtPlanningModeExplained')) {
       sessionStorage.setItem('assessDhtPlanningModeExplained', 'true');
       openPlanningModal();
     }
@@ -2382,6 +2592,10 @@ function togglePlanningMode() {
     description.textContent = 'Show progress buttons beside recommendations to mark evidence as generated, uncertain, or outstanding.';
     controls.forEach(c => c.style.display = 'none');
   }
+}
+
+function togglePlanningMode() {
+  setPlanningMode(!isPlanningMode);
 }
 
 function setStatus(id, status) {
