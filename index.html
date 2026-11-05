@@ -917,7 +917,7 @@
   
   <!-- ===== PAGE 3: EVIDENCE PLANNING ===== -->
   <div class="page" id="page-3">
-    
+
     <div style="margin-bottom: 16px;">
       <button class="btn btn-ghost" onclick="goToPage(2)" style="padding: 6px 12px; font-size: 12px;">← Back to Report</button>
     </div>
@@ -2515,6 +2515,8 @@ function exportPDF() {
   doc.setTextColor(...WHITE);
   doc.setFontSize(18); doc.setFont('helvetica', 'bold');
   const safeTitle = sanitizeForPDF(currentProfile?.name || 'Evidence Planning Report');
+  const titleWidth = doc.getTextWidth(safeTitle);
+  if (titleWidth > CONTENT_W) doc.setFontSize(Math.max(10, 18 * CONTENT_W / titleWidth));
   doc.text(safeTitle, MARGIN, 18);
   doc.setFontSize(10); doc.setFont('helvetica', 'normal');
   doc.text('ASSESS DHT Evidence Generation Support Tool', MARGIN, 25);
@@ -2529,14 +2531,6 @@ function exportPDF() {
 
   // PROFILE SUMMARY
   if (currentProfile) {
-    doc.setFillColor(...LIGHT);
-    doc.setDrawColor(221, 225, 233);
-    doc.setLineWidth(0.3);
-    doc.roundedRect(MARGIN, y, CONTENT_W, 22, 2, 2, 'FD');
-    
-    doc.setFontSize(8); doc.setFont('helvetica', 'bold'); doc.setTextColor(...NAVY);
-    doc.text('TECHNOLOGY PROFILE', MARGIN + 5, y + 7);
-
     doc.setFontSize(9); doc.setFont('helvetica', 'normal'); doc.setTextColor(...NAVY);
     const tags = [
       `Purpose: ${(currentProfile.purposes || []).join(', ')}`,
@@ -2545,8 +2539,19 @@ function exportPDF() {
       `Autonomous: ${currentProfile.autonomous}`,
     ].join('   |   ');
     const tagLines = doc.splitTextToSize(tags, CONTENT_W - 10);
+    const profileBoxHeight = Math.max(22, 14.5 + tagLines.length * 4.5);
+    checkPage(profileBoxHeight + 6);
+    doc.setFillColor(...LIGHT);
+    doc.setDrawColor(221, 225, 233);
+    doc.setLineWidth(0.3);
+    doc.roundedRect(MARGIN, y, CONTENT_W, profileBoxHeight, 2, 2, 'FD');
+
+    doc.setFontSize(8); doc.setFont('helvetica', 'bold'); doc.setTextColor(...NAVY);
+    doc.text('TECHNOLOGY PROFILE', MARGIN + 5, y + 7);
+
+    doc.setFontSize(9); doc.setFont('helvetica', 'normal'); doc.setTextColor(...NAVY);
     doc.text(tagLines, MARGIN + 5, y + 14);
-    y += 28;
+    y += profileBoxHeight + 6;
   }
 
   // FINAL PICO STATEMENT
@@ -2782,6 +2787,7 @@ function exportResourcesPDF() {
   const makeBlock = (text, fontSize, fontStyle, color, gap = 2, url = null) => {
     if (!String(text || '').trim()) return null;
     doc.setFontSize(fontSize);
+    doc.setFont('helvetica', fontStyle);
     const lines = doc.splitTextToSize(clean(text), CONTENT_W - 12);
     return { lines, fontSize, fontStyle, color, gap, url, lineHeight: fontSize * 0.48 };
   };
@@ -2791,8 +2797,11 @@ function exportResourcesPDF() {
   doc.setFillColor(...TEAL); doc.rect(0, 33, PAGE_W, 3, 'F');
   doc.setTextColor(255, 255, 255); doc.setFontSize(17); doc.setFont('helvetica', 'bold');
   doc.text('External Resources', MARGIN, 15);
+  const resourceProfileName = clean(currentProfile?.name || 'Evidence Planning');
   doc.setFontSize(9); doc.setFont('helvetica', 'normal');
-  doc.text(clean(currentProfile?.name || 'Evidence Planning'), MARGIN, 23);
+  const resourceProfileWidth = doc.getTextWidth(resourceProfileName);
+  if (resourceProfileWidth > CONTENT_W) doc.setFontSize(Math.max(6, 9 * CONTENT_W / resourceProfileWidth));
+  doc.text(resourceProfileName, MARGIN, 23);
   doc.text(`Generated ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}`, MARGIN, 30);
 
   const countryList = (currentProfile?.countries || []).join(', ');
@@ -2800,9 +2809,10 @@ function exportResourcesPDF() {
   doc.text('Applicable resources', MARGIN, y);
   y += 5;
   doc.setFontSize(8); doc.setFont('helvetica', 'normal'); doc.setTextColor(...GREY);
-  doc.text(`Target countries: ${clean(countryList)}`, MARGIN, y);
+  const countryLines = doc.splitTextToSize(`Target countries: ${clean(countryList)}`, CONTENT_W - 40);
+  doc.text(countryLines, MARGIN, y);
   doc.text(`${currentApplicableResources.length} resources`, PAGE_W - MARGIN, y, { align: 'right' });
-  y += 8;
+  y += countryLines.length * 4 + 4;
 
   const sortedResources = currentApplicableResources.slice().sort((a, b) => {
     const countryOrder = (a['Applicability - Country'] || '').localeCompare(b['Applicability - Country'] || '');
