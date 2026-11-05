@@ -899,7 +899,10 @@
         </div>
       </div>
       <div class="domain-body" style="padding: 20px; background: var(--surface2);">
-        <p style="font-size: 13px; color: var(--text2); margin-bottom: 16px;">External resources that may help with your evidence planning.</p>
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <p style="font-size: 13px; color: var(--text2);">External resources that may help with your evidence planning.</p>
+          <button class="btn btn-secondary" onclick="exportResourcesPDF()" style="padding:8px 14px; font-size:12px;">⬇ Download resources PDF</button>
+        </div>
        <div id="report-resources-nav" style="display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--border); padding-bottom: 12px;"></div>
         <div id="report-resources-list" style="display: flex; flex-direction: column; gap: 8px;"></div>
       </div>
@@ -1130,7 +1133,10 @@
         </div>
       </div>
       <div class="domain-body" style="padding: 20px; background: var(--surface2);">
-        <p style="font-size: 13px; color: var(--text2); margin-bottom: 16px;">External resources that may help with your evidence planning.</p>
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <p style="font-size: 13px; color: var(--text2);">External resources that may help with your evidence planning.</p>
+          <button class="btn btn-secondary" onclick="exportResourcesPDF()" style="padding:8px 14px; font-size:12px;">⬇ Download resources PDF</button>
+        </div>
         <div id="plan-resources-nav" style="display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--border); padding-bottom: 12px;"></div>
         <div id="plan-resources-list" style="display: flex; flex-direction: column; gap: 8px;"></div>
       </div>
@@ -1263,6 +1269,7 @@ const COMMONLY_REQUESTED_DIMENSIONS = new Set([
 // Global state for evidence planning
 let currentProfile = null;
 let currentResults = [];
+let currentApplicableResources = [];
 let currentUserPico = null;
 const assessmentStatus = {}; // id -> 'met' | 'query' | 'not-met'
 
@@ -1688,6 +1695,7 @@ function renderReport(profile, results, userPico, excludedResults = []) {
     if (countryVal.toLowerCase().includes('european union')) return true;
     return matchesAny(countryVal, profile.countries);
   });
+  currentApplicableResources = applicableResources;
 
   const reportResContainer = document.getElementById('report-resources-container');
   const planResContainer = document.getElementById('plan-resources-container');
@@ -2707,6 +2715,134 @@ function exportPDF() {
   addFooter();
   const safeFilename = sanitizeForPDF(currentProfile?.name || 'Evidence_Plan').replace(/\s+/g,'_');
   doc.save(`ASSESS-DHT_Evidence_Plan_${safeFilename}.pdf`);
+}
+
+function getValidResourceUrl(value) {
+  if (!value) return null;
+  try {
+    const parsed = new URL(value.trim());
+    return ['http:', 'https:'].includes(parsed.protocol) ? parsed.href : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function exportResourcesPDF() {
+  if (!currentApplicableResources.length) {
+    alert('There are no external resources for the current technology profile.');
+    return;
+  }
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+  const PAGE_W = 210, PAGE_H = 297;
+  const MARGIN = 15, CONTENT_W = PAGE_W - MARGIN * 2;
+  const NAVY = [22, 35, 73], TEAL = [43, 191, 176];
+  const GREY = [100, 112, 130], LIGHT = [247, 248, 250];
+  let y = 44;
+
+  const clean = value => String(value || '')
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/[\u201C\u201D]/g, '"')
+    .replace(/[\u2010-\u2015]/g, '-')
+    .replace(/\u2026/g, '...')
+    .replace(/\u2022/g, '-')
+    .split('')
+    .filter(character => {
+      const code = character.charCodeAt(0);
+      return code === 9 || code === 10 || (code >= 32 && code <= 126);
+    })
+    .join('');
+
+  const addFooter = () => {
+    const pageNum = doc.internal.getCurrentPageInfo().pageNumber;
+    doc.setFontSize(8); doc.setTextColor(...GREY);
+    doc.text('ASSESS DHT Evidence Generation Support Tool', MARGIN, PAGE_H - 8);
+    doc.text(`Page ${pageNum}`, PAGE_W - MARGIN, PAGE_H - 8, { align: 'right' });
+    doc.setDrawColor(...TEAL); doc.setLineWidth(0.5);
+    doc.line(MARGIN, PAGE_H - 12, PAGE_W - MARGIN, PAGE_H - 12);
+  };
+
+  const addPageHeader = () => {
+    doc.setFillColor(...NAVY); doc.rect(0, 0, PAGE_W, 18, 'F');
+    doc.setTextColor(255, 255, 255); doc.setFontSize(9); doc.setFont('helvetica', 'bold');
+    doc.text('External Resources (continued)', MARGIN, 11);
+    doc.setFillColor(...TEAL); doc.rect(0, 18, PAGE_W, 1, 'F');
+    y = 26;
+  };
+
+  const checkPage = needed => {
+    if (y + needed > PAGE_H - MARGIN - 6) {
+      addFooter();
+      doc.addPage();
+      addPageHeader();
+    }
+  };
+
+  const makeBlock = (text, fontSize, fontStyle, color, gap = 2, url = null) => {
+    if (!String(text || '').trim()) return null;
+    doc.setFontSize(fontSize);
+    const lines = doc.splitTextToSize(clean(text), CONTENT_W - 12);
+    return { lines, fontSize, fontStyle, color, gap, url, lineHeight: fontSize * 0.48 };
+  };
+
+  doc.setProperties({ title: 'ASSESS DHT External Resources', subject: 'Applicable external HTA resources' });
+  doc.setFillColor(...NAVY); doc.rect(0, 0, PAGE_W, 36, 'F');
+  doc.setFillColor(...TEAL); doc.rect(0, 33, PAGE_W, 3, 'F');
+  doc.setTextColor(255, 255, 255); doc.setFontSize(17); doc.setFont('helvetica', 'bold');
+  doc.text('External Resources', MARGIN, 15);
+  doc.setFontSize(9); doc.setFont('helvetica', 'normal');
+  doc.text(clean(currentProfile?.name || 'Evidence Planning'), MARGIN, 23);
+  doc.text(`Generated ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}`, MARGIN, 30);
+
+  const countryList = (currentProfile?.countries || []).join(', ');
+  doc.setTextColor(...NAVY); doc.setFontSize(9); doc.setFont('helvetica', 'bold');
+  doc.text('Applicable resources', MARGIN, y);
+  y += 5;
+  doc.setFontSize(8); doc.setFont('helvetica', 'normal'); doc.setTextColor(...GREY);
+  doc.text(`Target countries: ${clean(countryList)}`, MARGIN, y);
+  doc.text(`${currentApplicableResources.length} resources`, PAGE_W - MARGIN, y, { align: 'right' });
+  y += 8;
+
+  const sortedResources = currentApplicableResources.slice().sort((a, b) => {
+    const countryOrder = (a['Applicability - Country'] || '').localeCompare(b['Applicability - Country'] || '');
+    return countryOrder || (a.title || '').localeCompare(b.title || '');
+  });
+
+  sortedResources.forEach(resource => {
+    const url = getValidResourceUrl(resource.url);
+    const blocks = [
+      makeBlock(resource.title || 'Untitled resource', 11, 'bold', NAVY, 1),
+      makeBlock(resource.organisation || '', 8, 'bold', GREY, 2),
+      makeBlock([resource.type, resource.language].filter(Boolean).join(' · '), 8, 'normal', GREY, 2),
+      makeBlock(`Applicability: ${resource['Applicability - Country'] || 'General'}`, 8, 'normal', GREY, 2),
+      makeBlock(resource.notes || '', 9, 'normal', NAVY, 2),
+      makeBlock(url ? `Open resource: ${url}` : `Link unavailable: ${resource.url || 'No URL supplied'}`, 8, 'normal', url ? [25, 102, 168] : GREY, 1, url),
+    ].filter(Boolean);
+    const cardHeight = 10 + blocks.reduce((sum, block) => sum + block.lines.length * block.lineHeight + block.gap, 0);
+    checkPage(cardHeight + 4);
+
+    doc.setFillColor(...LIGHT); doc.setDrawColor(221, 225, 233); doc.setLineWidth(0.25);
+    doc.roundedRect(MARGIN, y, CONTENT_W, cardHeight, 1.5, 1.5, 'FD');
+    doc.setFillColor(...TEAL); doc.rect(MARGIN, y + 0.5, 2.5, cardHeight - 1, 'F');
+    let blockY = y + 6;
+
+    blocks.forEach(block => {
+      doc.setFontSize(block.fontSize); doc.setFont('helvetica', block.fontStyle); doc.setTextColor(...block.color);
+      doc.text(block.lines, MARGIN + 6, blockY);
+      if (block.url) {
+        const linkWidth = Math.min(CONTENT_W - 12, Math.max(...block.lines.map(line => doc.getTextWidth(line))) + 1);
+        doc.link(MARGIN + 6, blockY - 3.5, linkWidth, Math.max(4, block.lines.length * block.lineHeight), { url: block.url });
+      }
+      blockY += block.lines.length * block.lineHeight + block.gap;
+    });
+
+    y += cardHeight + 4;
+  });
+
+  addFooter();
+  const filename = clean(currentProfile?.name || 'Plan').trim().replace(/\s+/g, '_');
+  doc.save(`ASSESS-DHT_External_Resources_${filename}.pdf`);
 }
 
 // =============================================
