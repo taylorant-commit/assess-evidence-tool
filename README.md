@@ -3,7 +3,7 @@
 Interactive tool designed to aid digital health technology developers in preparing their evidence for HTA. The tool provides a list of HTA evidence recommendations based on existing European requirements and provides guidance to developers for demonstrating each recommendation.
 
 ## 🚀 Live Tool
-The tool is currently in pilot testing and some functionality is missing. Please do bear this in mind. 
+The tool and evidence library are iteratively updated; please check current source guidance when preparing a submission.
 **[Launch the Tool →](https://taylorant-commit.github.io/assess-evidence-tool/)**
 
 ## 📊 Features
