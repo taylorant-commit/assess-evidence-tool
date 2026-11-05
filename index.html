@@ -1938,9 +1938,9 @@ function renderReport(profile, results, userPico, excludedResults = []) {
                 
                 <!-- PLANNING BUTTONS (Hidden by default) -->
                 <div class="planning-controls sa-buttons" style="display: none; margin-left: 12px; gap: 4px;" onclick="event.stopPropagation()">
-                  <button class="sa-btn ${status === 'not-met' ? 'active-notmet' : ''}" onclick="setStatus('${id}', 'not-met')" title="Evidence generation outstanding" aria-label="Mark evidence generation outstanding"><span aria-hidden="true">✗</span> Outstanding</button>
-                  <button class="sa-btn ${status === 'query' ? 'active-query' : ''}" onclick="setStatus('${id}', 'query')" title="Uncertain" aria-label="Mark as uncertain"><span aria-hidden="true">?</span> Uncertain</button>
-                  <button class="sa-btn ${status === 'met' ? 'active-met' : ''}" onclick="setStatus('${id}', 'met')" title="Evidence generated" aria-label="Mark evidence generated"><span aria-hidden="true">✓</span> Generated</button>
+                  <button class="sa-btn ${status === 'met' ? 'active-met' : ''}" data-status="met" onclick="setStatus('${id}', 'met')" title="Evidence generated" aria-label="Mark evidence generated"><span aria-hidden="true">✓</span> Generated</button>
+                  <button class="sa-btn ${status === 'query' ? 'active-query' : ''}" data-status="query" onclick="setStatus('${id}', 'query')" title="Uncertain" aria-label="Mark as uncertain"><span aria-hidden="true">?</span> Uncertain</button>
+                  <button class="sa-btn ${status === 'not-met' ? 'active-notmet' : ''}" data-status="not-met" onclick="setStatus('${id}', 'not-met')" title="Evidence generation outstanding" aria-label="Mark evidence generation outstanding"><span aria-hidden="true">✗</span> Outstanding</button>
                 </div>
 
                 ${hasExpandable ? `<div class="req-expand">+</div>` : `<div class="req-expand" style="visibility:hidden">+</div>`}
@@ -2345,10 +2345,11 @@ function setStatus(id, status) {
 
   document.querySelectorAll(`#report-domains [data-recommendation-id="${id}"]`).forEach(row => {
     const buttons = row.querySelectorAll('.sa-btn');
-    buttons.forEach(btn => btn.className = 'sa-btn'); // Reset
-    if (assessmentStatus[id] === 'not-met') buttons[0].classList.add('active-notmet');
-    if (assessmentStatus[id] === 'query')   buttons[1].classList.add('active-query');
-    if (assessmentStatus[id] === 'met')     buttons[2].classList.add('active-met');
+    const statusClasses = { met: 'active-met', query: 'active-query', 'not-met': 'active-notmet' };
+    buttons.forEach(btn => {
+      btn.className = 'sa-btn';
+      if (assessmentStatus[id] === btn.dataset.status) btn.classList.add(statusClasses[btn.dataset.status]);
+    });
   });
   updateProgress();
   if (document.getElementById('plan-recommendation-filters').dataset.populated === 'true') {
