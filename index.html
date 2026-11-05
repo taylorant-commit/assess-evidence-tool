@@ -506,7 +506,7 @@
 
       <h3>How to use it</h3>
       <ul>
-        <li><strong>Step 1: Technology Profile</strong> — Enter the specific characteristics, intended purpose, and functionalities of your DHT.</li>
+        <li><strong>Step 1: Technology Profile</strong> — Enter the specific characteristics, medical purpose, and functionalities of your DHT.</li>
         <li><strong>Step 2: Evidence Report</strong> — The tool filters the framework to generate applicable recommendations grouped by HTA domain. Enable Planning Mode here to mark evidence as generated, uncertain, or outstanding.</li>
         <li><strong>Step 3: Evidence Planning</strong> — Filter recommendations by domain, dimension, or planning status, then save a local copy to resume later or export a focused PDF plan. Marking progress is done on the Evidence Report page.</li>
       </ul>
@@ -593,7 +593,7 @@
         <span>⚠</span> Beta version — for pilot testing only
       </div>
       <h2>Technology Profile</h2>
-      <p>Tell us about your digital health technology. This information determines which evidence recommendations apply to you.</p>
+      <p>Tell us about your digital health technology and its medical purpose. This information determines which evidence recommendations apply to you.</p>
       <div style="display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-top:12px;">
         <button class="btn btn-ghost" onclick="fillTestData()">⚡ Fill with test data</button>
         <button class="btn btn-ghost" onclick="promptLoadSavedPlan()">↻ Load saved plan</button>
@@ -619,7 +619,7 @@
       <div class="card-title">Technology Characteristics</div>
       <div class="form-grid">
         <div class="form-field">
-          <label>Technology Purpose <span class="req">*</span></label>
+          <label>Medical Purpose <span class="req">*</span></label>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px;">
             <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 10px; background: var(--surface2); border-radius: 6px; border: 1px solid var(--border2);">
               <input type="checkbox" name="purpose" value="Diagnostic" style="width: 18px; height: 18px; cursor: pointer; accent-color: var(--teal);">
@@ -1179,7 +1179,7 @@
       <div class="card-title">How to Use the Tool</div>
       <div style="font-size: 14px; color: var(--text); line-height: 1.6;">
         <p style="margin-bottom: 12px;"><strong>Step 1: Technology Profile</strong><br>
-        Begin by defining the core characteristics of your digital health technology (DHT). Accurately selecting your technology's purpose, hardware/software status, and AI capabilities ensures the filtering engine provides the correct recommendations. You can optionally filter by specific HTA domains or generate a PICO framework.</p>
+        Begin by defining the core characteristics and medical purpose of your digital health technology (DHT). Selecting the medical purpose, hardware/software status, and AI capabilities ensures the filtering engine provides the correct recommendations. You can optionally filter by specific HTA domains or generate a PICO framework.</p>
         
         <p style="margin-bottom: 12px;"><strong>Step 2: Evidence Generation Report</strong><br>
         The tool cross-references your profile against our embedded library of European HTA expectations. Review the recommendations grouped by domain and expand each requirement for explanatory notes. Enable Planning Mode here to record your evidence status, then continue to the planning page.</p>
@@ -1560,7 +1560,7 @@ function generateReport() {
     const countries = Array.from(countryCheckboxes).map(cb => cb.value);
 
     if (!name || purposes.length === 0 || hwsw.length === 0 || !ai || !autonomous || countries.length === 0) {
-      showError('profile-error', 'profile-error-msg', 'Please fill in all required fields, select at least one purpose, select hardware/software type, and select at least one country.');
+      showError('profile-error', 'profile-error-msg', 'Please fill in all required fields, select at least one medical purpose, select hardware/software type, and select at least one country.');
       return false;
     }
     hideError('profile-error');
@@ -1712,7 +1712,7 @@ async function loadSavedPlan(file) {
     const hwsw = restoreCheckboxes('input[name="hwsw"]', profile.hwsw);
     const countries = restoreCheckboxes('#f-countries-grid input[type="checkbox"]', profile.countries);
     if (!purposes.length || !hwsw.length || !countries.length) {
-      throw new Error('The saved plan is missing a required purpose, technology type, or target country.');
+      throw new Error('The saved plan is missing a required medical purpose, technology type, or target country.');
     }
 
     const aiSelect = document.getElementById('f-ai');
@@ -1880,7 +1880,7 @@ function renderReport(profile, results, userPico, excludedResults = []) {
   const countryLabels = profile.countries.join(', ');
 
   document.getElementById('report-profile-summary').innerHTML = `
-    <div class="profile-tag"><div class="tag-label">Purpose</div><div class="tag-value">${purposeLabels}</div></div>
+    <div class="profile-tag"><div class="tag-label">Medical purpose</div><div class="tag-value">${purposeLabels}</div></div>
     <div class="profile-tag"><div class="tag-label">Type</div><div class="tag-value">${hwswLabels}</div></div>
     <div class="profile-tag"><div class="tag-label">AI Functionality</div><div class="tag-value">${aiLabel}</div></div>
     <div class="profile-tag"><div class="tag-label">Autonomous Functions</div><div class="tag-value">${autonomousLabel}</div></div>
@@ -2215,7 +2215,7 @@ function getPurposeLabel(req, profile) {
   const labels = [];
   const reqPurposes = (req['Applicability - technology purpose'] || '').split('|').filter(p => p && p !== 'General');
   const matchedPurposes = reqPurposes.filter(p => profile.purposes.includes(p.trim()));
-  if (matchedPurposes.length > 0) labels.push(`For ${matchedPurposes.join(', ')} technologies`);
+  if (matchedPurposes.length > 0) labels.push(`Medical purpose: ${matchedPurposes.join(', ')}`);
   
   const reqHwSw = (req['Applicability - hardware/software'] || '').split('|').filter(h => h && h !== 'General');
   const matchedHwSw = reqHwSw.filter(h => profile.hwsw.includes(h.trim()));
@@ -2812,7 +2812,7 @@ async function exportPDF() {
   if (currentProfile) {
     doc.setFontSize(9); doc.setFont('helvetica', 'normal'); doc.setTextColor(...NAVY);
     const tags = [
-      `Purpose: ${(currentProfile.purposes || []).join(', ')}`,
+      `Medical purpose: ${(currentProfile.purposes || []).join(', ')}`,
       `Type: ${(currentProfile.hwsw || []).join(', ')}`,
       `AI: ${currentProfile.ai}`,
       `Autonomous: ${currentProfile.autonomous}`,
@@ -3225,7 +3225,7 @@ async function exportReportPDF() {
 
     doc.setFontSize(9); doc.setFont('helvetica', 'normal'); doc.setTextColor(...NAVY);
     const tags = [
-      `Purpose: ${(currentProfile.purposes || []).join(', ')}`,
+      `Medical purpose: ${(currentProfile.purposes || []).join(', ')}`,
       `Type: ${(currentProfile.hwsw || []).join(', ')}`,
       `AI: ${currentProfile.ai}`,
       `Autonomous: ${currentProfile.autonomous}`,

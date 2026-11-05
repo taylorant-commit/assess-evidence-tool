@@ -8,7 +8,7 @@ The tool is currently in pilot testing and some functionality is missing. Please
 
 ## 📊 Features
 - **191 evidence recommendations** across 11 HTA domains, based on the EUnetHTA core model.
-- **Smart filtering** by technology characteristics and country-level applicability.
+- **Smart filtering** by medical purpose, technology characteristics, and country-level applicability.
 - **Evidence planning** with commonly requested domain and dimension filters.
 - **Local plan save/resume** using a downloadable JSON file.
 - **PICO framework** generation and optional editing.
