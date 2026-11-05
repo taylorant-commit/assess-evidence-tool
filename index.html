@@ -518,6 +518,7 @@
   </div>
   <div class="header-right">
     <button onclick="goToPage('user-guide')" style="background: transparent; border: none; color: rgba(255,255,255,0.8); font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">User Guide</button>
+    <button onclick="goToPage('acknowledgements')" style="background: transparent; border: none; color: rgba(255,255,255,0.8); font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Acknowledgements</button>
     <button onclick="openIntroModal()" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; width: 26px; height: 26px; border-radius: 50%; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'" title="About this tool">?</button>
     <div class="header-tag">v2.0</div>
   </div>
@@ -1085,6 +1086,32 @@
       <button class="btn btn-primary" onclick="goToPage(1)">← Return to Tool</button>
     </div>
   </div>
+
+  <!-- ===== PAGE: ACKNOWLEDGEMENTS ===== -->
+  <div class="page" id="page-acknowledgements">
+    <div class="section-head">
+      <h2>Acknowledgements & Sources</h2>
+      <p>Project acknowledgements and sources informing the evidence recommendations.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Acknowledgements</div>
+      <div style="font-size: 14px; color: var(--text); line-height: 1.7;">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Sources</div>
+      <div style="font-size: 14px; color: var(--text); line-height: 1.7;">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="goToPage(1)">← Return to Tool</button>
+    </div>
+  </div>
 </main>
 
 <script>
@@ -1220,7 +1247,7 @@ function goToPage(n) {
   
   const stepBar = document.querySelector('.step-bar');
   
-  if (n === 'user-guide') {
+  if (n === 'user-guide' || n === 'acknowledgements') {
     if (stepBar) stepBar.style.display = 'none';
   } else {
     if (stepBar) stepBar.style.display = 'flex';
