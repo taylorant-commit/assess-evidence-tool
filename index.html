@@ -414,6 +414,21 @@
   .sa-export-option input:checked + .sa-export-label { border-color: var(--teal); background: var(--teal-dim); }
   .sa-export-option:hover .sa-export-label { border-color: var(--teal); }
   .common-tag { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 12px; background: var(--teal-dim); border: 1px solid rgba(43,191,176,0.35); color: var(--teal-dark); font-family: 'Outfit', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2px; white-space: nowrap; }
+  .pico-fields-details { border-top: 1px solid var(--border); padding-top: 12px; }
+  .pico-fields-details summary { cursor: pointer; color: var(--navy); font-size: 13px; font-weight: 700; font-family: 'Outfit', sans-serif; margin-bottom: 12px; }
+  .pdf-options { border-top: 1px solid var(--border); margin-top: 16px; padding-top: 12px; }
+  .pdf-options summary { cursor: pointer; color: var(--navy); font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700; }
+  .pdf-options[open] summary { margin-bottom: 14px; }
+  .plan-sticky-action { position: fixed; left: 0; right: 0; bottom: 0; z-index: 1000; display: none; padding: 12px 24px; background: rgba(255,255,255,0.97); border-top: 1px solid var(--border); box-shadow: 0 -4px 18px rgba(22,35,73,0.12); backdrop-filter: blur(8px); }
+  .plan-sticky-inner { width: 100%; max-width: 980px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+  .plan-sticky-copy { display: flex; flex-direction: column; gap: 2px; color: var(--navy); }
+  .plan-sticky-copy strong { font-family: 'Outfit', sans-serif; font-size: 13px; }
+  .plan-sticky-copy span { font-size: 12px; color: var(--text2); }
+  .plan-sticky-buttons { display: flex; align-items: center; gap: 8px; }
+  .domain-progress { font-size: 11px; color: var(--text2); white-space: nowrap; }
+  @media (min-width: 681px) {
+    #plan-recommendation-filters { position: sticky; top: 10px; z-index: 9; }
+  }
 
   .pico-edit-fields { border: 0; padding: 0; margin: 0; min-width: 0; transition: opacity 0.2s ease; }
   .pico-edit-fields:disabled { opacity: 0.55; }
@@ -432,7 +447,7 @@
   .sa-rec-id { font-size: 11px; font-weight: 700; color: var(--text3); font-family: 'Outfit', sans-serif; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
   .sa-rec-text { font-size: 13px; color: var(--text); line-height: 1.6; }
   .sa-buttons { display: flex; gap: 6px; flex-shrink: 0; margin-top: 2px; }
-  .sa-btn { width: 34px; height: 34px; border-radius: 6px; border: 2px solid var(--border2); background: var(--surface2); cursor: pointer; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; transition: all 0.15s; color: var(--text3); }
+  .sa-btn { width: auto; min-width: 100px; height: 32px; padding: 0 8px; border-radius: 6px; border: 2px solid var(--border2); background: var(--surface2); cursor: pointer; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 5px; transition: all 0.15s; color: var(--text3); white-space: nowrap; }
   .sa-btn:hover { border-color: currentColor; }
   .sa-btn.active-met { background: #dcfce7; border-color: #16a34a; color: #16a34a; }
   .sa-btn.active-query { background: #fef9c3; border-color: #d97706; color: #d97706; }
@@ -449,6 +464,19 @@
   }
   #return-to-top:hover { background: var(--teal); transform: translateY(-2px); }
   #return-to-top.visible { display: flex; }
+
+  @media (max-width: 680px) {
+    .req-summary { flex-wrap: wrap; }
+    .req-text { flex-basis: calc(100% - 55px); }
+    .sa-buttons { width: 100%; margin-left: 0 !important; justify-content: flex-end; flex-wrap: wrap; }
+    .sa-btn { min-width: 0; flex: 1; }
+    .plan-sticky-action { padding: 10px 12px; }
+    .plan-sticky-inner { align-items: stretch; }
+    .plan-sticky-copy { display: none; }
+    .plan-sticky-buttons { width: 100%; }
+    .plan-sticky-buttons .btn { flex: 1; justify-content: center; padding: 10px; }
+    .domain-progress { white-space: normal; text-align: right; }
+  }
 </style>
 </head>
 <body>
@@ -930,32 +958,35 @@
         </div>
       </div>
 
-      <fieldset class="pico-edit-fields" id="edit-pico-fields" disabled>
-        <div class="form-grid">
-          <div class="form-field full">
-            <label for="edit-pico-p">Population</label>
-            <input type="text" id="edit-pico-p">
+      <details class="pico-fields-details" id="edit-pico-details">
+        <summary>View generated PICO statement</summary>
+        <fieldset class="pico-edit-fields" id="edit-pico-fields" disabled>
+          <div class="form-grid">
+            <div class="form-field full">
+              <label for="edit-pico-p">Population</label>
+              <input type="text" id="edit-pico-p">
+            </div>
+            <div class="form-field full">
+              <label for="edit-pico-i">Intervention</label>
+              <input type="text" id="edit-pico-i">
+            </div>
+            <div class="form-field full">
+              <label for="edit-pico-c">Comparator</label>
+              <input type="text" id="edit-pico-c">
+            </div>
+            <div class="form-field full">
+              <label for="edit-pico-o">Outcomes</label>
+              <textarea id="edit-pico-o" rows="3"></textarea>
+            </div>
           </div>
-          <div class="form-field full">
-            <label for="edit-pico-i">Intervention</label>
-            <input type="text" id="edit-pico-i">
-          </div>
-          <div class="form-field full">
-            <label for="edit-pico-c">Comparator</label>
-            <input type="text" id="edit-pico-c">
-          </div>
-          <div class="form-field full">
-            <label for="edit-pico-o">Outcomes</label>
-            <textarea id="edit-pico-o" rows="3"></textarea>
-          </div>
-        </div>
-      </fieldset>
+        </fieldset>
+      </details>
     </div>
 
     <!-- Recommendation filters and planning list -->
     <div class="card" id="plan-recommendation-filters">
       <div class="card-title">Filter Planning Recommendations</div>
-      <div class="form-grid">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
         <div class="form-field">
           <label for="plan-domain-filter">HTA domain</label>
           <select id="plan-domain-filter" onchange="renderPlanningRecommendations()">
@@ -968,6 +999,16 @@
             <option value="">All dimensions</option>
           </select>
         </div>
+        <div class="form-field">
+          <label for="plan-status-filter">Planning status</label>
+          <select id="plan-status-filter" onchange="renderPlanningRecommendations()">
+            <option value="">All statuses</option>
+            <option value="unassessed">Unassessed</option>
+            <option value="met">Evidence generated</option>
+            <option value="query">Uncertain</option>
+            <option value="not-met">Generation outstanding</option>
+          </select>
+        </div>
       </div>
       <label style="display: flex; align-items: center; gap: 9px; margin-top: 16px; cursor: pointer; text-transform: none; letter-spacing: 0; font-size: 13px;">
         <input type="checkbox" id="plan-common-only" onchange="renderPlanningRecommendations()" style="width: 17px; height: 17px; accent-color: var(--teal); cursor: pointer;">
@@ -975,15 +1016,40 @@
         <span class="common-tag">Commonly requested</span>
       </label>
       <div style="font-size: 12px; color: var(--text2); margin-top: 8px;">Teal labels identify domains and dimensions commonly requested for evidence planning.</div>
+      <div style="display:flex; justify-content:flex-end; margin-top:12px;">
+        <button class="btn btn-ghost" onclick="resetPlanningFilters()" style="padding:6px 12px; font-size:12px;">Clear filters</button>
+      </div>
     </div>
     <div id="plan-recommendation-count" style="font-size: 12px; color: var(--text2); margin: 0 2px 10px;"></div>
     <div class="alert info" id="plan-no-results"><span>ℹ</span> No recommendations match these filters.</div>
     <div id="sa-recommendations"></div>
 
+    <!-- Recommendations excluded by country-level Not relevant values -->
+    <div class="domain-section" id="filtered-out-container" style="display: none; margin-bottom: 24px;">
+      <div class="domain-header" onclick="toggleDomain(this)" style="background: var(--navy);">
+        <div class="domain-left">
+          <div class="domain-name" style="font-size: 16px; color: white;">Filtered out based on your selections</div>
+          <div class="domain-count" style="font-size: 11px; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); border: none;"><span id="filtered-out-count">0</span> recommendations</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span class="domain-toggle-label" style="color: rgba(255,255,255,0.7);">Show</span>
+          <div class="domain-chevron" style="color: white;">⌃</div>
+        </div>
+      </div>
+      <div class="domain-body" style="padding: 16px 20px; background: var(--surface2);">
+        <p style="font-size: 13px; color: var(--text2); margin-bottom: 12px;">These recommendations were excluded because the selected country or countries are listed as not relevant in the evidence library.</p>
+        <div id="filtered-out-list" style="display: flex; flex-direction: column; gap: 8px;"></div>
+      </div>
+    </div>
+
     <!-- Export panel -->
-    <div class="card" style="background: var(--surface2);">
+    <div class="card" id="export-panel" style="background: var(--surface2);">
       <div class="card-title">Export PDF Plan</div>
-      <p style="font-size: 13px; color: var(--text2); margin-bottom: 14px;">Choose which recommendations to include in your exported PDF.</p>
+      <p style="font-size: 13px; color: var(--text2); margin-bottom: 14px;">Quick export includes all recommendations. Open the options to filter by status or domain.</p>
+
+      <details class="pdf-options" id="export-options-details">
+        <summary>Customize PDF contents</summary>
+        <div class="pdf-options-body">
       
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;">
         <label class="sa-export-option" id="export-opt-all">
@@ -1021,7 +1087,7 @@
           <div class="sa-export-label">
             <span style="font-size: 18px;">☑</span>
             <div>
-              <div style="font-weight: 600; font-size: 14px;">All Generated</div>
+              <div style="font-weight: 600; font-size: 14px;">Generated only</div>
               <div style="font-size: 12px; color: var(--text2);">Recommendations marked 'generated' </div>
             </div>
           </div>
@@ -1043,8 +1109,10 @@
       </div>
 
       <button class="btn btn-primary" onclick="exportPDF()" style="width: 100%;">
-        ⬇ Export PDF
+        ⬇ Export using selected options
       </button>
+        </div>
+      </details>
     </div>
 
     <!-- Rendered External Resources (Page 3) -->
@@ -1066,27 +1134,21 @@
       </div>
     </div>
 
-    <!-- Recommendations excluded by country-level Not relevant values -->
-    <div class="domain-section" id="filtered-out-container" style="display: none; margin-bottom: 24px;">
-      <div class="domain-header" onclick="toggleDomain(this)" style="background: var(--navy);">
-        <div class="domain-left">
-          <div class="domain-name" style="font-size: 16px; color: white;">Filtered out based on your selections</div>
-          <div class="domain-count" style="font-size: 11px; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); border: none;"><span id="filtered-out-count">0</span> recommendations</div>
-        </div>
-        <div style="display:flex; align-items:center; gap:8px;">
-          <span class="domain-toggle-label" style="color: rgba(255,255,255,0.7);">Show</span>
-          <div class="domain-chevron" style="color: white;">⌃</div>
-        </div>
-      </div>
-      <div class="domain-body" style="padding: 16px 20px; background: var(--surface2);">
-        <p style="font-size: 13px; color: var(--text2); margin-bottom: 12px;">These recommendations were excluded because the selected country or countries are listed as not relevant in the evidence library.</p>
-        <div id="filtered-out-list" style="display: flex; flex-direction: column; gap: 8px;"></div>
-      </div>
-    </div>
-
     <div class="btn-row" style="margin-top: 40px;">
       <button class="btn btn-ghost" onclick="goToPage(2)">← Back to Report</button>
       <button class="btn btn-secondary" onclick="location.reload()">Start New Report</button>
+    </div>
+    <div class="plan-sticky-action" id="plan-sticky-action">
+      <div class="plan-sticky-inner">
+        <div class="plan-sticky-copy">
+          <strong>Evidence plan</strong>
+          <span id="plan-sticky-meta">0 of 0 recommendations assessed</span>
+        </div>
+        <div class="plan-sticky-buttons">
+          <button class="btn btn-ghost" onclick="openExportOptions()">Export options</button>
+          <button class="btn btn-primary" onclick="exportPDF()">⬇ Export PDF</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1318,6 +1380,10 @@ function goToPage(n) {
   document.getElementById('page-' + n).classList.add('active');
   
   const stepBar = document.querySelector('.step-bar');
+  const planStickyAction = document.getElementById('plan-sticky-action');
+  const returnToTop = document.getElementById('return-to-top');
+  if (planStickyAction) planStickyAction.style.display = n === 3 ? 'block' : 'none';
+  if (returnToTop) returnToTop.style.bottom = n === 3 ? '82px' : '28px';
   
   if (n === 'user-guide' || n === 'acknowledgements') {
     if (stepBar) stepBar.style.display = 'none';
@@ -1571,12 +1637,14 @@ function renderReport(profile, results, userPico, excludedResults = []) {
   editPicoCard.dataset.initialized = 'false';
   document.getElementById('edit-pico-enable').checked = false;
   document.getElementById('edit-pico-fields').disabled = true;
+  document.getElementById('edit-pico-details').open = false;
   togglePicoEdit(false);
   const planningFilters = document.getElementById('plan-recommendation-filters');
   planningFilters.dataset.populated = 'false';
   document.getElementById('plan-common-only').checked = false;
   document.getElementById('plan-domain-filter').value = '';
   document.getElementById('plan-dimension-filter').value = '';
+  document.getElementById('plan-status-filter').value = '';
 
   document.getElementById('report-tech-name').textContent = profile.name || 'Evidence Generation Report';
   document.getElementById('report-subtitle').innerHTML = `Generated ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}${profile.org ? ' · ' + profile.org : ''}`;
@@ -1870,9 +1938,9 @@ function renderReport(profile, results, userPico, excludedResults = []) {
                 
                 <!-- PLANNING BUTTONS (Hidden by default) -->
                 <div class="planning-controls sa-buttons" style="display: none; margin-left: 12px; gap: 4px;" onclick="event.stopPropagation()">
-                  <button class="sa-btn ${status === 'not-met' ? 'active-notmet' : ''}" onclick="setStatus('${id}', 'not-met')" title="Evidence generation outstanding">✗</button>
-                  <button class="sa-btn ${status === 'query' ? 'active-query' : ''}" onclick="setStatus('${id}', 'query')" title="Uncertain">?</button>
-                  <button class="sa-btn ${status === 'met' ? 'active-met' : ''}" onclick="setStatus('${id}', 'met')" title="Evidence generated">✓</button>
+                  <button class="sa-btn ${status === 'not-met' ? 'active-notmet' : ''}" onclick="setStatus('${id}', 'not-met')" title="Evidence generation outstanding" aria-label="Mark evidence generation outstanding"><span aria-hidden="true">✗</span> Outstanding</button>
+                  <button class="sa-btn ${status === 'query' ? 'active-query' : ''}" onclick="setStatus('${id}', 'query')" title="Uncertain" aria-label="Mark as uncertain"><span aria-hidden="true">?</span> Uncertain</button>
+                  <button class="sa-btn ${status === 'met' ? 'active-met' : ''}" onclick="setStatus('${id}', 'met')" title="Evidence generated" aria-label="Mark evidence generated"><span aria-hidden="true">✓</span> Generated</button>
                 </div>
 
                 ${hasExpandable ? `<div class="req-expand">+</div>` : `<div class="req-expand" style="visibility:hidden">+</div>`}
@@ -2087,14 +2155,17 @@ function populatePlanningFilters() {
 function renderPlanningRecommendations() {
   const domainFilter = document.getElementById('plan-domain-filter').value;
   const dimensionFilter = document.getElementById('plan-dimension-filter').value;
+  const statusFilter = document.getElementById('plan-status-filter').value;
   const commonOnly = document.getElementById('plan-common-only').checked;
   const recommendations = currentResults.filter(r => {
     const domain = (r['HTA domain'] || 'Uncategorised').trim();
     const dimension = (r['HTA dimension'] || '').trim();
+    const status = assessmentStatus[r['Recommendation ID']] || '';
     const matchesSelectedDomain = !domainFilter || domain === domainFilter;
     const matchesSelectedDimension = !dimensionFilter || dimension === dimensionFilter;
+    const matchesSelectedStatus = !statusFilter || (statusFilter === 'unassessed' ? !status : status === statusFilter);
     const isCommon = isCommonlyRequestedRecommendation(r);
-    return matchesSelectedDomain && matchesSelectedDimension && (!commonOnly || isCommon);
+    return matchesSelectedDomain && matchesSelectedDimension && matchesSelectedStatus && (!commonOnly || isCommon);
   });
 
   document.getElementById('plan-recommendation-count').textContent = `${recommendations.length} of ${currentResults.length} recommendations shown`;
@@ -2107,8 +2178,18 @@ function renderPlanningRecommendations() {
     byDomain[domain].push(r);
   });
 
-  document.getElementById('sa-recommendations').innerHTML = Object.entries(byDomain).map(([domain, recs], domainIndex) => {
+  const domainEntries = Object.entries(byDomain).sort(([domainA, recsA], [domainB, recsB]) => {
+    const aHasCommon = isCommonDomain(domainA) || recsA.some(r => isCommonDimension(r['HTA dimension']));
+    const bHasCommon = isCommonDomain(domainB) || recsB.some(r => isCommonDimension(r['HTA dimension']));
+    return Number(bHasCommon) - Number(aHasCommon) || domainA.localeCompare(domainB);
+  });
+
+  document.getElementById('sa-recommendations').innerHTML = domainEntries.map(([domain, recs], domainIndex) => {
     const domainCommon = isCommonDomain(domain);
+    const generatedCount = recs.filter(r => assessmentStatus[r['Recommendation ID']] === 'met').length;
+    const uncertainCount = recs.filter(r => assessmentStatus[r['Recommendation ID']] === 'query').length;
+    const outstandingCount = recs.filter(r => assessmentStatus[r['Recommendation ID']] === 'not-met').length;
+    const assessedCount = generatedCount + uncertainCount + outstandingCount;
     const byDimension = {};
     recs.forEach(r => {
       const dimension = (r['HTA dimension'] || '').trim();
@@ -2116,7 +2197,11 @@ function renderPlanningRecommendations() {
       byDimension[dimension].push(r);
     });
 
-    const dimensionContent = Object.entries(byDimension).map(([dimension, dimensionRecs]) => {
+    const dimensionEntries = Object.entries(byDimension).sort(([dimensionA], [dimensionB]) => {
+      return Number(isCommonDimension(dimensionB)) - Number(isCommonDimension(dimensionA)) || dimensionA.localeCompare(dimensionB);
+    });
+
+    const dimensionContent = dimensionEntries.map(([dimension, dimensionRecs]) => {
       const dimensionCommon = isCommonDimension(dimension);
       const rows = dimensionRecs.map((r, recommendationIndex) => {
         const id = r['Recommendation ID'] || (domain.substring(0, 2).toUpperCase() + '-' + String(recommendationIndex + 1).padStart(3, '0'));
@@ -2130,9 +2215,9 @@ function renderPlanningRecommendations() {
               <div class="req-index">${id}</div>
               <div class="req-text">${r['Overarching Evidence Recommendation'] || ''}</div>
               <div class="sa-buttons plan-status-controls" style="margin-left: 12px; gap: 4px;" onclick="event.stopPropagation()">
-                <button class="sa-btn ${status === 'not-met' ? 'active-notmet' : ''}" onclick="setStatus('${id}', 'not-met')" title="Evidence generation outstanding">✗</button>
-                <button class="sa-btn ${status === 'query' ? 'active-query' : ''}" onclick="setStatus('${id}', 'query')" title="Uncertain">?</button>
-                <button class="sa-btn ${status === 'met' ? 'active-met' : ''}" onclick="setStatus('${id}', 'met')" title="Evidence generated">✓</button>
+                <button class="sa-btn ${status === 'not-met' ? 'active-notmet' : ''}" onclick="setStatus('${id}', 'not-met')" title="Evidence generation outstanding" aria-label="Mark evidence generation outstanding"><span aria-hidden="true">✗</span> Outstanding</button>
+                <button class="sa-btn ${status === 'query' ? 'active-query' : ''}" onclick="setStatus('${id}', 'query')" title="Uncertain" aria-label="Mark as uncertain"><span aria-hidden="true">?</span> Uncertain</button>
+                <button class="sa-btn ${status === 'met' ? 'active-met' : ''}" onclick="setStatus('${id}', 'met')" title="Evidence generated" aria-label="Mark evidence generated"><span aria-hidden="true">✓</span> Generated</button>
               </div>
               ${hasExpandable ? '<div class="req-expand">+</div>' : '<div class="req-expand" style="visibility:hidden">+</div>'}
             </div>
@@ -2153,11 +2238,11 @@ function renderPlanningRecommendations() {
             <div class="domain-dot ${domainColorMap[domain] || DOMAIN_COLORS[domainIndex % DOMAIN_COLORS.length]}"></div>
             <div class="domain-name">${domain}</div>
             ${domainCommon ? '<span class="common-tag">Commonly requested</span>' : ''}
-            <div class="domain-count">${recs.length} recommendation${recs.length !== 1 ? 's' : ''}</div>
           </div>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span class="domain-toggle-label">Show</span>
-            <div class="domain-chevron">⌃</div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+            <div class="domain-count">${recs.length} recommendation${recs.length !== 1 ? 's' : ''}</div>
+            <div class="domain-progress">${assessedCount}/${recs.length} assessed · ${outstandingCount} outstanding</div>
+            <div style="display:flex; align-items:center; gap:8px;"><span class="domain-toggle-label">Show</span><div class="domain-chevron">⌃</div></div>
           </div>
         </div>
         <div class="domain-body">${dimensionContent}</div>
@@ -2186,6 +2271,7 @@ function renderSelfAssessment() {
       picoCard.dataset.initialized = 'true';
       document.getElementById('edit-pico-enable').checked = false;
       document.getElementById('edit-pico-fields').disabled = true;
+      document.getElementById('edit-pico-details').open = false;
       togglePicoEdit(false);
     }
   } else {
@@ -2195,12 +2281,28 @@ function renderSelfAssessment() {
 
 function togglePicoEdit(enabled) {
   const fields = document.getElementById('edit-pico-fields');
+  const details = document.getElementById('edit-pico-details');
   const hint = document.getElementById('pico-edit-hint');
-  if (!fields || !hint) return;
+  if (!fields || !details || !hint) return;
   fields.disabled = !enabled;
+  details.open = enabled;
+  details.querySelector('summary').textContent = enabled ? 'Edit PICO statement' : 'View generated PICO statement';
   hint.textContent = enabled
     ? 'Edit any fields you want to refine. Your changes will be included in the exported plan.'
     : 'The generated PICO is read-only. Select this box to make changes; your edits will be included in the exported plan.';
+}
+
+function resetPlanningFilters() {
+  document.getElementById('plan-domain-filter').value = '';
+  document.getElementById('plan-dimension-filter').value = '';
+  document.getElementById('plan-status-filter').value = '';
+  document.getElementById('plan-common-only').checked = false;
+  renderPlanningRecommendations();
+}
+
+function openExportOptions() {
+  document.getElementById('export-options-details').open = true;
+  document.getElementById('export-panel').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function getPicoForExport() {
@@ -2254,6 +2356,9 @@ function setStatus(id, status) {
     if (assessmentStatus[id] === 'met')     buttons[2].classList.add('active-met');
   });
   updateProgress();
+  if (document.getElementById('plan-recommendation-filters').dataset.populated === 'true') {
+    renderPlanningRecommendations();
+  }
 }
 
 function clearDomainSelections(domainName) {
@@ -2292,6 +2397,8 @@ function updateProgress() {
   document.querySelector('#sa-stat-unassessed .sa-stat-num').textContent = unassessed;
   document.getElementById('sa-progress-label').textContent = `${assessed} of ${total} assessed`;
   document.getElementById('sa-progress-bar').style.width = total > 0 ? `${(assessed/total)*100}%` : '0%';
+  const stickyMeta = document.getElementById('plan-sticky-meta');
+  if (stickyMeta) stickyMeta.textContent = `${assessed} of ${total} assessed · ${notMet} outstanding`;
 }
 
 function updateExportOption() {
