@@ -1040,6 +1040,24 @@
       </div>
     </div>
 
+    <!-- Recommendations excluded by country-level Not relevant values -->
+    <div class="domain-section" id="filtered-out-container" style="display: none; margin-bottom: 24px;">
+      <div class="domain-header" onclick="toggleDomain(this)" style="background: var(--navy);">
+        <div class="domain-left">
+          <div class="domain-name" style="font-size: 16px; color: white;">Filtered out based on your selections</div>
+          <div class="domain-count" style="font-size: 11px; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); border: none;"><span id="filtered-out-count">0</span> recommendations</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span class="domain-toggle-label" style="color: rgba(255,255,255,0.7);">Show</span>
+          <div class="domain-chevron" style="color: white;">⌃</div>
+        </div>
+      </div>
+      <div class="domain-body" style="padding: 16px 20px; background: var(--surface2);">
+        <p style="font-size: 13px; color: var(--text2); margin-bottom: 12px;">These recommendations were excluded because the selected country or countries are listed as not relevant in the evidence library.</p>
+        <div id="filtered-out-list" style="display: flex; flex-direction: column; gap: 8px;"></div>
+      </div>
+    </div>
+
     <div class="btn-row" style="margin-top: 40px;">
       <button class="btn btn-ghost" onclick="goToPage(2)">← Back to Report</button>
       <button class="btn btn-secondary" onclick="location.reload()">Start New Report</button>
@@ -1306,12 +1324,51 @@ function matchesAny(cellValue, userValues) {
 
 function filterRequirements(profile) {
   return requirementsData.filter(req => {
-    const purposeMatch = matchesAny(req['Applicability - technology purpose'], profile.purposes);
-    const hwswMatch = matchesAny(req['Applicability - hardware/software'], profile.hwsw);
-    const aiMatch     = matches(req['Applicability - AI'], profile.ai);
-    const autonomousMatch = matches(req['Applicability - autonomous functions'], profile.autonomous);
-    const countryMatch = matchesAny(req['Applicability - Country'], profile.countries);
-    return purposeMatch && hwswMatch && aiMatch && autonomousMatch && countryMatch;
+    if (!matchesNonCountryProfile(req, profile)) return false;
+    const countryCandidates = getRequirementCountryCandidates(req, profile);
+    const notRelevant = new Set(splitApplicabilityValues(req['Not relevant']).map(value => value.toLowerCase()));
+    return countryCandidates.some(country => !notRelevant.has(country.toLowerCase()));
+  });
+}
+
+function splitApplicabilityValues(value) {
+  return (value || '').split('|').map(part => part.trim()).filter(Boolean);
+}
+
+function getSelectedCountryRegions(countries) {
+  return [...new Set(countries.flatMap(country => {
+    if (country.toLowerCase() === 'united kingdom') return ['England', 'Scotland', 'Wales'];
+    return [country];
+  }))];
+}
+
+function getRequirementCountryCandidates(req, profile) {
+  const selectedRegions = getSelectedCountryRegions(profile.countries);
+  const applicableCountries = splitApplicabilityValues(req['Applicability - Country']);
+  if (applicableCountries.length === 0 || applicableCountries.some(country => country.toLowerCase() === GENERAL)) {
+    return selectedRegions;
+  }
+  const applicableSet = new Set(applicableCountries.map(country => country.toLowerCase()));
+  return selectedRegions.filter(country => applicableSet.has(country.toLowerCase()));
+}
+
+function matchesNonCountryProfile(req, profile) {
+  return matchesAny(req['Applicability - technology purpose'], profile.purposes) &&
+    matchesAny(req['Applicability - hardware/software'], profile.hwsw) &&
+    matches(req['Applicability - AI'], profile.ai) &&
+    matches(req['Applicability - autonomous functions'], profile.autonomous);
+}
+
+function filterExcludedRequirements(profile) {
+  return requirementsData.flatMap(req => {
+    if (!matchesNonCountryProfile(req, profile)) return [];
+    const countryCandidates = getRequirementCountryCandidates(req, profile);
+    if (countryCandidates.length === 0) return [];
+    const notRelevant = new Set(splitApplicabilityValues(req['Not relevant']).map(value => value.toLowerCase()));
+    const excludedCountries = countryCandidates.filter(country => notRelevant.has(country.toLowerCase()));
+    return excludedCountries.length === countryCandidates.length
+      ? [{ recommendation: req, countries: excludedCountries }]
+      : [];
   });
 }
 
@@ -1392,6 +1449,7 @@ function generateReport() {
     } : { enabled: false };
     
     const applicable = filterRequirements(profile);
+    let excluded = filterExcludedRequirements(profile);
     
     let filteredByDomain = applicable;
     const domainFilterEnabled = document.getElementById('domain-filter-enable').checked;
@@ -1402,10 +1460,11 @@ function generateReport() {
       
       if (selectedDomains.length > 0) {
         filteredByDomain = applicable.filter(r => selectedDomains.includes(r['HTA domain']));
+        excluded = excluded.filter(item => selectedDomains.includes(item.recommendation['HTA domain']));
       }
     }
 
-    renderReport(profile, filteredByDomain, userPico);
+    renderReport(profile, filteredByDomain, userPico, excluded);
     goToPage(2);
   } catch (error) {
     console.error('Error in generateReport:', error);
@@ -1464,7 +1523,7 @@ function generatePICO(profile, userPico) {
   return null;
 }
 
-function renderReport(profile, results, userPico) {
+function renderReport(profile, results, userPico, excludedResults = []) {
   currentProfile = profile;
   currentResults = results;
   currentUserPico = userPico;
@@ -1490,6 +1549,23 @@ function renderReport(profile, results, userPico) {
     <div class="profile-tag"><div class="tag-label">Autonomous Functions</div><div class="tag-value">${autonomousLabel}</div></div>
     <div class="profile-tag"><div class="tag-label">Countries</div><div class="tag-value">${countryLabels}</div></div>
   `;
+
+  const filteredOutContainer = document.getElementById('filtered-out-container');
+  const filteredOutList = document.getElementById('filtered-out-list');
+  filteredOutContainer.style.display = excludedResults.length > 0 ? 'block' : 'none';
+  document.getElementById('filtered-out-count').textContent = excludedResults.length;
+  filteredOutList.innerHTML = excludedResults.map(({ recommendation, countries }) => `
+    <div style="padding: 12px 14px; background: var(--surface); border: 1px solid var(--border2); border-left: 4px solid var(--teal); border-radius: 6px;">
+      <div style="display: flex; align-items: flex-start; gap: 10px;">
+        <span class="req-index">${recommendation['Recommendation ID'] || ''}</span>
+        <div style="flex: 1;">
+          <div style="font-size: 13px; color: var(--text); line-height: 1.5;">${recommendation['Overarching Evidence Recommendation'] || ''}</div>
+          <div style="font-size: 11px; color: var(--text3); margin-top: 5px;">${recommendation['HTA domain'] || 'Uncategorised'}${recommendation['HTA dimension'] ? ' · ' + recommendation['HTA dimension'] : ''}</div>
+          <div style="font-size: 12px; color: var(--teal-dark); margin-top: 5px;">Not relevant to: ${countries.join(', ')}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
 
 // --- Render External Resources (For both Pages 2 and 3) ---
   const applicableResources = resourcesData.filter(res => {
