@@ -3,61 +3,40 @@
         "Recommendation ID": "SCO-001",
         "HTA domain": "PICO",
         "HTA dimension": "Population",
-        "Overarching Evidence Recommendation": "The population should be a defined patient group that reflect the intended population in the relevant healthcare setting",
-        "Explanatory notes": "Define the target population including clinical parameters, subgroups, eligibility and contraindications. Patient groups should be in line with the DHT\u2019s intended purpose and regulatory approval. Eligibility criteria for using the DHT and inclusion in the study should be reported.",
+        "Overarching Evidence Recommendation": "The population should be a defined patient group that reflects the intended population in the relevant healthcare setting",
+        "Explanatory notes": "Define the target population including clinical parameters, subgroups, eligibility and contraindications. Patient groups should be in line with the DHT\u2019s intended purpose and regulatory approval. Eligibility criteria for using the DHT and inclusion in the study should be reported.\nThe total number of subgroups should be limited and justified a priori. Any anticipated subgroup differences in effectiveness should be hypothesised a priori using prior evidence where possible.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-002",
         "HTA domain": "PICO",
         "HTA dimension": "Population",
         "Overarching Evidence Recommendation": "Provide detailed information of baseline patient characteristics and demographics",
-        "Explanatory notes": "Relevant patient information may include age, gender, ethnicity, sex, socioeconomic status, disability or cognitive impairment, education level, diagnosis and symptom severity, medicines and comorbidities. Describe also other important covariates chosen with input from clinical specialists.",
+        "Explanatory notes": "Relevant patient information may include age, gender, ethnicity, sex, socioeconomic status, disability or cognitive impairment, education level, diagnosis and symptom severity, medicines and comorbidities. Describe other important covariates chosen with input from clinical specialists.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-003",
         "HTA domain": "PICO",
         "HTA dimension": "Population",
         "Overarching Evidence Recommendation": "People in the comparison (control) group should be similar to those in the intervention (DHT) group",
-        "Explanatory notes": "Both groups should have similar patient populations (including demographics and digital literacy levels) from similar healthcare services.",
+        "Explanatory notes": "Both groups should have similar patient populations (including demographics and digital literacy levels).",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
-    },
-    {
-        "Recommendation ID": "SCO-004",
-        "HTA domain": "PICO",
-        "HTA dimension": "Population",
-        "Overarching Evidence Recommendation": "Studies should reflect the clinical setting where the DHT is intended to be used",
-        "Explanatory notes": "Settings in the evidence should reflect standard care in the relevant healthcare service. Provide detailed descriptions of the services and settings in which the study is done, including referral and care pathways. This is especially important if people can access the intervention through different referral pathways (e.g. self-referral, healthcare professional referral etc.). Ideally, studies should be run across multiple centres that represent the variety of the referral and care pathways in the healthcare service.",
-        "Applicability - technology purpose": "General",
-        "Applicability - AI": "General",
-        "Applicability - hardware/software": "General",
-        "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
-    },
-    {
-        "Recommendation ID": "SCO-004-A",
-        "HTA domain": "PICO",
-        "HTA dimension": "Population",
-        "Overarching Evidence Recommendation": "Studies should reflect the clinical setting where the DHT is intended to be used",
-        "Explanatory notes": "Studies should be conducted in Germany to ensure that results are applicable and meaningful to the care context. In some cases, studies outside of Germany may be considered if evidence is provided showing sufficient comparability of care.",
-        "Applicability - technology purpose": "General",
-        "Applicability - AI": "General",
-        "Applicability - hardware/software": "General",
-        "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Germany"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-005",
@@ -69,91 +48,125 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-005-A",
         "HTA domain": "PICO",
         "HTA dimension": "Intervention",
         "Overarching Evidence Recommendation": "The intervention should be on the DHT in question and any associated accessories",
-        "Explanatory notes": "If the DHT has been updated using a different or larger dataset or any other model updates (such as changing decision thresholds), then new evidence is needed on the updated version of the technology.",
+        "Explanatory notes": "If the DHT has been updated using a different or larger dataset or any other material updates to the model (such as changing decision thresholds), then new evidence is needed on the updated version of the technology.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "Yes",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-006",
         "HTA domain": "PICO",
         "HTA dimension": "Intervention",
         "Overarching Evidence Recommendation": "Delivery of the intervention in clinical studies should reflect how it is intended to be used in real-world clinical settings",
-        "Explanatory notes": "This includes the conditions of the clinical setting and the level of healthcare professional support provided. DHTs intended to be used as unguided interventions (i.e. without healthcare professional support) must have evidence showing this intended use. Evidence on guided use of the technology is not directly transferable.",
+        "Explanatory notes": "Settings in the evidence should reflect clinical practice in the relevant healthcare service. Provide detailed descriptions of the services and settings in which the study is done, including referral and care pathways and the level of healthcare professional support provided. This is especially important if people can access the intervention through different referral pathways (e.g. self-referral, healthcare professional referral etc.).\nIdeally, studies should be run across multiple centres that represent the variety of the referral and care pathways in the healthcare service.\nDHTs intended to be used as unguided interventions (i.e. without healthcare professional support) must have evidence showing this intended use. Evidence on guided use of the technology is not directly transferable.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "SCO-006-A",
+        "HTA domain": "PICO",
+        "HTA dimension": "Intervention",
+        "Overarching Evidence Recommendation": "Delivery of the intervention in clinical studies should reflect how it is intended to be used in real-world clinical settings",
+        "Explanatory notes": "Studies should be conducted in Germany to ensure that results are applicable and meaningful to the care context. In some cases, studies outside of Germany may be considered if evidence is provided showing sufficient comparability of care.",
+        "Applicability - technology purpose": "General",
+        "Applicability - AI": "General",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "Germany",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-007",
         "HTA domain": "PICO",
         "HTA dimension": "Intervention",
         "Overarching Evidence Recommendation": "DHTs in clinical studies should be used for a duration that reflects standard clinical practice",
-        "Explanatory notes": "Data should be collected in both the intervention and comparator groups from the point at which people would typically be offered the technology.\nLong-term data should be collected to evaluate the effectiveness of the technology during and after use.",
+        "Explanatory notes": "Collect baseline data in both intervention and comparator groups from the point at which people would typically be offered the technology.\nFollow-up should be sufficiently long and complete to capture benefits, costs and resources, and harms of the technology and comparator during and after use.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
-    },
-    {
-        "Recommendation ID": "SCO-008",
-        "HTA domain": "PICO",
-        "HTA dimension": "Intervention",
-        "Overarching Evidence Recommendation": "Studies should have sufficiently long follow-up to capture benefits and risks from using the technology",
-        "Explanatory notes": "Evidence on the use and effects of the DHT should be provided for a sufficiently long period of time to capture associated benefits, risks, costs and resource use, and system effects.\nIdeally, evidence should be provided for a minimum of 6 months with longer follow-up (e.g. 12 to 18 months) where appropriate. The length of the follow-up period should be informed by relevant clinical and patient experts and guidelines.",
-        "Applicability - technology purpose": "General",
-        "Applicability - AI": "General",
-        "Applicability - hardware/software": "General",
-        "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-009",
         "HTA domain": "PICO",
         "HTA dimension": "Comparator",
         "Overarching Evidence Recommendation": "The comparators should reflect current practice or standard of care",
-        "Explanatory notes": "The choice of comparator (i.e. the control) should reflect standard care in the relevant healthcare setting and should be informed by clinical experts and guidelines. Standard care may differ across countries.\nRelevant comparators may include:\n\u2022 standard treatment (treatment as usual) without the use of the DHT\n\u2022 no treatment or waiting list\n\u2022 treatment with another DHT that is currently used in the care pathway\n\u2022 non-digital delivery of the same intervention (e.g. paper-based version)",
+        "Explanatory notes": "The choice of comparator (i.e. the control) should reflect standard care in the relevant healthcare setting and should be informed by clinical experts and guidelines. Standard care may differ across countries.\nRelevant comparators may include:\n\u2022 standard practice (e.g. treatment or testing as usual) without the use of the DHT\n\u2022 no treatment/no testing or waiting list\n\u2022 another DHT that is currently used in the care pathway\n\u2022 non-digital delivery of the same intervention or test (e.g. paper-based version)",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-009-A",
         "HTA domain": "PICO",
         "HTA dimension": "Comparator",
         "Overarching Evidence Recommendation": "The comparators should reflect current practice or standard of care",
-        "Explanatory notes": "If there is currently no standard care treatment for the target condition, a sham or active control may be the most appropriate choice of comparator to control for digital placebo effects.",
+        "Explanatory notes": "If there is currently no standard care treatment for the target condition, a sham or alternative control may be the most appropriate choice of comparator to control for digital placebo effects. Examples include an attention control, best supportive care or sham device.",
         "Applicability - technology purpose": "Prevention|Monitoring|Treatment|Disability alleviation",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "SCO-009-B",
+        "HTA domain": "PICO",
+        "HTA dimension": "Comparator",
+        "Overarching Evidence Recommendation": "The comparators should reflect current practice or standard of care",
+        "Explanatory notes": "Performance should be assessed against a valid, independent test (i.e. gold standard).",
+        "Applicability - technology purpose": "Diagnostic",
+        "Applicability - AI": "General",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "General",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "SCO-009-C",
+        "HTA domain": "PICO",
+        "HTA dimension": "Comparator",
+        "Overarching Evidence Recommendation": "The comparators should reflect current practice or standard of care",
+        "Explanatory notes": "Indirect comparisons can be used, such as using real-world data to create an external control that could be compared with results from a single-arm study. ",
+        "Applicability - technology purpose": "Prevention|Monitoring|Treatment|Disability alleviation",
+        "Applicability - AI": "General",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "England",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-010",
         "HTA domain": "PICO",
         "HTA dimension": "Outcomes",
         "Overarching Evidence Recommendation": "Outcomes should include individual and system-level indicators that are relevant to assessing the use of the DHT in real life",
-        "Explanatory notes": "Relevant outcomes include clinical outcomes, patient-reported outcomes, usability and acceptability, and engagement measures such as adherence and satisfaction.\nSelect appropriate outcomes for the DHT's intended purpose, technology purpose, target population, and claimed benefits.\nConsider which outcomes are most relevant to demonstrate the claimed benefits and risks of using the DHT in the specified healthcare setting.\nOutcomes may be collected from patients, healthcare professionals, parents or carers. Where children are the intended user of the DHT, evidence should include children's responses of their own health state.",
+        "Explanatory notes": "Relevant outcomes include clinical outcomes, patient-reported outcomes, usability and acceptability, and engagement measures such as adherence and satisfaction.\nSelect appropriate outcomes for the DHT's intended purpose, target population, claimed benefits and research question. \nConsider which outcomes are most relevant to demonstrate the claimed benefits and risks of using the DHT in the specified healthcare setting. \nOutcomes may be collected from patients, healthcare professionals, parents or carers. Where children are the intended users of the DHT, evidence should include responses of their own health state.\nThe choice of outcomes should be informed by relevant stakeholders (such as clinical experts and people with lived experience) and guidelines.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-010-A",
@@ -165,7 +178,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-010-B",
@@ -177,43 +191,47 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Germany"
+        "Applicability - Country": "Germany",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-011",
         "HTA domain": "PICO",
         "HTA dimension": "Outcomes",
-        "Overarching Evidence Recommendation": "Outcomes should be recorded at baseline and at appropriate timepoints throughout the study or evidence generation period",
-        "Explanatory notes": "Outcomes should be recorded before the intervention has been offered, at appropriate intervals throughout the intervention, at the end of the intervention, and at follow-up (e.g. 6 to 18 months after the intervention). The timings of these intervals will depend on the specific intervention and target condition but should be frequent and long enough to capture the short and long-term benefits and risks of using the technology.\nClearly report any missing longitudinal data, attrition and steps taken to reduce loss to follow-up.",
+        "Overarching Evidence Recommendation": "Outcomes should be recorded at baseline (where possible) and at appropriate timepoints throughout the study or evidence generation period",
+        "Explanatory notes": "Where possible, outcomes should be recorded before the intervention has been offered, at appropriate intervals throughout the intervention, at the end of the intervention, and at follow-up (e.g. 6 to 18 months after the intervention). The timings of these intervals will depend on the specific intervention and target condition but should be frequent and long enough to capture the short and long-term benefits and risks of using the technology.\nClearly report any missing data, attrition and steps taken to reduce loss to follow-up. Report reasons for missingness and how missing data was handled in the analyses.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-012",
         "HTA domain": "PICO",
         "HTA dimension": "Outcomes",
         "Overarching Evidence Recommendation": "Outcomes must include test accuracy and time to diagnosis. Evidence should also be provided showing the effects of using the DHT on clinical decision making, healthcare outcomes, and system effects",
-        "Explanatory notes": "Relevant performance outcomes include:\n\u2022 test accuracy in the intended healthcare setting, including accuracy when used by different types of healthcare professionals. This should include overall accuracy, sensitivity, specificity, positive predictive value, negative predictive value, c-statistic, and the number of true positives, false positives, true negatives and false negatives.\n\u2022 cases of diagnostic disagreement between the DHT and current clinical practice and the likely reason for disagreement\n\u2022 diagnostic accuracy of the DHT in different populations\n\u2022 failure rate or rate of inconclusive reports, including reasons for failure\n\u2022 number of missed diagnoses\n\u2022 rate of further injury related to missed diagnoses\n\u2022 proportion of people who need further testing\n\u2022 additional reviews by specialists",
+        "Explanatory notes": "Examples of relevant performance outcomes include:\n\u2022 test accuracy in the intended healthcare setting, including accuracy when used by different types of healthcare professionals. Measures should be selected in line with the DHT's clinical role, such as diagnostic sensitivity and specificity, predictive values, likelihood ratios, and the number of true positives, false positives, true negatives and false negatives\n\u2022 cases of diagnostic or risk-classification disagreement between the DHT and current clinical practice and the likely reason for disagreement\n\u2022 accuracy of the DHT in different populations\n\u2022 the degree of agreement (concordance) between the DHT and another established test\n\u2022 failure rate or rate of inconclusive reports, including reasons for failure\n\u2022 number of missed diagnoses or classifications\n\u2022 proportion of people who need further testing\n\u2022 additional reviews by specialists\n\nThe diagnostic cut-off should be clinically justified, pre-defined and independently validated in the target population.\nThe choice of test accuracy outcomes should reflect the use of the test - all outcomes may not be needed. Consult relevant clinical experts and guidelines to help inform which outcomes may be needed for your DHT.",
         "Applicability - technology purpose": "Prognosis|Diagnostic",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-013",
         "HTA domain": "PICO",
         "HTA dimension": "Outcomes",
         "Overarching Evidence Recommendation": "Clinical outcomes should include intermediate and longer-term outcomes demonstrating symptom change, health-related quality of life, adverse events, and health service use",
-        "Explanatory notes": "Examples of relevant clinical outcomes include:\n\u2022 remission, relapse and mortality\n\u2022 health-related quality of life\n\u2022 behaviour change\n\u2022 medication use and adherence\n\u2022 adverse events from using the DHT\n\u2022 time to definitive treatment\n\u2022 number of healthcare appointments, e.g. GP visits, specialist consultations, admissions etc.\n\u2022 length of hospital stay\n\u2022 hospital readmissions\n\u2022 reduction of more intensive care\n\u2022 number of days missed from school or work\n\u2022 uptake of follow-on treatment after using the DHT\n\u2022 longevity of any clinical benefits, such as longer term remission, relapse and mortality\n\nClinical studies should include condition-specific standardised measures and reflect outcomes recorded in real-world clinical practice.\nWhere possible and appropriate, condition-specific measures should be mapped to a standardised preference-based measure of health related quality of life (HRQoL) such as the EuroQol 5-Dimension questionnaire (EQ-5D). If mapping is used, the method and associated uncertainty should be reported.\nEnsure that health-related quality of life outcomes are relevant to the population and intervention, and usable in economic modelling.\nIf studies use a surrogate outcome (i.e. an indirect measure intended to predict a clinically meaningful outcome) its validity and relevance must be demonstrated with literature or reference to guidelines.",
+        "Explanatory notes": "Examples of relevant clinical outcomes include:\n\u2022 remission, relapse and mortality\n\u2022 health-related quality of life (HRQoL)\n\u2022 behaviour change\n\u2022 medication use and adherence\n\u2022 adverse events from using the DHT\n\u2022 time to definitive treatment\n\u2022 number of healthcare appointments, e.g. GP visits, specialist consultations, admissions etc.\n\u2022 length of hospital stay\n\u2022 hospital readmissions\n\u2022 reduction of more intensive care\n\u2022 number of days missed from school or work\n\u2022 uptake of follow-on treatment after using the DHT\n\u2022 longevity of any clinical benefits, such as longer term remission, relapse and mortality\n\nClinical studies should include condition-specific standardised measures and reflect outcomes recorded in real-world clinical practice.\nWhere possible and appropriate, condition-specific measures should be mapped to a standardised preference-based measure of HRQoL such as the EuroQol 5-Dimension questionnaire (EQ-5D). If mapping is used, the method and associated uncertainty should be reported.\nEnsure that HRQoL outcomes are relevant to the population and intervention, and usable in economic modelling.\nWhere possible, patient-relevant clinical outcomes are preferred to surrogate outcomes. If studies use a surrogate outcome (i.e. an indirect measure intended to predict a clinically meaningful outcome) its validity and relevance must be demonstrated with literature or reference to guidelines.",
         "Applicability - technology purpose": "Prevention|Monitoring|Treatment|Disability alleviation",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-013-A",
@@ -225,19 +243,21 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-013-B",
         "HTA domain": "PICO",
         "HTA dimension": "Outcomes",
         "Overarching Evidence Recommendation": "Clinical outcomes should include intermediate and longer-term outcomes demonstrating symptom change, health-related quality of life, adverse events, and health service use",
-        "Explanatory notes": "In addition to performance outcomes, evidence should also be provided showing the impact of using the DHT on clinical decision making, delivery of care, and clinical outcomes. Relevant clinical outcomes may include:\n\u2022 number of referrals for treatment following diagnosis or detection using the technology, including number of unnecessary referrals\n\u2022 adverse events\n\u2022 clinical outcomes associated with missed diagnoses, misdiagnosis or inaccurate results\n\u2022 time to diagnosis or discharge\n\u2022 time to further referral or treatment\n\u2022 number of further assessment appointments and attendance rates\n\u2022 pre- and post-diagnosis treatment status\n\u2022 changes in patient outcomes associated with use of the DHT\n\u2022 clinically significant changes in treatment decisions when using the DHT\n\u2022 changes in treatment and service use",
+        "Explanatory notes": "Evidence should be provided showing the impact of using the DHT on clinical decision making, delivery of care, and clinical outcomes. Relevant clinical outcomes may include:\n\u2022 number of referrals for treatment following diagnosis or detection using the technology, including number of unnecessary referrals\n\u2022 adverse events\n\u2022 rate of further injury related to missed diagnoses\n\u2022 clinical outcomes associated with missed diagnoses, misdiagnosis or inaccurate results\n\u2022 time to diagnosis or discharge\n\u2022 time to further referral or treatment\n\u2022 number of further assessment appointments and attendance rates\n\u2022 treatment status before and after diagnosis\n\u2022 changes in patient outcomes associated with use of the DHT\n\u2022 clinically significant changes in treatment decisions when using the DHT\n\u2022 changes in treatment and service use",
         "Applicability - technology purpose": "Prognosis|Diagnostic",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-013-C",
@@ -249,43 +269,60 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "Yes",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "SCO-013-D",
+        "HTA domain": "PICO",
+        "HTA dimension": "Outcomes",
+        "Overarching Evidence Recommendation": "Clinical outcomes should include intermediate and longer-term outcomes demonstrating symptom change, health-related quality of life, adverse events, and health service use",
+        "Explanatory notes": "The EQ-5D is NICE's preferred measure of health-related quality of life in adults. Other measures may also be used where appropriate. ",
+        "Applicability - technology purpose": "General",
+        "Applicability - AI": "General",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "England",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-014",
         "HTA domain": "PICO",
         "HTA dimension": "Outcomes",
         "Overarching Evidence Recommendation": "Outcomes on engagement and acceptability should be collected from patients and healthcare professionals",
-        "Explanatory notes": "Relevant outcomes may be collected via semi-structured interview or survey, and may include:\n\u2022 acceptance\n\u2022 satisfaction\n\u2022 acceptability and user preferences\n\u2022 access and intervention uptake\n\u2022 usage data stratified by demographic variables\n\u2022 ease of use and benefits of additional features\n\u2022 healthcare professional-reported reasons for not offering the intervention to certain people\n\u2022 reasons for not using the technologies\n\u2022 perceived quality of the intervention or DHT",
+        "Explanatory notes": "Relevant outcomes may be collected via semi-structured interview or survey, and may include:\n\u2022 acceptance\n\u2022 satisfaction\n\u2022 acceptability and user preferences\n\u2022 access and intervention uptake\n\u2022 successful test completion rates\n\u2022 usage data stratified by demographic variables\n\u2022 ease of use and benefits of additional features\n\u2022 healthcare professional-reported reasons for not offering the intervention to certain people\n\u2022 reasons for not using the technologies",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-014-A",
         "HTA domain": "PICO",
         "HTA dimension": "Outcomes",
         "Overarching Evidence Recommendation": "Outcomes on engagement and acceptability should be collected from patients and healthcare professionals",
-        "Explanatory notes": "Relevant outcomes may include:\n\u2022 adherence\n\u2022 completion and attrition rates including reason for stopping treatment and characteristics of people who stop treatment prematurely\n\u2022 engagement metrics (e.g. time spent per session or number of logins) and session completion rate\n\u2022 patient-reported barriers to accessing or using the DHT\n\u2022 feedback from excluded people or people who declined to take part",
+        "Explanatory notes": "Relevant outcomes may include:\n\u2022 long-term adherence or compliance\n\u2022 completion and attrition rates including reason for stopping treatment and characteristics of people who stop treatment prematurely\n\u2022 engagement metrics (e.g. time spent per session or number of logins) and session completion rate\n\u2022 patient-reported barriers to accessing or using the DHT\n\u2022 feedback from excluded people or people who declined to take part",
         "Applicability - technology purpose": "Prevention|Monitoring|Treatment|Disability alleviation",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-015",
         "HTA domain": "PICO",
         "HTA dimension": "Outcomes",
         "Overarching Evidence Recommendation": "Provide evidence of the economic and resource impact of using the DHT in the specified healthcare setting compared with standard care",
-        "Explanatory notes": "Provide short and long-term costs of implementing, integrating, maintaining and using the DHT over at least 12 months. Economic and resource impact outcomes may include but are not limited to:\n\u2022 licence and maintenance fees with subscription duration\n\u2022 costing structures to procure and implement the DHT (e.g. upfront, leasing, free-loan)\n\u2022 technology acquisition and payment model used\n\u2022 training costs to support the service\n\u2022costs to integrate the DHT with existing digital healthcare systems\n\u2022 other technology costs (including additional hardware or software, cybersecurity)\n\u2022 ongoing costs such as system updates, governance and technical support\n\u2022 estimates of the number of people eligible to use the technology based on incidence and prevalence data\n\u2022 number and cost of appointments in primary, secondary and community care\n\u2022 additional interactions with healthcare professionals outside of appointments\n\u2022 long-term follow-up costs needed to maintain effectiveness\n\u2022 medication use\n\u2022 changes in resource use associated with implementing and using the technology such as healthcare professional staff time and time saved\n\u2022 impact of long-term effectiveness on long-term costs\n\u2022 budget impact analysis",
+        "Explanatory notes": "Provide short- and long-term costs of implementing, integrating, maintaining and using the DHT. Economic and resource impact outcomes may include but are not limited to:\n\u2022 licence and maintenance fees with subscription duration\n\u2022 costing structures to procure and implement the DHT (e.g. upfront, leasing, free-loan)\n\u2022 technology acquisition and payment model used\n\u2022 training costs to support the service\n\u2022 costs to integrate the DHT with existing digital healthcare systems\n\u2022 other technology costs (including additional hardware or software, cybersecurity)\n\u2022 ongoing costs such as system updates, governance and technical support\n\u2022 estimates of the number of people eligible to use the technology based on incidence and prevalence data\n\u2022 number and cost of appointments in primary, secondary and community care\n\u2022 additional interactions with healthcare professionals outside of appointments\n\u2022 long-term follow-up costs needed to maintain effectiveness\n\u2022 medication use\n\u2022 changes in resource use associated with implementing and using the technology such as healthcare professional staff time and time saved\n\u2022 impact of long-term effectiveness on long-term costs\n\u2022 budget impact analysis",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-015-A",
@@ -297,43 +334,47 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-015-B",
         "HTA domain": "PICO",
         "HTA dimension": "Outcomes",
         "Overarching Evidence Recommendation": "Provide evidence of the economic and resource impact of using the DHT in the specified healthcare setting compared with standard care",
-        "Explanatory notes": "Additional economic and resource impact outcomes may include:\n\u2022 time taken for administrative tasks\n\u2022 time spent on review, with or without the AI technology\n\u2022 costs associated with establishing and maintaining the infrastructure needed to implement the AI technologies, including software, hardware and staff training",
+        "Explanatory notes": "Additional economic and resource impact outcomes may include:\n\u2022 time taken for administrative tasks\n\u2022 time spent on clinical review, with and without the AI technology\n\u2022 time and costs to monitor and review the performance of the AI\n\u2022 costs associated with establishing and maintaining the infrastructure needed to implement the AI technologies, including software, hardware and staff training",
         "Applicability - technology purpose": "Diagnostic",
         "Applicability - AI": "Yes",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SCO-016",
         "HTA domain": "PICO",
         "HTA dimension": "Outcomes",
-        "Overarching Evidence Recommendation": "Outcomes should also be collected showing wider system level effects of using the DHT",
-        "Explanatory notes": "Relevant system-level outcomes may include but are not limited to:\n\u2022 impact of using the technology on the care pathway\n\u2022 impact of changes in treatments or service use after using the technologies\n\u2022 impact of introducing the technologies on healthcare professionals' workload and administrative burden\n\u2022 referral rates with and without DHT\n\u2022 information about the impact on system indicators such as waiting times, number of people on waiting list and hospital capacity\n\u2022 whether time savings translate into improvements in system efficiencies\n\u2022 volume of procedures and utilisation of DHT",
+        "Overarching Evidence Recommendation": "Outcomes should also be collected showing wider system-level effects of using the DHT",
+        "Explanatory notes": "Relevant system-level outcomes may include waiting times, waitlist size, hospital capacity, service throughput, procedure volumes, and whether resource or time savings produce measurable improvements in system efficiency.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "CON-001",
         "HTA domain": "Health problem and current use of the DHT",
         "HTA dimension": "Health problem",
         "Overarching Evidence Recommendation": "Describe the health problem including the clinical picture, severity and impact on people's daily lives and society",
-        "Explanatory notes": "Include information on the clinical need and unmet need. Link to national priorities and policies, including how the DHT aligns with national health priorities and policy objectives",
+        "Explanatory notes": "Include information on the clinical need and unmet need. Link to national priorities and policies, including how the DHT aligns with national health priorities and policy objectives.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "CON-001-A",
@@ -345,7 +386,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "France"
+        "Applicability - Country": "France",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "CON-001-B",
@@ -357,7 +399,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Germany"
+        "Applicability - Country": "Germany",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "CON-002",
@@ -369,7 +412,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "CON-002-A",
@@ -381,7 +425,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "CON-002-B",
@@ -393,7 +438,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "France"
+        "Applicability - Country": "France",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "CON-003",
@@ -405,7 +451,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "CON-003-A",
@@ -417,7 +464,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "CON-004",
@@ -429,7 +477,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "CON-004-A",
@@ -441,7 +490,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "CON-005",
@@ -453,43 +503,60 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-001",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Characteristics of the Technology",
-        "Overarching Evidence Recommendation": "Clearly describe the DHT, including any associated components, accessories or variations in configuration",
-        "Explanatory notes": "Provide a clear description of the DHT and its intended use. This should include the device name, model, manufacturer, URL (where applicable) and the intended purpose of the technology (e.g. monitoring, treatment, diagnosis).\nWhere there are variations in DHT configuration or versions, differences must be clearly explained and rationalised. Describe any technology updates, including details of changes made since evidence generation.",
+        "Overarching Evidence Recommendation": "Clearly describe the DHT, including the intended use and functions",
+        "Explanatory notes": "Provide a clear description of the DHT. This should include the device name, model, manufacturer and URL (where applicable).\nDescribe the intended purpose (e.g. monitoring, treatment, diagnosis). Explain each key function, including inputs, processing and outputs.\nClearly describe and justify any differences in configuration or versions, including changes made since evidence generation.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-001-A",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Characteristics of the Technology",
-        "Overarching Evidence Recommendation": "Clearly describe the DHT, including any associated components, accessories or variations in configuration",
+        "Overarching Evidence Recommendation": "Clearly describe the DHT, including the intended use and functions",
         "Explanatory notes": "Provide the notification number(s) of the device at the Federal Agency for Medicines and Health Products (FAMHP).\nProvide a brochure, model or diagram describing the components of the DHT.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-001-B",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Characteristics of the Technology",
-        "Overarching Evidence Recommendation": "Clearly describe the DHT, including any associated components, accessories or variations in configuration",
+        "Overarching Evidence Recommendation": "Clearly describe the DHT, including the intended use and functions",
         "Explanatory notes": "Provide a diagram showing the components of the DHT, their purpose(s) and relationships.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "France"
+        "Applicability - Country": "France",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "TEC-001-C",
+        "HTA domain": "Description and technical characteristics of technology",
+        "HTA dimension": "Characteristics of the Technology",
+        "Overarching Evidence Recommendation": "Clearly describe the DHT, including the intended use and functions",
+        "Explanatory notes": "Consult Haute Autorit\u00e9 de Sant\u00e9 (HAS)'s submission guide for early coverage of digital medical devices for guidance on how to describe the functions, data used, results obtained and how the algorithm works.",
+        "Applicability - technology purpose": "General",
+        "Applicability - AI": "Yes",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "France",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-002",
@@ -501,7 +568,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "Software",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-003",
@@ -513,7 +581,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "Hardware",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-003-A",
@@ -525,7 +594,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-004",
@@ -537,7 +607,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": "England"
     },
     {
         "Recommendation ID": "TEC-005",
@@ -549,55 +620,60 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-006",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Characteristics of the Technology",
         "Overarching Evidence Recommendation": "Describe how the DHT supports remote monitoring and continuity of care",
-        "Explanatory notes": "Detail the remote monitoring set-up (e.g. details of alerts, protocols, therapeutic support)",
+        "Explanatory notes": "Detail the remote monitoring set-up (e.g. details of alerts, protocols, therapeutic support etc.).",
         "Applicability - technology purpose": "Monitoring",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-006-A",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Characteristics of the Technology",
         "Overarching Evidence Recommendation": "Describe how the DHT supports remote monitoring and continuity of care",
-        "Explanatory notes": "For DHTs with remote medical monitoring, describe:\n\u2022 remote monitoring functions (data collection, analysis, transmission; alerts with defined thresholds)\n\u2022 data processing (collection, transmission and processing procedures; access methods; and procedures for correcting or deleting data)\n\u2022 data type (physiological, clinical, psychological)\n\u2022 user interfaces (patients, healthcare professionals)\n\u2022 modules (e.g. messaging, import, export)\n\u2022 data collected by the DHT\nFor each data element collection, explain why it is required.",
+        "Explanatory notes": "For DHTs with remote medical monitoring, describe:\n\u2022 remote monitoring functions (data collection, analysis, transmission; alerts with defined thresholds)\n\u2022 data processing (collection, transmission and processing procedures; access methods; and procedures for correcting or deleting data)\n\u2022 data type (physiological, clinical, psychological)\n\u2022 user interfaces (patients, healthcare professionals)\n\u2022 modules (e.g. messaging, import, export)\n\u2022 data collected by the DHT\n\nFor every data element collection, explain why it is required.",
         "Applicability - technology purpose": "Monitoring",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "France"
+        "Applicability - Country": "France",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-007",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Characteristics of the Technology",
         "Overarching Evidence Recommendation": "The DHT should be transparent and explainable",
-        "Explanatory notes": "Describe explainability features (e.g. clear rationale for outputs, user-friendly explanations).",
+        "Explanatory notes": "Describe explainability features (e.g. clear rationale for outputs, user-friendly explanations, openness to challenge).",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "Yes",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "Yes",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": "England"
     },
     {
         "Recommendation ID": "TEC-008",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Characteristics of the Technology",
         "Overarching Evidence Recommendation": "Indicate the maturity and lifecycle stage of the technology",
-        "Explanatory notes": "Identify the lifecycle stage (preclinical, experimental or early validation, early clinical, comparative study, surveillance stage) and Technology readiness level of the DHT. Information on the ASSESS DHT lifecycle can be found in the ASSESS DHT PRISM tool.\nProvide information on the lifespan of the DHT and accessories, including renewal frequency for hardware and software (where applicable). State any planned future updates and how the effects of these will be monitored.",
+        "Explanatory notes": "Identify the lifecycle stage (preclinical, experimental or early validation, early clinical, comparative study, surveillance stage) and technology readiness level of the DHT. Information on the ASSESS DHT lifecycle can be found in the ASSESS DHT PRISM tool.\nProvide information on the lifespan of the DHT and accessories, including renewal frequency for hardware and software (where applicable). State any planned future updates and how these will be monitored.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-009",
@@ -609,19 +685,21 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": "England"
     },
     {
         "Recommendation ID": "TEC-010",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Design and development of the technology",
         "Overarching Evidence Recommendation": "Provide evidence of usability and user involvement in the design and testing of the DHT",
-        "Explanatory notes": "Demonstrate compliance with relevant usability standards (e.g. ISO 62366-1, NHS DTAC D1).\nDescribe user involvement in design, development and testing of the DHT. Include evidence of usability testing with representative users and describe any actions taken in response to identified issues.",
+        "Explanatory notes": "Demonstrate compliance with relevant usability standards (e.g. ISO 62366-1, NHS DTAC).\nDescribe user involvement in design, development and testing of the DHT. Include evidence of usability testing with representative users and describe any actions taken in response to identified issues.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": "England|Scotland"
     },
     {
         "Recommendation ID": "TEC-010-A",
@@ -633,7 +711,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-011",
@@ -645,7 +724,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": "England"
     },
     {
         "Recommendation ID": "TEC-012",
@@ -657,7 +737,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-013",
@@ -669,7 +750,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-014",
@@ -681,7 +763,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-015",
@@ -693,7 +776,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-015-A",
@@ -705,7 +789,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "Software",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-016",
@@ -717,19 +802,21 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "Software",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-017",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Technical requirements for use",
         "Overarching Evidence Recommendation": "State any clinical procedures required for device placement and confirm compatibility of the device with medical imaging devices",
-        "Explanatory notes": "Describe any clinical procedures needed to place, fit, insert, implant, remove or replace the technology.\nState the DHT's compatibility with medical imaging devices including magnetic resonance imaging (MRI), computed tomography (CT) and X-Ray.",
+        "Explanatory notes": "Describe any clinical procedures needed to place, fit, insert, implant, remove or replace the technology.\nState the DHT's compatibility with medical imaging devices, including magnetic resonance imaging (MRI), computed tomography (CT) and X-ray.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "Implantable",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-018",
@@ -741,7 +828,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "Software",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-018-A",
@@ -753,7 +841,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-019",
@@ -765,7 +854,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-020",
@@ -777,7 +867,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-020-A",
@@ -789,7 +880,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "France"
+        "Applicability - Country": "France",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-021",
@@ -801,7 +893,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-022",
@@ -813,7 +906,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "Software",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-023",
@@ -825,7 +919,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-024",
@@ -837,19 +932,21 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "Hardware",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-025",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Privacy and security",
-        "Overarching Evidence Recommendation": "Describe the types of data collected by the DHT and how the are processed, stored, exchanged, accessed and protected",
+        "Overarching Evidence Recommendation": "Describe the types of data collected by the DHT and how they are processed, stored, exchanged, accessed and protected",
         "Explanatory notes": "Information should include:\n\u2022 types of data collected, e.g. personal, special category or health, device or telemetry, metadata\n\u2022 parameters captured by the DHT, data flows and transmission types\n\u2022 data collection methodologies, e.g. sensors, surveys, electronic health record integration, third\u2011party software development kits (SDKs)\n\u2022 pre-processing steps for the data, e.g. cleansing, transformation, reduction and augmentation\n\u2022 processing purposes and legal bases, e.g. care delivery, research, analytics, improvement\n\u2022 storage locations and retention, e.g. on-device vs cloud, geography, encryption at rest\n\u2022 data exchange mechanisms and standards, e.g. application programming interfaces (APIs), Fast Healthcare Interoperability Resources (FHIR), secure file transfer, encryption in transit\n\u2022 access controls and roles (who can access what, least-privilege, audit logs)\n\u2022 privacy measures (pseudonymisation or anonymisation, differential privacy where applicable)",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-026",
@@ -861,19 +958,21 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "Software",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-027",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Privacy and security",
         "Overarching Evidence Recommendation": "Provide information on account requirements and authentication measures, where applicable",
-        "Explanatory notes": "State whether registration and login are required to use the DHT, including whether guest or anonymous modes are offered.\nIdentity proofing level (none, email or SMS, government or health ID, face-to-face or remote verification).\nDescribe authentication methods (password, multi-factor authentication, passkeys, biometrics) and session management.\nProvide information on account recovery and safeguards against takeover (rate limiting, lockouts, alerts).",
+        "Explanatory notes": "State whether registration and login are required to use the DHT, including whether guest or anonymous modes are offered.\nState the identity proofing level (none, email, SMS, government or health ID, face-to-face or remote verification).\nDescribe authentication methods (password, multi-factor authentication, passkeys, biometrics) and session management.\nProvide information on account recovery and safeguards against takeover (rate limiting, lockouts, alerts).",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "Software",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-028",
@@ -885,7 +984,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-029",
@@ -897,7 +997,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-029-A",
@@ -909,7 +1010,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-029-B",
@@ -921,79 +1023,60 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Finland"
+        "Applicability - Country": "Finland",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-030",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Data and AI",
-        "Overarching Evidence Recommendation": "Provide a detailed description of the AI system, including datasets used and preprocessing methods",
-        "Explanatory notes": "Provide information on the datasets used for training, validation and testing, including assessment of their representativeness.\nProvide information on preprocessing methods undertaken (e.g. normalisation, feature engineering and outlier handling), checks undertaken for data quality and bias before development of the model.",
+        "Overarching Evidence Recommendation": "Provide a detailed description of the development data and processing",
+        "Explanatory notes": "Provide information on the datasets used for training, testing and validation, and model optimisation (including hyper-optimisation and fine-tuning).\nProvide information on preprocessing (e.g. normalisation, feature engineering and outlier handling) and postprocessing methods undertaken.\nDescribe measures to prevent data leakage between model development and evaluation.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "Yes",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-030-A",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Data and AI",
-        "Overarching Evidence Recommendation": "Provide a detailed description of the AI system, including datasets used and preprocessing methods",
-        "Explanatory notes": "Describe the AI-based functionalities including:\n\u2022 the role of each function\n\u2022 the characteristics of the data used\n\u2022 the result obtained\n\u2022 how the algorithm works\n\nDescribe the samples used for initial training and relearning of the model, including demographics, size and composition. Describe how rare events have been considered.",
+        "Overarching Evidence Recommendation": "Provide a detailed description of the development data and processing",
+        "Explanatory notes": "Describe the samples used for initial training, retraining, validation and testing of the model. Include demographics, size and composition. Describe how rare events have been considered.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "Yes",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Germany"
+        "Applicability - Country": "France",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-031",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Data and AI",
-        "Overarching Evidence Recommendation": "Provide a detailed description of the AI model type, learning approach and performance evaluation",
-        "Explanatory notes": "Include information on the learning type (e.g. supervised, unsupervised) and task (classification, regression) the AI is performing. Provide training and validation plans.\nDescribe how the performance of the model is evaluated (i.e. accuracy, precision, recall).\nOutline performance metrics (e.g. area under the receiver operating characteristic curve (AUROC), root-mean-square deviation, F1-score, ZoneMap, Jaccard, factual fidelity, sensitivity and specificity) and thresholds for acceptable performance, with justification for how these thresholds were determined and validated. Include where appropriate hallucination and omission rates and healthcare professional edit/correction rates.\nFor generative language-based tools, provide evidence on performance for the language in the country where the technology is intended to be used, including specific regional dialects.",
+        "Overarching Evidence Recommendation": "Provide a detailed description of the learning approach and performance evaluation",
+        "Explanatory notes": "Include information on the learning type (e.g. supervised, unsupervised) and task (classification, regression) the AI is performing. Provide training and validation plans.\nProvide evidence that the AI system is valid, reliable and safe for the intended use. Perform adequate model validation, including out-of-sample evaluation and data-splitting approaches. Provide validation studies (where possible) and performance evaluations.\nProvide evidence of local- and language-specific validation. For generative language-based tools, provide evidence on performance for the language in the country where the technology is intended to be used, including specific regional dialects.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "Yes",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
-    },
-    {
-        "Recommendation ID": "TEC-031-A",
-        "HTA domain": "Description and technical characteristics of technology",
-        "HTA dimension": "Data and AI",
-        "Overarching Evidence Recommendation": "Provide a detailed description of the AI model type, learning approach and performance evaluation",
-        "Explanatory notes": "Describe how the algorithm was developed and who made it, including whether it relies on third-party services.",
-        "Applicability - technology purpose": "General",
-        "Applicability - AI": "Yes",
-        "Applicability - hardware/software": "General",
-        "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Finland"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "TEC-032",
         "HTA domain": "Description and technical characteristics of technology",
         "HTA dimension": "Data and AI",
         "Overarching Evidence Recommendation": "Clearly describe sources of input data used in decision-making once the AI is deployed",
-        "Explanatory notes": "This should include:\n\u2022 variables involved in decisions and their characteristics (type, range, sensitivity, measurement units)\n\u2022 sources of input data (patient-entered, sensor-derived, electronic health records integration)\n\u2022 differences between training/validation/test data and real-world deployment data (e.g. environmental conditions, sensor variability)\n\nIndicate how and where data was collected and any limitations.\nDescribe measures to detect and manage outlier data.",
+        "Explanatory notes": "This should include:\n\u2022 variables involved in decisions and their characteristics (type, range, sensitivity, measurement units)\n\u2022 sources of input data (patient-entered, sensor-derived, electronic health records integration)\n\u2022 differences between training/validation/test data and real-world deployment data (e.g. environmental conditions, sensor variability)\n\nIndicate how and where data was collected and any limitations including missingness of data.\nDescribe measures to detect and manage outlier data.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "Yes",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
-    },
-    {
-        "Recommendation ID": "TEC-033",
-        "HTA domain": "Description and technical characteristics of technology",
-        "HTA dimension": "Data and AI",
-        "Overarching Evidence Recommendation": "Demonstrate steps taken to identify and mitigate bias throughout the AI lifecycle",
-        "Explanatory notes": "Describe bias risk assessment during design and planning, assessment of the representativeness of datasets, techniques for bias reduction in model training and evaluation, and post-deployment bias monitoring plans.",
-        "Applicability - technology purpose": "General",
-        "Applicability - AI": "Yes",
-        "Applicability - hardware/software": "General",
-        "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "REG-001",
@@ -1005,7 +1088,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "REG-001-A",
@@ -1017,7 +1101,8 @@
         "Applicability - AI": "Yes",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": "England|Scotland|Wales"
     },
     {
         "Recommendation ID": "REG-002",
@@ -1029,7 +1114,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "REG-003",
@@ -1041,19 +1127,34 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": "England|Scotland"
+    },
+    {
+        "Recommendation ID": "REG-003-A",
+        "HTA domain": "Regulatory aspects",
+        "HTA dimension": "Security, safety and quality standards",
+        "Overarching Evidence Recommendation": "Provide evidence of compliance with recognised security standards and demonstrate robust cybersecurity governance",
+        "Explanatory notes": "Demonstrate compliance with NHS Digital technology assessment criteria (DTAC).",
+        "Applicability - technology purpose": "General",
+        "Applicability - AI": "General",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "England|Scotland",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "REG-004",
         "HTA domain": "Regulatory aspects",
         "HTA dimension": "Information governance and data protection",
         "Overarching Evidence Recommendation": "Provide documentation demonstrating full compliance with applicable data protection laws and local information governance requirements",
-        "Explanatory notes": "Demonstrate compliance with relevant data protection and security criteria for countries where the technology is intended to be used (e.g. frameworks issued by France's Agence du Num\u00e9rique en Sant\u00e9 (ANS), Germany's Digitale-Gesundheitsanwendungen-Verordnung (DiGAV), Finland's Digital health technology assessment (Digi-HTA) framework, UK's Digital Technology Assessment Criteria (DTAC)).\nDemonstrate compliance with General Data Protection Regulation (GDPR), UK Data Protection Act 2018 (where relevant), or applicable national equivalents.\nProvide a data protection impact assessment (DPIA).\nSpecify whether personal data is likely to be transferred outside the European Economic Area (EEA). If yes, identify destination countries, recipients and types of personal data transferred. State whether each transfer is covered by an applicable adequacy decision. Where it is not, describe the transfer mechanism and safeguards used, and provide any required transfer impact assessments (TIAs).\nProvide a full description of data collection, processing, storage, retention and deletion policies across all DHT components.",
+        "Explanatory notes": "Demonstrate compliance with relevant data protection and security criteria for countries where the technology is intended to be used (e.g. frameworks issued by France's Agence du Num\u00e9rique en Sant\u00e9 (ANS), Germany's Digitale-Gesundheitsanwendungen-Verordnung (DiGAV), Finland's Digital health technology assessment (Digi-HTA) framework).\nDemonstrate compliance with the General Data Protection Regulation (GDPR), the UK Data Protection Act 2018 (where relevant), or applicable national equivalents.\nProvide a data protection impact assessment (DPIA).\nSpecify whether personal data is likely to be transferred outside the European Economic Area (EEA). If yes, identify destination countries, recipients and types of personal data transferred. State whether each transfer is covered by an applicable adequacy decision. Where it is not, describe the transfer mechanism and safeguards used, and provide any required transfer impact assessments (TIAs).\nProvide a full description of data collection, processing, storage, retention and deletion policies across all DHT components.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": "England|Scotland"
     },
     {
         "Recommendation ID": "REG-004-A",
@@ -1065,19 +1166,34 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Germany"
+        "Applicability - Country": "Germany",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "REG-004-B",
+        "HTA domain": "Regulatory aspects",
+        "HTA dimension": "Information governance and data protection",
+        "Overarching Evidence Recommendation": "Provide documentation demonstrating full compliance with applicable data protection laws and local information governance requirements",
+        "Explanatory notes": "Demonstrate compliance with NHS Digital technology assessment criteria (DTAC).\nProvide a data protection impact assessment (DPIA).",
+        "Applicability - technology purpose": "General",
+        "Applicability - AI": "General",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "England|Scotland",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SAF-001",
         "HTA domain": "Safety",
         "HTA dimension": "Clinical safety",
         "Overarching Evidence Recommendation": "Provide evidence of any observed or reported undesirable effects, harms or safety\u2011related events associated with the DHT",
-        "Explanatory notes": "Provide evidence of any observed harms or safety events that have occurred from using the technology. Include reported incidents, adverse events, near misses, close calls, deviations or user-reported harms.\nPresent trends over time, and describe whether harms differ across settings, populations or use conditions.\nReport product-related safety events from customer service or support logs where relevant.",
+        "Explanatory notes": "Provide evidence of any observed harms or safety events that have occurred from using the technology. Include reported incidents, adverse events, near misses, close calls, deviations or user-reported harms.\nDescribe whether harms differ across settings, populations or use conditions.\nCompare rates and types of adverse events associated with using the DHT compared with standard care. Highlight whether harms increase, decrease or change in nature compared to standard practice.\nDescribe the potential impact of these harms on the use of the DHT and its clinical and economic outcomes.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SAF-001-A",
@@ -1089,7 +1205,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SAF-001-B",
@@ -1101,7 +1218,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Finland"
+        "Applicability - Country": "Finland",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SAF-001-C",
@@ -1113,19 +1231,21 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "France"
+        "Applicability - Country": "France",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SAF-002",
         "HTA domain": "Safety",
         "HTA dimension": "Clinical safety",
         "Overarching Evidence Recommendation": "Describe all known and potential risks associated with using the DHT, supported by study results where available",
-        "Explanatory notes": "Provide information on potential adverse outcomes that could occur from the implementation and use of the technology. This could include:\n\u2022 risks directly related to the DHT itself (e.g. usability risks, algorithmic risks, device connectivity failures)\n\u2022 risks linked to user behaviour (misuse, non\u2011compliance, misunderstanding of outputs)\n\u2022 risks related to treatment or care delivery (e.g. misinterpretation of prompts, delays from workflow disruptions)",
+        "Explanatory notes": "Provide information on potential adverse outcomes that could occur from the implementation and use of the technology. This could include:\n\u2022 risks directly related to the DHT itself (e.g. usability risks, algorithmic risks, device connectivity failures)\n\u2022 risks linked to user behaviour (misuse, non\u2011compliance, misunderstanding of outputs)\n\u2022 risks related to treatment or care delivery (e.g. misinterpretation of prompts, delays from workflow disruptions)\n\nDescribe the potential impact of these risks on the use of the DHT and its clinical and economic outcomes.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SAF-003",
@@ -1137,19 +1257,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
-    },
-    {
-        "Recommendation ID": "SAF-004",
-        "HTA domain": "Safety",
-        "HTA dimension": "Clinical safety",
-        "Overarching Evidence Recommendation": "Provide a comparative safety analysis between the DHT and current standard care",
-        "Explanatory notes": "Compare rates and types of adverse events, workflow risks or unintended consequences.\nHighlight whether harms increase, decrease or change in nature compared to standard practice.",
-        "Applicability - technology purpose": "General",
-        "Applicability - AI": "General",
-        "Applicability - hardware/software": "General",
-        "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SAF-005",
@@ -1161,7 +1270,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SAF-006",
@@ -1173,7 +1283,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SAF-006-A",
@@ -1185,19 +1296,34 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Germany"
+        "Applicability - Country": "Germany",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SAF-007",
         "HTA domain": "Safety",
         "HTA dimension": "Technical safety and risk management",
         "Overarching Evidence Recommendation": "Identify and describe all risks related to the technical stability, performance and reliability of the DHT",
-        "Explanatory notes": "Detail risks arising from system instability, outages or degraded performance; and loss, corruption or bias in clinical information.\nDetail risks associated with loss of privacy, confidentiality and user reputation; and reliability and repeatability of data capture and processing.\nProvide information on handling of measurement bias, data quality issues and resilience under stress conditions.",
+        "Explanatory notes": "Detail risks arising from system instability, outages or degraded performance and loss, corruption or bias in clinical information.\nDetail risks associated with loss of privacy, confidentiality and user reputation and reliability and repeatability of data capture and processing. \nDescribe the potential impact of these risks on use of the DHT and its clinical and economic outcomes.\nProvide information on handling of measurement bias, data quality issues and resilience under stress conditions.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "SAF-007-A",
+        "HTA domain": "Safety",
+        "HTA dimension": "Technical safety and risk management",
+        "Overarching Evidence Recommendation": "Identify and describe all risks related to the technical stability, performance and reliability of the DHT",
+        "Explanatory notes": "Describe safeguarding features, including error mitigation plans, safety features, human override mechanisms and warnings.",
+        "Applicability - technology purpose": "General",
+        "Applicability - AI": "Yes",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SAF-008",
@@ -1209,19 +1335,21 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SAF-008-A",
         "HTA domain": "Safety",
         "HTA dimension": "Technical safety and risk management",
         "Overarching Evidence Recommendation": "Provide a post\u2011deployment monitoring and governance plan for the DHT, including quality monitoring processes and continuous improvement of the DHT",
-        "Explanatory notes": "Describe the model update regimen and whether this is initial, incremental or continuous.\nProvide expected sources of retraining data, including methods for ensuring data quality and representativeness.\nDemonstrate tools for monitoring model performance, degradation, bias and performance drift.\nDetail protocols for tracing, archiving and analysing degradations and corrective action plans.",
+        "Explanatory notes": "Describe the model update regimen and whether this is initial, incremental or continuous.\nDemonstrate tools for monitoring model performance, degradation, bias and performance drift.\nDetail protocols for tracing, archiving and analysing degradations and corrective action plans.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "Yes",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SAF-008-B",
@@ -1233,19 +1361,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Finland"
-    },
-    {
-        "Recommendation ID": "SAF-009",
-        "HTA domain": "Safety",
-        "HTA dimension": "Technical safety and risk management",
-        "Overarching Evidence Recommendation": "Provide an end\u2011to\u2011end risk management system aligned with recognised medical device standards",
-        "Explanatory notes": "Confirm whether the DHT has undergone a formal risk analysis, and that risk management policy is aligned with relevant standards (e.g. ISO 14971).\nProvide risk analysis reports, including hazard identification, mitigation and risk justification.\nProvide safety documentation that covers all components of data collection, handling and transmission.\nProvide documentation of fallback modes, safe failure behaviour and continuity of care safeguards.",
-        "Applicability - technology purpose": "General",
-        "Applicability - AI": "General",
-        "Applicability - hardware/software": "General",
-        "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "Finland",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ENV-001",
@@ -1257,7 +1374,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ENV-002",
@@ -1269,7 +1387,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ENV-003",
@@ -1281,19 +1400,21 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-001",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Accepted evidence",
         "Overarching Evidence Recommendation": "Consider the overall body of evidence supporting the use of the DHT in the relevant clinical setting",
-        "Explanatory notes": "Evidence on the DHT can be demonstrated through several sources including clinical studies. These should be high-quality and appropriate to capturing the relative benefits and harms of using the DHT.\nAt a minimum, evidence should be relevant and applicable to the specific country and healthcare setting and show:\n\u2022 non-inferiority of the clinical effectiveness of the DHT compared with current standard care\n\u2022 clinical improvement in the target condition using standardised measures currently used in the relevant healthcare setting\n\u2022 impact on health-related quality of life\n\u2022 longer-term clinical and resource-use impacts of the DHT to the healthcare service\n\u2022 impact on the care pathway including referrals, workload and costs associated with its implementation\n\u2022 user engagement with the DHT including intervention acceptance, usability, experiences, completion rates and uptake rates in different subpopulations where applicable\n\u2022 cost or time-savings associated with the DHT\n\u2022 safe use of the technology including all adverse events\n\nInput on evidence generation and study design should be obtained from clinical and research experts and people with lived experience where needed.",
+        "Explanatory notes": "Evidence on the DHT can be demonstrated through several sources including clinical studies. These should be high-quality and appropriate to capturing the relative benefits and harms of using the DHT. More studies can increase the certainty of the evidence if they present a consistent use case and results.\nAt a minimum, evidence should be relevant and applicable to the specific country and healthcare setting and show:\n\u2022 non-inferiority of the clinical effectiveness of the DHT compared with current standard care\n\u2022 clinical improvement in the target condition using standardised measures currently used in the relevant healthcare setting\n\u2022 impact on health-related quality of life\n\u2022 longer-term clinical and resource-use impacts of the DHT to the healthcare service\n\u2022 impact on the care pathway including referrals, workload and costs associated with its implementation\n\u2022 user engagement with the DHT including intervention acceptance, usability, experiences, completion rates and uptake rates in different subpopulations where applicable\n\u2022 cost or time-savings associated with the DHT\n\u2022 safe use of the technology including all adverse events\n\nDHTs showing non-inferiority to standard care should provide evidence of non-efficacy benefits.\nInput on evidence generation and study design should be obtained from clinical and research experts and people with lived experience where needed.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-001-A",
@@ -1305,31 +1426,34 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-001-B",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Accepted evidence",
         "Overarching Evidence Recommendation": "Consider the overall body of evidence supporting the use of the DHT in the relevant clinical setting",
-        "Explanatory notes": "Minimum evidence should demonstrate implementation of the DHT (1) as an autonomous tool and (2) with healthcare professional review. This will aid understanding of how effective the technology is when used in routine practice",
+        "Explanatory notes": "Minimum evidence should demonstrate implementation of the DHT (1) as an autonomous tool and (2) with healthcare professional review. This will aid understanding of how effective the technology is when used in routine practice.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "Yes",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-002",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Accepted evidence",
         "Overarching Evidence Recommendation": "Provide high\u2011quality evidence comparing the DHT to relevant alternatives",
-        "Explanatory notes": "It is important to provide independent, externally reviewed research, e.g. studies not authored by or affiliated with the company. Peer-reviewed publications are preferred due to their independent assessment of quality.\nData could be collected using a combination of:\n\u2022 primary data collection, e.g. adequately powered, high-quality clinical studies\n\u2022 suitable real-world data sources, e.g. national clinical databases\n\u2022 data collected through the technology itself, e.g. usage data, number of referrals, diagnostic outcomes predicted by the DHT\n\u2022 post-market surveillance activities done by the technology developer. This may include data relating to the number of referrals seen, or the proportion of outcomes or performance data for the technology in comparison with a pre-defined ground truth.\n\nAcceptable types and levels of evidence may vary by HTA agency and country. In general, high-quality randomised controlled trials (RCTs) are preferred over non-randomised or observational studies. Check with the specific agency doing the assessment to confirm their evidence requirements.\nOther acceptable study designs may include: comparative cohort studies, case-control studies, real-world historical control studies with propensity score methods, real-world before-and-after implementation studies, validation studies, matched cohort studies, company evaluation studies, real-world database studies, economic studies, prospective audit, systematic reviews, meta-analyses.\nIf an interventional study was/is not feasible, justify the alternative study design used.",
+        "Explanatory notes": "Ideally, research will be independent (i.e., not authored by the company) and externally reviewed. Peer-reviewed publications are preferred due to their independent assessment of quality.\nData could be collected using a combination of:\n\u2022 primary data collection, e.g. adequately powered, high-quality clinical studies\n\u2022 suitable real-world data sources, e.g. national clinical databases\n\u2022 data collected through the technology itself, e.g. usage data, number of referrals, diagnostic outcomes predicted by the DHT\n\u2022 post-market surveillance activities done by the technology developer. This may include data relating to the number of referrals seen, or the proportion of outcomes or performance data for the technology in comparison with a pre-defined ground truth.\n\nAcceptable types and levels of evidence may vary by HTA agency and country. In general, high-quality randomised controlled trials (RCTs) are preferred over non-randomised or observational studies. Check with the specific agency doing the assessment to confirm their evidence requirements.\nOther acceptable study designs may include: comparative cohort studies, case-control studies, real-world historical control studies with propensity score methods, real-world before-and-after implementation studies, validation studies, matched cohort studies, interrupted time series, company evaluation studies, real-world database studies, economic studies, prospective audit, systematic reviews, meta-analyses.\nIf an interventional study was/is not feasible, justify the alternative study design used. Describe any issues or barriers with evidence generation.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-002-A",
@@ -1341,31 +1465,34 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-002-B",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Accepted evidence",
         "Overarching Evidence Recommendation": "Provide high\u2011quality evidence comparing the DHT to relevant alternatives",
-        "Explanatory notes": "Most data, particularly relating to diagnostic accuracy, is likely best collected through primary data collection.\nA retrospective study design may be appropriate for assessing diagnostic accuracy. But prospective evidence will better show the impact of the technologies on other outcomes, such as changes to clinical management.\nAcceptable study designs may include: retrospective diagnostic accuracy studies, prospective diagnostic accuracy studies, before-and-after studies, economic studies, real-world before-and-after implementation study, cross-sectional diagnostic accuracy study, retrospective service-evaluation study.",
+        "Explanatory notes": "Most data, particularly relating to diagnostic accuracy, are likely best collected through primary data collection.\nDiagnostic accuracy may be assessed using prognostic or retrospective studies. But prospective evidence will better show the impact of the DHT on other outcomes, such as changes to clinical management.\nRelevant study designs may include: cross-sectional or comparative diagnostic accuracy studies, longitudinal studies for prognostic or predictive accuracy, before-and-after implementation studies, economic studies, retrospective service evaluations.\nAn end-to-end study (e.g. test-treat randomised controlled trial) may be preferred because it evaluates the impact of the DHT across the full clinical pathway.",
         "Applicability - technology purpose": "Diagnostic",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-002-C",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Accepted evidence",
         "Overarching Evidence Recommendation": "Provide high\u2011quality evidence comparing the DHT to relevant alternatives",
-        "Explanatory notes": "A possible study design is an experimental concordance study assessing the concordance between the diagnoses reached for each included case by the: (1) healthcare professional assisted by the DHT (intervention), (2) healthcare professional unassisted by the DHT (comparator), and (3) reference standard. Consider also collecting data on the diagnostic accuracy of the technology alone as this can provide a lower bound to identify drift from intended use because of automation bias.\nNote that for some DHTs, retrospective studies may not fully capture the diagnostic accuracy of using the technology with healthcare professional review in clinical practice. This is because healthcare professionals in retrospective studies typically perform this task in isolation and not with the patient or case notes as they would in clinical practice.",
+        "Explanatory notes": "A possible study design is an experimental concordance study assessing the concordance between the diagnoses reached for each included case by: (1) the healthcare professional assisted by the DHT (intervention), (2) the healthcare professional unassisted by the DHT (comparator), and (3) the reference standard (where available). Consider also collecting data on the diagnostic accuracy of the technology alone as this can provide a lower bound to identify drift from intended use because of automation bias.\nNote that for some DHTs, retrospective studies may not fully capture the diagnostic accuracy of using the technology with healthcare professional review in clinical practice. This is because healthcare professionals in retrospective studies typically perform this task in isolation and not with the patient or case notes as they would in clinical practice.",
         "Applicability - technology purpose": "Diagnostic",
         "Applicability - AI": "Yes",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-002-D",
@@ -1377,31 +1504,34 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "France"
+        "Applicability - Country": "France",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-002-E",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Accepted evidence",
         "Overarching Evidence Recommendation": "Provide high\u2011quality evidence comparing the DHT to relevant alternatives",
-        "Explanatory notes": "Minimum evidence for listing in the directory is a retrospective comparative study. Higher levels of evidence such as a prospective comparative study can also be submitted.\nExamples of accepted study designs include case-control studies, cohort studies, before-and-after studies, non-randomised or randomised controlled trials. Other possible study designs include pragmatic clinical trials, sequential multiple assignment randomised trial or multiphase optimisation strategy.\nThe following types of evidence cannot be used to support claims of a positive healthcare effect: evidence based solely on expert opinion or reports, case reports, case series, cross-sectional studies.",
+        "Explanatory notes": "Minimum evidence for listing in the directory is a retrospective comparative study. Higher levels of evidence, such as a prospective comparative study, can also be submitted.\nExamples of accepted study designs include case-control studies, cohort studies, before-and-after studies, non-randomised or randomised controlled trials. Other possible study designs include pragmatic clinical trials, sequential multiple assignment randomised trials or multiphase optimisation strategies.\nThe following types of evidence cannot be used to support claims of a positive healthcare effect: evidence based solely on expert opinion or reports, case reports, case series, cross-sectional studies.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Germany"
+        "Applicability - Country": "Germany",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-003",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Accepted evidence",
         "Overarching Evidence Recommendation": "Assess the benefits of using the DHT through robust quantitative methods, and provide qualitative evidence capturing user experience and perceptions of the DHT",
-        "Explanatory notes": "Quantitative evidence may include experimental clinical trials, observational studies or modelling.\nQualitative evidence may include surveys, interviews or case studies involving patients and healthcare professionals. Qualitative studies should: explore user experience, engagement and barriers to access; include reported outcomes (acceptability, usability and preferences) from people using the technologies; and include a broad and inclusive distribution of eligible users who are representative of the population of potential users.",
+        "Explanatory notes": "Quantitative evidence may include experimental clinical trials, observational studies or modelling.\nQualitative evidence may include surveys, interviews or case studies involving patients and healthcare professionals. Qualitative studies should: \n\u2022 explore user experience, engagement and barriers to access\n\u2022 include reported outcomes (acceptability, usability and preferences) from people using the technologies\n\u2022 include a broad and inclusive distribution of eligible users who are representative of the population of potential users.\n\nNICE's real-world evidence framework describes best practices for qualitative studies.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-004",
@@ -1413,7 +1543,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-004-A",
@@ -1425,19 +1556,21 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "United Kingdom"
+        "Applicability - Country": "England",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-005",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Accepted evidence",
         "Overarching Evidence Recommendation": "Provide, where available and appropriate, expert perspectives on use and implementation of the DHT",
-        "Explanatory notes": "Some (but not all) HTA agencies may consider expert perspectives in their assessment of the DHT. Check with the specific agency doing the assessment to confirm whether they accept this type of evidence.\nWhere accepted, provide any expert advice, clinical opinion or unpublished data where higher-order evidence is limited. For example, expert elicitation may be used to supplement evidence when resource use data is limited or uncertain.\nEvidence of support from patient associations or professional bodies may also be provided, but ensure this is clearly contextualised.",
+        "Explanatory notes": "Some (but not all) HTA agencies may consider expert perspectives in their assessment of the DHT. Check with the specific agency doing the assessment to confirm whether they accept this type of evidence.\nExpert perspectives may be used to support other sources of evidence on the DHT, but would not replace the need for clinical studies. Where accepted, expert advice, clinical opinion or unpublished data may be provided where higher-order evidence is limited. For example, expert elicitation may be used to supplement evidence when resource use data is limited or uncertain.\nEvidence of support from patient associations or professional bodies may also be provided, but ensure this is clearly contextualised.\nExpert perspectives must be accompanied by clear reporting of any and all conflicts of interest and affiliations.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-005-A",
@@ -1449,43 +1582,112 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-006",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Study design and presentation",
         "Overarching Evidence Recommendation": "Evidence should be high quality and low in bias",
-        "Explanatory notes": "Ensure steps have been taken to produce reliable results, with bias either mitigated or avoided.\nDemonstrate that study data is methodologically robust, and there is high certainty in the performance of the DHT.\nData collection should follow a predefined protocol.\nQuality assurance processes should be put in place to ensure the integrity and consistency of data collection.\nEligibility criteria should be clearly defined and consistent across groups in the study to minimise selection bias.\nNon-random assignment to intervention or comparison groups introduces a risk of confounding bias. Appropriate methods such as matching or adjustment should be used to minimise bias and balance confounding factors between groups. Experts should be consulted during protocol development to help identify key confounders.\nData from intervention and comparison groups should be collected at appropriate time intervals including clearly defined follow-ups.\nIssues with data quality such as incomplete records and demographically imbalanced groups may impact analysis. Clear reporting about data quality is important and approaches such as multiple imputation could be used to address issues.",
+        "Explanatory notes": "Ensure steps have been taken to minimise bias and produce reliable results.\nData collection should follow a predefined protocol.\nProspective studies are generally preferred over retrospective studies because bias and data quality can be better controlled.\nStudies should be adequately powered for their primary outcomes and harms. Limitations of small sample sizes should be clearly reported.\nQuality assurance processes should be put in place to support consistent and accurate data collection.\nEligibility criteria should be clearly defined and consistently applied across groups in the study to minimise selection bias.\nData should be collected at appropriate time intervals including clearly defined follow-up periods.\nIssues with data quality such as incomplete records and demographically imbalanced groups may bias estimates or reduce precision. Assess and report data completeness, quality, risk of bias and uncertainty. Use appropriate methods for handling missing data (such as multiple imputation) and conduct sensitivity analyses where needed.\nClearly state if and how AI has been used in evidence generation or synthesis.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "EFF-006-A",
+        "HTA domain": "Clinical efficacy and effectiveness",
+        "HTA dimension": "Study design and presentation",
+        "Overarching Evidence Recommendation": "Evidence should be high quality and low in bias",
+        "Explanatory notes": "Where appropriate, participants should be randomly allocated to the intervention or comparison groups. Non-random assignment introduces a risk of confounding bias. Appropriate methods such as matching or statistical adjustment should be used to minimise bias and balance confounding factors between groups. Relevant experts should be consulted during protocol development to help identify key confounders.\nIn randomised studies, treatment allocation should be concealed and outcome assessors blinded. This may not always be possible for studies of DHTs. Where appropriate, intention-to-treat analysis should be used.",
+        "Applicability - technology purpose": "Prevention|Monitoring|Treatment|Disability alleviation",
+        "Applicability - AI": "General",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "General",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "EFF-006-B",
+        "HTA domain": "Clinical efficacy and effectiveness",
+        "HTA dimension": "Study design and presentation",
+        "Overarching Evidence Recommendation": "Evidence should be high quality and low in bias",
+        "Explanatory notes": "Monitoring parameters should be measured in a similar way over time for all participants. Any changes in their measurement should be considered in the analysis.\nInvestigate any patterns of over- or underreporting.",
+        "Applicability - technology purpose": "Monitoring",
+        "Applicability - AI": "General",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "General",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "EFF-006-C",
+        "HTA domain": "Clinical efficacy and effectiveness",
+        "HTA dimension": "Study design and presentation",
+        "Overarching Evidence Recommendation": "Evidence should be high quality and low in bias",
+        "Explanatory notes": "Where appropriate, consecutive or random sampling should be used. All participants should be tested with both the DHT and the reference standard.\nThere should be an appropriate time interval between testing with the reference test and the DHT.\nAssessors should be blinded to the reference result when interpreting the intervention result.",
+        "Applicability - technology purpose": "Diagnostic",
+        "Applicability - AI": "General",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "General",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "EFF-006-D",
+        "HTA domain": "Clinical efficacy and effectiveness",
+        "HTA dimension": "Study design and presentation",
+        "Overarching Evidence Recommendation": "Evidence should be high quality and low in bias",
+        "Explanatory notes": "Studies should include an adequate number of events and use appropriate methods to extrapolate data over time.\nPredictors and outcomes should be measured without knowledge of the other. Predictors and outcomes should be measured in a similar way for all participants.\nExternal validation should be performed to show generalisability to the target population.\nRelevant confounders should be identified and adjusted for.",
+        "Applicability - technology purpose": "Prognosis",
+        "Applicability - AI": "General",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-007",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Study design and presentation",
         "Overarching Evidence Recommendation": "Evidence should provide clear and detailed information on the intervention, patient groups, comparators and outcomes",
-        "Explanatory notes": "This should include:\n\u2022 individual characteristics at baseline to support subgroup analyses and adjustment for confounding, and to demonstrate whether the DHT has been tested or validated in diverse patient groups\n\u2022 details of standard care including which healthcare professionals were involved and which additional treatments or medicines were offered\n\u2022 detailed descriptions of the technologies including their training requirements, specific products and versions, and any optional features that are being used (including any artificial intelligence add-ons for program selection)",
+        "Explanatory notes": "Studies should be reported clearly and completely, following relevant reporting standards.\nThis should include:\n\u2022 individual characteristics at baseline to support subgroup analyses and adjustment for confounding, and to demonstrate whether the DHT has been tested or validated in diverse patient groups\n\u2022 details of standard care including which healthcare professionals were involved and which additional treatments or medicines were offered\n\u2022 detailed descriptions of the technologies including their training requirements, specific products and versions, and any optional features that are being used (including any artificial intelligence add-ons for program selection)",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "EFF-007-A",
+        "HTA domain": "Clinical efficacy and effectiveness",
+        "HTA dimension": "Study design and presentation",
+        "Overarching Evidence Recommendation": "Evidence should provide clear and detailed information on the intervention, patient groups, comparators and outcomes",
+        "Explanatory notes": "Studies should clearly report how results were recorded and interpreted. This should include any categorisation, thresholds or cutoffs as well as any guidance provided on how the results should be used in clinical decision making.",
+        "Applicability - technology purpose": "Prognosis|Diagnostic",
+        "Applicability - AI": "General",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-008",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Study design and presentation",
         "Overarching Evidence Recommendation": "Demonstrate that the available evidence is relevant to the target population and intended indication(s)",
-        "Explanatory notes": "Evidence should be in a setting that is relevant to the health and care system of the country conducting the assessment. Companies should involve clinical experts from the intended country of use in the design and running of studies to ensure that populations, intervention delivery and comparators are relevant to the specific country and setting. Justify relevance where study populations differ from the target population. For transdiagnostic DHTs or those indicated across multiple conditions, provide evidence in the population defined in scope.\nFor some conditions, the care pathway and standard care differ across countries making studies done in other countries less applicable. For evidence generated in different countries or settings, companies should consider whether it is transferable to the current assessment setting, e.g. does it reflect the care pathway, treatment delivery, patient population, healthcare professional roles and banding, etc. Where applicable, evidence should be provided supporting the transferability of evidence to the intended use case.",
+        "Explanatory notes": "Evidence should be in a setting that is relevant to the health and care system of the country conducting the assessment. Companies should involve clinical experts from the intended country of use in the design and running of studies to ensure that populations, intervention delivery and comparators are relevant to the specific country and setting. Justify relevance where study populations differ from the target population. For transdiagnostic DHTs or those indicated across multiple conditions, provide evidence in the population defined in scope.\nFor some conditions, the care pathway and standard care differ across countries making studies done in other countries less applicable. For evidence generated in different countries or settings, companies should consider whether it is transferable to the current assessment setting, e.g. does it reflect the care pathway, treatment delivery, patient population, healthcare professional roles and banding, etc. Where applicable, evidence should be provided supporting the transferability of evidence to the intended use case. Statistical adjustments may be considered where needed.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-009",
@@ -1497,7 +1699,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-009-A",
@@ -1509,7 +1712,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-009-B",
@@ -1521,7 +1725,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "France"
+        "Applicability - Country": "France",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-009-C",
@@ -1533,31 +1738,34 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Germany"
+        "Applicability - Country": "Germany",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-010",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Study design and presentation",
         "Overarching Evidence Recommendation": "Provide study protocol(s) and statistical analysis plans, where appropriate",
-        "Explanatory notes": "Include full protocol and statistical analysis plan for studies on the DHT where appropriate.\nExplain outcome measures, analysis methods and handling of missing data.",
+        "Explanatory notes": "Specify the outcomes, analysis populations, statistical methods, assumptions, handling of missing data and sensitivity analyses.\nAnalyses should align with the research question, study design and intended inference. Causal claims require an appropriate design and adequate consideration of confounding, bias and relevant assumptions.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-011",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Study design and presentation",
         "Overarching Evidence Recommendation": "Explain how changes to the DHT are managed in relation to the evidence base and regulatory classification",
-        "Explanatory notes": "Describe differences between the current version of the DHT and versions evaluated in studies.\nDetail the nature of changes (minor, secondary component or major technological modifications).\nProvide evidence of clinical equivalence between versions where applicable.\nWhere major changes affect performance, safety, intended use or data interpretation, submit new evidence for the assessed version.\nReference applicable regulatory requirements (e.g. Regulation (EU) 2017/745, Annex VIII rule 11).",
+        "Explanatory notes": "Describe differences between the current version of the DHT and versions evaluated in studies. Detail the nature and materiality of changes.\nAssess whether changes affect the technology's intended purpose, performance, safety or regulatory classification.\nWhere appropriate, provide bridging evidence showing that existing findings remain applicable.\nWhere material changes affect intended purpose, performance, safety or data interpretation, submit new evidence for the assessed version.\nReference applicable regulatory requirements, including Regulation (EU) 2017/745, Annex VIII, Rule 11, where classification may be affected.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-012",
@@ -1569,19 +1777,34 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-012-A",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Evidence of benefits",
         "Overarching Evidence Recommendation": "Provide evidence showing that the DHT can plausibly achieve one or more positive health effects for a clearly defined patient group",
-        "Explanatory notes": "Decision makers may consider evidence of clinical benefit of the non-digital intervention on which the DHT was based (e.g. paper-based intervention). This should be supported by evidence showing the equivalence of the digital and non-digital versions of the intervention.",
+        "Explanatory notes": "Decision makers may consider evidence of clinical benefit of the non-digital intervention on which the DHT was based (e.g. paper-based intervention). This should be supported by evidence showing the equivalence of the digital and non-digital versions of the intervention.\nFor DHTs with monitoring functionalities, provide evidence showing that monitoring results trigger appropriate and effective clinical actions.",
         "Applicability - technology purpose": "Prevention|Monitoring|Treatment|Disability alleviation",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "EFF-012-C",
+        "HTA domain": "Clinical efficacy and effectiveness",
+        "HTA dimension": "Evidence of benefits",
+        "Overarching Evidence Recommendation": "Provide evidence showing that the DHT can plausibly achieve one or more positive health effects for a clearly defined patient group",
+        "Explanatory notes": "Performance outcomes should be attributable to the DHT and demonstrated against a reference standard.",
+        "Applicability - technology purpose": "Prognosis",
+        "Applicability - AI": "General",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-012-B",
@@ -1593,7 +1816,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Germany"
+        "Applicability - Country": "Germany",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-013",
@@ -1605,43 +1829,47 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-014",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Evidence of benefits",
         "Overarching Evidence Recommendation": "Evaluate the impact of the DHT on health outcomes and wider system-level effects",
-        "Explanatory notes": "Demonstrate the following:\n\u2022 health benefits (e.g. clinical outcomes, quality of life)\n\u2022 impacts on system efficiency, resource use and care pathways\n\u2022 structural or procedural effects on service delivery\n\u2022 anticipated outcomes compared with current practice\n\nProvide evidence on long-term follow-up showing the effects of the DHT after use. Longer-term economic evidence or modelling may be needed to fully capture the DHT's benefits and costs.",
+        "Explanatory notes": "Demonstrate the following:\n\u2022 health benefits (e.g. clinical outcomes, quality of life) and harms\n\u2022 impacts on system efficiency, resource use and care pathways\n\u2022 structural or procedural effects on service delivery\n\u2022 anticipated outcomes compared with current practice\n\nProvide evidence on long-term follow-up showing the effects of the DHT after use. Longer-term economic evidence or modelling may be needed to fully capture the DHT's benefits and costs.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-015",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Evidence of benefits",
         "Overarching Evidence Recommendation": "Provide an overall summary and synthesis of the evidence base and its implications",
-        "Explanatory notes": "Provide a comprehensive list of published and unpublished studies, clearly stating which version of the DHT was used in each study. HTA reports and recommendations may also be submitted. Unpublished data may be included, provided that limitations are clearly stated.\nProvide an overview of study results relevant to clinical outcomes and improvements in care delivery. Evidence synthesis (with sensitivity analysis) may be used if there are several studies. Where multiple study types exist, prioritise conclusions based on the highest level of evidence.\nClearly state the strength of evidence in relation to claims made for the DHT. Highlight consistency or divergence across studies. Identify remaining evidence gaps and how they will be addressed.",
+        "Explanatory notes": "Provide a comprehensive list of published and unpublished studies, clearly stating which version of the DHT was used in each study. HTA reports and recommendations may also be submitted. Unpublished data may be included, provided that limitations are clearly stated.\nProvide an overview of study results relevant to clinical outcomes and improvements in care delivery. Evidence synthesis (with sensitivity analysis) may be used if there are several studies. Where multiple study types exist, prioritise conclusions based on the highest level of evidence.\nClearly state the strength of evidence in relation to claims made for the DHT. Highlight consistency or divergence across studies and sources of potential heterogeneity. Identify remaining evidence gaps and how they will be addressed.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-015-A",
         "HTA domain": "Clinical efficacy and effectiveness",
         "HTA dimension": "Evidence of benefits",
         "Overarching Evidence Recommendation": "Provide an overall summary and synthesis of the evidence base and its implications",
-        "Explanatory notes": "Provide an Excel sheet listing all studies on the DHT that are relevant to the intended use case. For each study, clearly state the study title, number of participants, type of study, follow-up period and registry details. \nProvide full-text study reports or publications where available.\nProvide a general summary of studies, including inclusion criteria and conclusion from all publications. Secondary assessment criteria should only be discussed if the primary assessment criteria showed significant and clinically relevant results.\nProvide a systematic literature review on the use of the DHT compared with standard care (where applicable). The review should be conducted no more than 6 months before the application is submitted. If there is no evidence on the DHT, describe how the broader literature applies to the technology. Search results should be presented in a flow diagram in line with established conventions of reporting. The review should not include abstracts or conference presentations, documents not in the national language or English and letters of recommendation from experts.",
+        "Explanatory notes": "Provide an Excel sheet listing all studies on the DHT that are relevant to the intended use case. For each study, clearly state the study title, number of participants, type of study, follow-up period and registry details. \nProvide full-text study reports or publications where available.\nProvide a general summary of studies, including inclusion criteria and conclusions from all publications. Secondary assessment criteria should only be discussed if the primary assessment criteria showed significant and clinically relevant results.\nProvide a systematic literature review on the use of the DHT compared with standard care (where applicable). The review should be conducted no more than 6 months before the application is submitted. If there is no evidence on the DHT, describe how the broader literature applies to the technology. Search results should be presented in a flow diagram in line with conventional reporting. The review should not include abstracts or conference presentations, documents not in the national language or English, or letters of recommendation from experts.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-015-B",
@@ -1653,7 +1881,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Finland"
+        "Applicability - Country": "Finland",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-015-C",
@@ -1665,7 +1894,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "France"
+        "Applicability - Country": "France",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EFF-015-D",
@@ -1677,7 +1907,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Germany"
+        "Applicability - Country": "Germany",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ECO-001",
@@ -1689,19 +1920,34 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "ECO-001-A",
+        "HTA domain": "Costs and resources",
+        "HTA dimension": "Costs and resources",
+        "Overarching Evidence Recommendation": "Provide up-to-date costs and resource use estimates associated with current practice",
+        "Explanatory notes": "The National Institute for Health and Care Excellence (NICE)'s reference case specifies that costs and resources should consider the NHS and personal social services perspective. Non-reference-case analyses may also be considered where appropriate.",
+        "Applicability - technology purpose": "General",
+        "Applicability - AI": "General",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "England",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ECO-002",
         "HTA domain": "Costs and resources",
         "HTA dimension": "Costs and resources",
         "Overarching Evidence Recommendation": "Provide clear and complete information on the costs of using the DHT in the specified healthcare setting. Detail the pricing model for the DHT and all associated costs required for effective use",
-        "Explanatory notes": "Costs should reflect the use case in the clinical evidence and the intended use in clinical practice. Provide up-to-date direct and indirect costs associated with using the DHT in clinical practice. This should include:\n\u2022 the average and minimum price of the DHT\n\u2022 the distribution method\n\u2022 any in-app purchases, subscription fees and usage-based charges as well as any discounts\n\u2022 cost of any accessories, devices, sensors or peripherals\n\u2022 cost of services necessary for the DHT to function (e.g. assessment appointments, infrastructure)\n\u2022 training costs",
+        "Explanatory notes": "Costs should reflect the use case in the clinical evidence and the intended use in clinical practice. Provide up-to-date direct and indirect costs associated with using the DHT in clinical practice. This should include the average and minimum price of the DHT, including the cost of any accessories, devices, sensors or peripherals.\nOther relevant costs may include:\n\u2022 any in-app purchases, subscription fees and usage-based charges as well as any discounts\n\u2022 the distribution method\n\u2022 cost of services necessary for the DHT to function (e.g. assessment appointments, infrastructure)\n\u2022 training costs",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ECO-002-A",
@@ -1713,7 +1959,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "France"
+        "Applicability - Country": "France",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ECO-003",
@@ -1725,7 +1972,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ECO-004",
@@ -1737,19 +1985,21 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ECO-005",
         "HTA domain": "Costs and resources",
         "HTA dimension": "Economic impact",
         "Overarching Evidence Recommendation": "Provide comparative analysis showing how the DHT affects costs and resource use relative to current standard practice",
-        "Explanatory notes": "State the evidence source for each comparison (study, model, real\u2011world data) and detail cost offsets or new costs introduced by the DHT.",
+        "Explanatory notes": "State the evidence source for each comparison (study, model, real\u2011world data) and detail cost offsets or new costs introduced by the DHT.\nDescribe the full scope of the possible impact of the technology. This may include how the use of the DHT impacts the full care pathway (e.g. impact on workload, staff time across the care pathway etc.).",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ECO-005-A",
@@ -1761,7 +2011,21 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Belgium"
+        "Applicability - Country": "Belgium",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "ECO-005-B",
+        "HTA domain": "Costs and resources",
+        "HTA dimension": "Economic impact",
+        "Overarching Evidence Recommendation": "Provide comparative analysis showing how the DHT affects costs and resource use relative to current standard practice",
+        "Explanatory notes": "Economic models on the DHT are not required but can be provided as part of the company's request for information. Where provided, economic evaluations should be clearly reported using relevant checklists such as Consolidated Health Economic Evaluation Reporting Standards (CHEERS) or CHEERS-AI.",
+        "Applicability - technology purpose": "General",
+        "Applicability - AI": "General",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "England",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ECO-006",
@@ -1773,7 +2037,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ORG-001",
@@ -1785,7 +2050,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ORG-001-A",
@@ -1797,7 +2063,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "Hardware",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Finland"
+        "Applicability - Country": "Finland",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ORG-002",
@@ -1809,7 +2076,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "Hardware",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ORG-003",
@@ -1821,7 +2089,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ORG-004",
@@ -1833,7 +2102,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ORG-005",
@@ -1845,7 +2115,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ORG-006",
@@ -1857,7 +2128,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ORG-007",
@@ -1869,7 +2141,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ORG-008",
@@ -1881,7 +2154,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "Yes",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ORG-009",
@@ -1893,7 +2167,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ORG-010",
@@ -1905,7 +2180,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ORG-010-A",
@@ -1917,7 +2193,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "France"
+        "Applicability - Country": "France",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ORG-011",
@@ -1929,7 +2206,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "ORG-011-A",
@@ -1941,7 +2219,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "France"
+        "Applicability - Country": "France",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SOC-001",
@@ -1953,19 +2232,21 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SOC-002",
         "HTA domain": "Patient and social aspects",
         "HTA dimension": "Acceptability",
         "Overarching Evidence Recommendation": "Provide information on people who stopped using the DHT and why",
-        "Explanatory notes": "Describe the proportion of people who stopped using the DHT, including patient demographics and characteristics such as digital literacy and experience.\nState whether discontinuation of use may be related to safety concerns or adverse events.\nInclude data comparing use and discontinuation rates for the DHT and standard care",
+        "Explanatory notes": "Describe the proportion of people who stopped using the DHT, including patient demographics and characteristics such as digital literacy and experience.\nDescribe reasons for discontinuation of use, including whether discontinuation may be related to safety concerns or adverse events.\nInclude data comparing use and discontinuation rates for the DHT and standard care.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SOC-003",
@@ -1977,7 +2258,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SOC-004",
@@ -1989,7 +2271,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SOC-005",
@@ -2001,7 +2284,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "SOC-006",
@@ -2013,43 +2297,47 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": "England"
     },
     {
-        "Recommendation ID": "SOC-007",
+        "Recommendation ID": "SOC-006-A",
         "HTA domain": "Patient and social aspects",
         "HTA dimension": "Autonomy and ethical safeguards",
-        "Overarching Evidence Recommendation": "Describe how information on the DHT's purpose, functionality and limitations is transparently communicated with users",
-        "Explanatory notes": "Describe autonomy safeguards to ensure users understand system outputs and maintain control over decisions. State human oversight mechanisms for critical decisions.\nDescribe algorithmic functions transparently, appropriate to classification and intellectual property limitations.",
+        "Overarching Evidence Recommendation": "Describe how information on the DHT's purpose, functionality and limitations is transparently communicated to users",
+        "Explanatory notes": "Describe safeguards that help users understand the DHT's outputs and maintain control over decisions. Specify human oversight mechanisms for critical decisions, including how outputs can be reviewed, questioned and overridden where needed.\nDemonstrate that the algorithm's purpose, functions and limitations are clearly explained to users so that they can make informed decisions about using the technology and its outputs.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "Yes",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "Yes",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": "England"
     },
     {
         "Recommendation ID": "EQU-001",
         "HTA domain": "Equity",
         "HTA dimension": "Setting",
         "Overarching Evidence Recommendation": "Provide an equality impact assessment on using the DHT in the relevant healthcare setting",
-        "Explanatory notes": "This should evaluate potential equality and equity issues associated with the implementation and use of the DHT in the specific healthcare setting, including steps taken to address these issues in the design, development, and implementation of the technology. It may include any additional support, training or accommodations that increase access and help reduce exclusion of specific groups.\nProvide evidence on the use and uptake of the DHT within the relevant healthcare setting, including the number of people who decline, are not offered or are not eligible to use the technology.\nProvide evidence on outcomes in subgroups who may be less likely to be offered or to use the DHT.",
+        "Explanatory notes": "This should evaluate potential equality and equity issues associated with the implementation and use of the DHT in the specific healthcare setting, including steps taken to address these issues in the design, development, and implementation of the technology. It may include any additional support, training or accommodations that increase access and help reduce exclusion of specific groups, including indigenous populations where appropriate.\nProvide evidence on the use and uptake of the DHT within the relevant healthcare setting, including the number of people who decline, are not offered or are not eligible to use the technology.\nProvide evidence on outcomes in subgroups who may be less likely to be offered or to use the DHT.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EQU-002",
         "HTA domain": "Equity",
         "HTA dimension": "Population",
         "Overarching Evidence Recommendation": "Describe any potential equality issues relating to the target condition and how these have been considered for the DHT",
-        "Explanatory notes": "Describe whether the target condition disproportionately affects particular population groups and how this has been considered in the design, development, implementation and evidence generation activities (including participant recruitment, retention, intervention delivery etc.). Consider relevant protected characteristics including age; disability; gender reassignment; marriage or civil partnership status; pregnancy and maternity; race including colour, nationality, ethnic or national origin; religion or belief; sex or sexual orientation.",
+        "Explanatory notes": "Describe whether the target condition disproportionately affects particular population groups and how this has been considered in the design, development, implementation and evidence-generation activities (including participant recruitment, retention and intervention delivery). Consider relevant protected characteristics including age; disability; gender reassignment; marriage or civil partnership status; pregnancy and maternity; race including colour, nationality, ethnic or national origin; religion or belief; sex or sexual orientation.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EQU-003",
@@ -2061,7 +2349,21 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
+    },
+    {
+        "Recommendation ID": "TEC-033",
+        "HTA domain": "Equity",
+        "HTA dimension": "Population",
+        "Overarching Evidence Recommendation": "Demonstrate steps taken to ensure dataset representativeness and to identify and mitigate bias ",
+        "Explanatory notes": "Describe how bias was identified, assessed and mitigated throughout development, evaluation and post-deployment monitoring. This should include:\n\u2022 potential sources of bias and affected groups\n\u2022 checks for data quality and bias before model training\n\u2022 representativeness of training, testing and validation datasets\n\u2022 methods for bias reduction during training and evaluation\n\u2022 performance across relevant subgroups\n\u2022 post-deployment bias monitoring plans\n\nInvolve relevant experts and people with lived experience in development and supervision of the AI-based technology.",
+        "Applicability - technology purpose": "General",
+        "Applicability - AI": "Yes",
+        "Applicability - hardware/software": "General",
+        "Applicability - autonomous functions": "General",
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EQU-004",
@@ -2073,7 +2375,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EQU-005",
@@ -2085,7 +2388,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EQU-006",
@@ -2097,7 +2401,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EQU-007",
@@ -2109,7 +2414,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EQU-008",
@@ -2121,7 +2427,8 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "Software",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": "England"
     },
     {
         "Recommendation ID": "EQU-008-A",
@@ -2133,19 +2440,21 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "Software",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Finland"
+        "Applicability - Country": "Finland",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EQU-009",
         "HTA domain": "Equity",
         "HTA dimension": "Accessibility",
         "Overarching Evidence Recommendation": "Provide evidence of how special user groups were considered or involved in product design",
-        "Explanatory notes": "Describe how users with specific accessibility needs were involved in the design of the DHT. This may include people who:\n\u2022 have visual impairments\n\u2022 use a screen reader\n\u2022 are colour blind\n\u2022 have hearing impairments or use sign language\n\u2022 are non-native language speakers\n\u2022 have cognitive challenges (such as perception, memory, learning challenges)\n\u2022 have fine motor difficulties\n\u2022 have epilepsy",
+        "Explanatory notes": "Describe how users with specific accessibility needs were involved in the design of the DHT. This may include people who:\n\u2022 have visual impairments\n\u2022 use a screen reader\n\u2022 are colour blind\n\u2022 have hearing impairments or use sign language\n\u2022 are non-native language speakers\n\u2022 have cognitive challenges (such as perception, memory or learning challenges)\n\u2022 have fine motor difficulties\n\u2022 have epilepsy",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "General"
+        "Applicability - Country": "General",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EQU-010",
@@ -2157,18 +2466,20 @@
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Finland"
+        "Applicability - Country": "Finland",
+        "Not relevant": ""
     },
     {
         "Recommendation ID": "EQU-011",
         "HTA domain": "Equity",
         "HTA dimension": "Accessibility",
         "Overarching Evidence Recommendation": "Provide the accessibility statement for the DHT",
-        "Explanatory notes": "Provide a link to the public accessibility statement",
+        "Explanatory notes": "Provide a link to the public accessibility statement.",
         "Applicability - technology purpose": "General",
         "Applicability - AI": "General",
         "Applicability - hardware/software": "General",
         "Applicability - autonomous functions": "General",
-        "Applicability - Country": "Finland"
+        "Applicability - Country": "Finland",
+        "Not relevant": ""
     }
 ]
