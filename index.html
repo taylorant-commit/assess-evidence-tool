@@ -886,28 +886,6 @@
     <!-- Domains -->
     <div id="report-domains"></div>
 
-    <!-- Rendered External Resources (Page 2) -->
-    <div class="domain-section" id="report-resources-container" style="display: none; margin-bottom: 24px; margin-top: 24px;">
-      <div class="domain-header" onclick="toggleDomain(this)" style="background: var(--navy);">
-        <div class="domain-left">
-          <div class="domain-name" style="font-size: 16px; color: white;">📚 External Resources</div>
-          <div class="domain-count" style="font-size: 11px; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); border: none;"><span id="report-resources-count">0</span> items</div>
-        </div>
-        <div style="display:flex; align-items:center; gap:8px;">
-          <span class="domain-toggle-label" style="color: rgba(255,255,255,0.7);">Show</span>
-          <div class="domain-chevron" style="color: white;">⌃</div>
-        </div>
-      </div>
-      <div class="domain-body" style="padding: 20px; background: var(--surface2);">
-        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
-          <p style="font-size: 13px; color: var(--text2);">External resources that may help with your evidence planning.</p>
-          <button class="btn btn-secondary" onclick="exportResourcesPDF()" style="padding:8px 14px; font-size:12px;">⬇ Download resources PDF</button>
-        </div>
-       <div id="report-resources-nav" style="display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--border); padding-bottom: 12px;"></div>
-        <div id="report-resources-list" style="display: flex; flex-direction: column; gap: 8px;"></div>
-      </div>
-    </div>
-
     <div class="btn-row" style="margin-top:40px;">
       <button class="btn btn-ghost" onclick="goToPage(1)">← Edit Profile</button>
       <button class="btn btn-primary" onclick="goToSelfAssess()">Proceed to Evidence Planning →</button>
@@ -1903,7 +1881,7 @@ function renderReport(profile, results, userPico, excludedResults = []) {
     </div>
   `).join('');
 
-// --- Render External Resources (For both Pages 2 and 3) ---
+// --- Render External Resources (Page 3) ---
   const applicableResources = resourcesData.filter(res => {
     const countryVal = res['Applicability - Country'] || '';
     if (countryVal.toLowerCase().includes('european union')) return true;
@@ -1911,11 +1889,8 @@ function renderReport(profile, results, userPico, excludedResults = []) {
   });
   currentApplicableResources = applicableResources;
 
-  const reportResContainer = document.getElementById('report-resources-container');
   const planResContainer = document.getElementById('plan-resources-container');
-  const reportResNav = document.getElementById('report-resources-nav');
   const planResNav = document.getElementById('plan-resources-nav');
-  const reportResList = document.getElementById('report-resources-list');
   const planResList = document.getElementById('plan-resources-list');
 
   if (applicableResources.length > 0) {
@@ -1985,18 +1960,13 @@ function renderReport(profile, results, userPico, excludedResults = []) {
       contentHTML += `</div>`;
     });
 
-    reportResNav.innerHTML = tabsHTML;
     planResNav.innerHTML = tabsHTML;
-    reportResList.innerHTML = contentHTML;
     planResList.innerHTML = contentHTML;
     
-    document.getElementById('report-resources-count').textContent = applicableResources.length;
     document.getElementById('plan-resources-count').textContent = applicableResources.length;
 
-    reportResContainer.style.display = 'block';
     planResContainer.style.display = 'block';
   } else {
-    reportResContainer.style.display = 'none';
     planResContainer.style.display = 'none';
   }
 
