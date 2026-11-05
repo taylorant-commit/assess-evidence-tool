@@ -502,8 +502,8 @@
       <h3>How to use it</h3>
       <ul>
         <li><strong>Step 1: Technology Profile</strong> — Enter the specific characteristics, intended purpose, and functionalities of your DHT.</li>
-        <li><strong>Step 2: Evidence Report</strong> — The tool filters through our framework to generate a customised list of evidence recommendations that apply to your technology, grouped by HTA domain.</li>
-        <li><strong>Step 3: Evidence Planning</strong> — Review the generated recommendations, track your progress (Evidence Generated, Uncertain, Evidence Generation Outstanding), and export a PDF plan to guide your evidence generation strategy.</li>
+        <li><strong>Step 2: Evidence Report</strong> — The tool filters the framework to generate applicable recommendations grouped by HTA domain. Enable Planning Mode here to mark evidence as generated, uncertain, or outstanding.</li>
+        <li><strong>Step 3: Evidence Planning</strong> — Filter recommendations by domain, dimension, or planning status, then export a focused PDF plan. Marking progress is done on the Evidence Report page.</li>
       </ul>
 
       <h3>How to use the recommendations</h3>
@@ -526,13 +526,13 @@
     </div>
     <div class="modal-body">
       <h3>How it works</h3>
-      <p>When you enable Planning Mode, interactive buttons will appear next to every recommendation on this page.</p>
+      <p>When you enable Planning Mode on the Evidence Generation Report, progress buttons appear beside each recommendation on that page.</p>
       <ul>
-        <li><strong>Evidence generated (✓):</strong> You already have data or documentation that satisfies this requirement.</li>
-        <li><strong>Uncertain (?):</strong> You are unsure if your current evidence meets the standard, or you need to consult your team.</li>
-        <li><strong>Generation outstanding (✗):</strong> You have not yet generated this evidence and need to add it to your roadmap.</li>
+        <li><strong>Generated (✓):</strong> You already have data or documentation that satisfies this recommendation.</li>
+        <li><strong>Uncertain (?):</strong> You are unsure whether your current evidence meets the standard, or need to consult your team.</li>
+        <li><strong>Outstanding (✗):</strong> You have not yet generated this evidence and need to add it to your roadmap.</li>
       </ul>
-      <p>Once you have scored your applicable recommendations, click <strong>"Proceed to Evidence Planning →"</strong> to finalise your PICO statement and download a targeted PDF gap analysis.</p>
+      <p>After scoring recommendations, click <strong>"Review & Export Plan →"</strong> to filter and review the plan, finalise your PICO statement if needed, and download a targeted PDF. Progress ratings are held only in the current page and are lost on refresh.</p>
     </div>
     <div class="modal-footer">
       <button class="btn btn-primary" onclick="closePlanningModal()">Got it</button>
@@ -915,14 +915,14 @@
 
     <div class="section-head">
       <h2>Evidence Planning</h2>
-      <p>Review each applicable recommendation and mark whether you already have this evidence, are uncertain or whether evidence generation is outstanding. You can then export a filtered PDF report which can be used to identify gaps in your current evidence base and refine your evidence generation plans.</p>
+      <p>Review and filter the applicable recommendations, then export a focused PDF plan. Mark progress beside recommendations on the Evidence Generation Report page using Planning Mode.</p>
     </div>
 
    <!-- Progress dashboard -->
     <div class="card" id="sa-progress-card">
       <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
         <div>
-          <div style="font-size: 13px; color: var(--text2); margin-bottom: 6px;">Planning progress</div>
+          <div style="font-size: 13px; color: var(--text2); margin-bottom: 6px;">Assessment summary</div>
           <div style="display: flex; gap: 20px; flex-wrap: wrap;">
             <div class="sa-stat" id="sa-stat-met" style="color: #16a34a;">
               <span class="sa-stat-num">0</span><span class="sa-stat-label"> evidence generated ✓</span>
@@ -1166,10 +1166,10 @@
         Begin by defining the core characteristics of your digital health technology (DHT). Accurately selecting your technology's purpose, hardware/software status, and AI capabilities ensures the filtering engine provides the correct recommendations. You can optionally filter by specific HTA domains or generate a PICO framework.</p>
         
         <p style="margin-bottom: 12px;"><strong>Step 2: Evidence Generation Report</strong><br>
-        The tool cross-references your profile against our embedded library of European HTA expectations. Review the recommendations grouped by domain. Expand each requirement to read detailed explanatory notes. You can export this raw report to PDF or proceed to the planning stage.</p>
+        The tool cross-references your profile against our embedded library of European HTA expectations. Review the recommendations grouped by domain and expand each requirement for explanatory notes. Enable Planning Mode here to record your evidence status, then continue to the planning page.</p>
         
         <p><strong>Step 3: Evidence Planning</strong><br>
-        Use this interactive workspace to conduct a gap analysis of your existing clinical and technical evidence. Mark items as 'Generated', 'Uncertain', or 'Generation Outstanding'. You can then generate a targeted PDF export (e.g., exporting only the 'Generation Outstanding' recommendations to share with your clinical research team).</p>
+        Use the planning page to filter recommendations by domain, dimension, or the progress ratings you set on the Evidence Generation Report page. Export a targeted PDF (for example, only recommendations marked 'Generation Outstanding') to share with your team.</p>
       </div>
     </div>
 
@@ -2205,7 +2205,6 @@ function renderPlanningRecommendations() {
       const dimensionCommon = isCommonDimension(dimension);
       const rows = dimensionRecs.map((r, recommendationIndex) => {
         const id = r['Recommendation ID'] || (domain.substring(0, 2).toUpperCase() + '-' + String(recommendationIndex + 1).padStart(3, '0'));
-        const status = assessmentStatus[id] || null;
         const notes = r['Explanatory notes'] && r['Explanatory notes'].trim();
         const tags = buildReqTags(r);
         const hasExpandable = Boolean(notes || tags);
@@ -2214,11 +2213,6 @@ function renderPlanningRecommendations() {
             <div class="req-summary">
               <div class="req-index">${id}</div>
               <div class="req-text">${r['Overarching Evidence Recommendation'] || ''}</div>
-              <div class="sa-buttons plan-status-controls" style="margin-left: 12px; gap: 4px;" onclick="event.stopPropagation()">
-                <button class="sa-btn ${status === 'not-met' ? 'active-notmet' : ''}" onclick="setStatus('${id}', 'not-met')" title="Evidence generation outstanding" aria-label="Mark evidence generation outstanding"><span aria-hidden="true">✗</span> Outstanding</button>
-                <button class="sa-btn ${status === 'query' ? 'active-query' : ''}" onclick="setStatus('${id}', 'query')" title="Uncertain" aria-label="Mark as uncertain"><span aria-hidden="true">?</span> Uncertain</button>
-                <button class="sa-btn ${status === 'met' ? 'active-met' : ''}" onclick="setStatus('${id}', 'met')" title="Evidence generated" aria-label="Mark evidence generated"><span aria-hidden="true">✓</span> Generated</button>
-              </div>
               ${hasExpandable ? '<div class="req-expand">+</div>' : '<div class="req-expand" style="visibility:hidden">+</div>'}
             </div>
             <div class="req-detail">
@@ -2334,6 +2328,7 @@ function togglePlanningMode() {
     btn.textContent = '❌ Disable Planning Mode';
     btn.classList.replace('btn-primary', 'btn-ghost');
     controls.forEach(c => c.style.display = 'flex');
+    openPlanningModal();
   } else {
     btn.textContent = '📝 Enable Planning Mode';
     btn.classList.replace('btn-ghost', 'btn-primary');
@@ -2348,7 +2343,7 @@ function setStatus(id, status) {
     assessmentStatus[id] = status;
   }
 
-  document.querySelectorAll(`[data-recommendation-id="${id}"]`).forEach(row => {
+  document.querySelectorAll(`#report-domains [data-recommendation-id="${id}"]`).forEach(row => {
     const buttons = row.querySelectorAll('.sa-btn');
     buttons.forEach(btn => btn.className = 'sa-btn'); // Reset
     if (assessmentStatus[id] === 'not-met') buttons[0].classList.add('active-notmet');
