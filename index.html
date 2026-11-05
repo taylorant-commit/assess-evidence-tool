@@ -2041,6 +2041,10 @@ function isCommonDimension(dimension) {
   return COMMONLY_REQUESTED_DIMENSIONS.has((dimension || '').trim().toLowerCase());
 }
 
+function isCommonlyRequestedRecommendation(recommendation) {
+  return isCommonDomain(recommendation['HTA domain']) || isCommonDimension(recommendation['HTA dimension']);
+}
+
 function populatePlanningFilters() {
   const domainSelect = document.getElementById('plan-domain-filter');
   const dimensionSelect = document.getElementById('plan-dimension-filter');
@@ -2089,7 +2093,7 @@ function renderPlanningRecommendations() {
     const dimension = (r['HTA dimension'] || '').trim();
     const matchesSelectedDomain = !domainFilter || domain === domainFilter;
     const matchesSelectedDimension = !dimensionFilter || dimension === dimensionFilter;
-    const isCommon = isCommonDomain(domain) || isCommonDimension(dimension);
+    const isCommon = isCommonlyRequestedRecommendation(r);
     return matchesSelectedDomain && matchesSelectedDimension && (!commonOnly || isCommon);
   });
 
@@ -2359,6 +2363,14 @@ function exportPDF() {
     return doc.splitTextToSize(text, maxWidth);
   };
 
+  const addCommonBadge = (x, badgeY) => {
+    const badgeW = 39, badgeH = 5;
+    doc.setFillColor(...TEAL);
+    doc.roundedRect(x, badgeY, badgeW, badgeH, 1, 1, 'F');
+    doc.setFontSize(5.5); doc.setFont('helvetica', 'bold'); doc.setTextColor(...NAVY);
+    doc.text('COMMONLY REQUESTED', x + badgeW / 2, badgeY + 3.5, { align: 'center' });
+  };
+
   // COVER HEADER
   doc.setFillColor(...NAVY);
   doc.rect(0, 0, PAGE_W, 44, 'F');
@@ -2428,6 +2440,15 @@ function exportPDF() {
     y += 5;
   }
 
+  // Explain the common-requested marker on the exported recommendations.
+  checkPage(14);
+  doc.setFillColor(232, 250, 248);
+  doc.roundedRect(MARGIN, y, CONTENT_W, 10, 1.5, 1.5, 'F');
+  addCommonBadge(MARGIN + 3, y + 2.5);
+  doc.setFontSize(8); doc.setFont('helvetica', 'normal'); doc.setTextColor(...NAVY);
+  doc.text('A recommendation is marked when either its HTA domain or dimension is commonly requested.', MARGIN + 46, y + 6.5);
+  y += 14;
+
   // ASSESSMENT SUMMARY
   const total    = currentResults.length;
   const metC     = currentResults.filter(r => assessmentStatus[r['Recommendation ID']] === 'met').length;
@@ -2480,12 +2501,15 @@ function exportPDF() {
 
   Object.entries(byDomain).forEach(([domain, recs]) => {
     checkPage(24);
+    const commonDomain = isCommonDomain(domain);
 
     doc.setFillColor(...NAVY);
     doc.roundedRect(MARGIN, y, CONTENT_W, 9, 1.5, 1.5, 'F');
     doc.setTextColor(...WHITE);
     doc.setFontSize(10); doc.setFont('helvetica', 'bold');
     doc.text(domain, MARGIN + 4, y + 6);
+    if (commonDomain) addCommonBadge(MARGIN + 8 + doc.getTextWidth(domain), y + 2);
+    doc.setTextColor(...WHITE);
     doc.setFontSize(8); doc.setFont('helvetica', 'normal');
     doc.text(`${recs.length} recommendation${recs.length !== 1 ? 's' : ''}`, PAGE_W - MARGIN - 4, y + 6, { align: 'right' });
     y += 12;
@@ -2496,8 +2520,10 @@ function exportPDF() {
       const cfg = statusConfig[status];
       
       const recText = sanitizeForPDF(r['Overarching Evidence Recommendation'] || '');
-      const textLines = wrapText(recText, CONTENT_W - 32, 9);
-      const boxHeight = 10 + (textLines.length * 4.5); 
+      const dimension = sanitizeForPDF(r['HTA dimension'] || '');
+      const commonlyRequested = isCommonlyRequestedRecommendation(r);
+      const textLines = wrapText(recText, CONTENT_W - 12, 9);
+      const boxHeight = 14 + (textLines.length * 4.5);
 
       checkPage(boxHeight + 6);
 
@@ -2518,9 +2544,15 @@ function exportPDF() {
 
       doc.setFontSize(7); doc.setFont('helvetica', 'bold'); doc.setTextColor(...GREY);
       doc.text(id, MARGIN + 6, y + 5);
+      if (commonlyRequested) addCommonBadge(MARGIN + 30, y + 2.5);
+
+      if (dimension) {
+        doc.setFontSize(7); doc.setFont('helvetica', 'normal'); doc.setTextColor(...GREY);
+        doc.text(`Dimension: ${dimension}`, MARGIN + 6, y + 9.5);
+      }
       
       doc.setFontSize(9); doc.setFont('helvetica', 'normal'); doc.setTextColor(26, 37, 64);
-      doc.text(textLines, MARGIN + 6, y + 9.5);
+      doc.text(textLines, MARGIN + 6, y + 14);
 
       y += boxHeight + 3;
     });
