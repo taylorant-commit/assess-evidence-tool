@@ -322,8 +322,10 @@
   .req-summary:hover { background: var(--surface2); }
   .req-index { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text3); padding: 2px 7px; border: 1px solid var(--border2); border-radius: 4px; flex-shrink: 0; margin-top: 1px; background: var(--surface2); }
   .req-text { font-size: 14px; line-height: 1.5; color: var(--text); flex: 1; }
-  .req-expand { color: var(--text3); font-size: 18px; font-weight: 300; flex-shrink: 0; transition: all 0.2s; }
-  .req-item.open .req-expand { color: var(--teal-dark); transform: rotate(45deg); }
+  .req-expand { width: 34px; height: 34px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border2); border-radius: 50%; background: var(--surface2); color: var(--navy); font-family: 'Outfit', sans-serif; font-size: 25px; font-weight: 400; line-height: 1; cursor: pointer; transition: background 0.2s, border-color 0.2s, color 0.2s; }
+  .req-expand:hover { background: var(--teal-dim); border-color: var(--teal); color: var(--teal-dark); }
+  .req-expand-placeholder { width: 34px; height: 34px; flex-shrink: 0; }
+  .req-item.open .req-expand { color: var(--teal-dark); background: var(--teal-dim); border-color: var(--teal); }
   .req-detail { display: none; padding: 4px 20px 16px 52px; }
   .req-item.open .req-detail { display: block; }
   .req-detail-box { background: var(--surface2); border: 1px solid var(--border); border-left: 3px solid var(--teal); border-radius: 7px; padding: 14px 16px; }
@@ -866,8 +868,9 @@
     <!-- Planning Mode Banner -->
     <div class="card" style="background: var(--teal-dim); border-color: rgba(43,191,176,0.3); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
       <div>
-        <div style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Enable Evidence Planning Mode?</div>
-        <div style="font-size: 13px; color: var(--text2);">Mark your progress against these recommendations to generate a custom gap analysis report. <a href="#" onclick="openPlanningModal(event)" style="color: var(--teal-dark); font-weight: 600; text-decoration: underline;">Explain more</a></div>
+        <div id="planning-mode-heading" style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Enable Evidence Planning Mode?</div>
+        <div id="planning-mode-description" style="font-size: 13px; color: var(--text2);">Show progress buttons beside recommendations to mark evidence as generated, uncertain, or outstanding.</div>
+        <a href="#" onclick="openPlanningModal(event)" style="display: inline-block; margin-top: 5px; color: var(--teal-dark); font-size: 12px; font-weight: 600; text-decoration: underline;">Explain more</a>
       </div>
       <button class="btn btn-primary" id="toggle-planning-btn" onclick="togglePlanningMode()">📝 Enable Planning Mode</button>
     </div>
@@ -1291,6 +1294,7 @@ function closePlanningModal() {
   const modal = document.getElementById('planning-modal');
   modal.classList.remove('show');
   setTimeout(() => { modal.style.display = 'none'; }, 300);
+  sessionStorage.setItem('assessDhtPlanningModeExplained', 'true');
 }
 // =============================================
 // INIT
@@ -1943,7 +1947,7 @@ function renderReport(profile, results, userPico, excludedResults = []) {
                   <button class="sa-btn ${status === 'not-met' ? 'active-notmet' : ''}" data-status="not-met" onclick="setStatus('${id}', 'not-met')" title="Evidence generation outstanding" aria-label="Mark evidence generation outstanding"><span aria-hidden="true">✗</span> Outstanding</button>
                 </div>
 
-                ${hasExpandable ? `<div class="req-expand">+</div>` : `<div class="req-expand" style="visibility:hidden">+</div>`}
+                ${hasExpandable ? `<button class="req-expand" type="button" aria-expanded="false" aria-label="Expand recommendation details" onclick="event.stopPropagation(); toggleReq(this.closest('.req-item'))">+</button>` : `<span class="req-expand-placeholder" aria-hidden="true"></span>`}
               </div>
               <div class="req-detail">
                 ${r['Explanatory notes'] && r['Explanatory notes'].trim() ? `
@@ -2037,21 +2041,38 @@ function toggleDomain(header) {
 }
 
 function toggleReq(item) {
-  item.classList.toggle('open');
+  const isOpen = item.classList.toggle('open');
+  const expandButton = item.querySelector('.req-expand');
+  if (expandButton) {
+    expandButton.textContent = isOpen ? '−' : '+';
+    expandButton.setAttribute('aria-expanded', String(isOpen));
+    expandButton.setAttribute('aria-label', isOpen ? 'Collapse recommendation details' : 'Expand recommendation details');
+  }
 }
 
 function toggleAll() {
   const btn = document.getElementById('toggle-all-btn');
-  const allOpen = [...document.querySelectorAll('.domain-section')].every(d => d.classList.contains('open'));
+  const sections = [...document.querySelectorAll('#report-domains .domain-section')];
+  const allOpen = sections.length > 0 && sections.every(d => d.classList.contains('open'));
   if (allOpen) {
-    document.querySelectorAll('.domain-section').forEach(d => d.classList.remove('open'));
-    document.querySelectorAll('.req-item').forEach(r => r.classList.remove('open'));
-    document.querySelectorAll('.domain-toggle-label').forEach(l => l.textContent = 'Show');
+    sections.forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('#report-domains .req-item').forEach(r => r.classList.remove('open'));
+    document.querySelectorAll('#report-domains .req-expand').forEach(b => {
+      b.textContent = '+';
+      b.setAttribute('aria-expanded', 'false');
+      b.setAttribute('aria-label', 'Expand recommendation details');
+    });
+    document.querySelectorAll('#report-domains .domain-toggle-label').forEach(l => l.textContent = 'Show');
     btn.textContent = 'Expand All';
   } else {
-    document.querySelectorAll('.domain-section').forEach(d => d.classList.add('open'));
-    document.querySelectorAll('.req-item').forEach(r => r.classList.add('open'));
-    document.querySelectorAll('.domain-toggle-label').forEach(l => l.textContent = 'Hide');
+    sections.forEach(d => d.classList.add('open'));
+    document.querySelectorAll('#report-domains .req-item').forEach(r => r.classList.add('open'));
+    document.querySelectorAll('#report-domains .req-expand').forEach(b => {
+      b.textContent = '−';
+      b.setAttribute('aria-expanded', 'true');
+      b.setAttribute('aria-label', 'Collapse recommendation details');
+    });
+    document.querySelectorAll('#report-domains .domain-toggle-label').forEach(l => l.textContent = 'Hide');
     btn.textContent = 'Collapse All';
   }
 }
@@ -2213,7 +2234,7 @@ function renderPlanningRecommendations() {
             <div class="req-summary">
               <div class="req-index">${id}</div>
               <div class="req-text">${r['Overarching Evidence Recommendation'] || ''}</div>
-              ${hasExpandable ? '<div class="req-expand">+</div>' : '<div class="req-expand" style="visibility:hidden">+</div>'}
+              ${hasExpandable ? `<button class="req-expand" type="button" aria-expanded="false" aria-label="Expand recommendation details" onclick="event.stopPropagation(); toggleReq(this.closest('.req-item'))">+</button>` : '<span class="req-expand-placeholder" aria-hidden="true"></span>'}
             </div>
             <div class="req-detail">
               ${notes ? `<div class="req-detail-box"><div class="req-detail-label">📝 Explanatory Notes</div><div class="req-detail-text">${formatNotes(notes)}</div>${tags}</div>` : tags}
@@ -2322,16 +2343,25 @@ let isPlanningMode = false;
 function togglePlanningMode() {
   isPlanningMode = !isPlanningMode;
   const btn = document.getElementById('toggle-planning-btn');
+  const heading = document.getElementById('planning-mode-heading');
+  const description = document.getElementById('planning-mode-description');
   const controls = document.querySelectorAll('.planning-controls');
   
   if (isPlanningMode) {
     btn.textContent = '❌ Disable Planning Mode';
     btn.classList.replace('btn-primary', 'btn-ghost');
+    heading.textContent = 'Evidence Planning Mode is on';
+    description.textContent = 'Use the Generated, Uncertain, or Outstanding buttons beside each recommendation to record your evidence status.';
     controls.forEach(c => c.style.display = 'flex');
-    openPlanningModal();
+    if (!sessionStorage.getItem('assessDhtPlanningModeExplained')) {
+      sessionStorage.setItem('assessDhtPlanningModeExplained', 'true');
+      openPlanningModal();
+    }
   } else {
     btn.textContent = '📝 Enable Planning Mode';
     btn.classList.replace('btn-ghost', 'btn-primary');
+    heading.textContent = 'Enable Evidence Planning Mode?';
+    description.textContent = 'Show progress buttons beside recommendations to mark evidence as generated, uncertain, or outstanding.';
     controls.forEach(c => c.style.display = 'none');
   }
 }
